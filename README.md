@@ -1,4 +1,4 @@
-# Magento Translation Extension by [Magefan](https://magefan.com/magento2-extensions)
+# Magento 2 Translation Extension by [Magefan](https://magefan.com/magento2-extensions)
 
 [![Total Downloads](https://poser.pugx.org/magefan/module-translation/downloads)](https://packagist.org/packages/magefan/module-translation)
 [![Latest Stable Version](https://poser.pugx.org/magefan/module-translation/v/stable)](https://packagist.org/packages/magefan/module-translation)
