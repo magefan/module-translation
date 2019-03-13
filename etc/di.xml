@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Ui\Model\Export\MetadataProvider">
+        <plugin disabled="false" name="Magefan_Translation_Plugin_Magento_Ui_Model_Export_MetadataProvider" sortOrder="10" type="Magefan\Translation\Plugin\Magento\Ui\Model\Export\MetadataProvider"/>
+    </type>
+    <preference for="Magefan\Translation\Api\Data\TranslationInterface"
+                type="Magefan\Translation\Model\Translation" />
+    <preference for="Magefan\Translation\Api\TranslationRepositoryInterface"
+                type="Magefan\Translation\Model\TranslationRepository" />
+    <virtualType name="TranslationGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Magefan\Translation\Model\ResourceModel\Translation\Collection</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="translation_translation_listing_data_source" xsi:type="string">Magefan\Translation\Model\ResourceModel\Translation\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magefan\Translation\Model\ResourceModel\Translation\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">translation</argument>
+            <argument name="eventPrefix" xsi:type="string">translation_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">translation_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Magefan\Magefan\Model\ResourceModel\Translation</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Model\Entity\RepositoryFactory">
+        <arguments>
+            <argument name="entities" xsi:type="array">
+                <item name="Magefan\Translation\Api\Data\TranslationInterface" xsi:type="string">Magefan\Translation\Api\TranslationRepositoryInterface</item>
+            </argument>
+        </arguments>
+    </type>
+
+
+</config>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">translation_translation_form.translation_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Translation Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="save_and_continue" class="Magefan\Translation\Block\Adminhtml\Translation\Edit\SaveAndContinueButton"/>
+            <button name="save" class="Magefan\Translation\Block\Adminhtml\Translation\Edit\SaveButton"/>
+            <button name="reset" class="Magefan\Translation\Block\Adminhtml\Translation\Edit\ResetButton"/>
+            <button name="delete" class="Magefan\Translation\Block\Adminhtml\Translation\Edit\DeleteButton"/>
+            <button name="back" class="Magefan\Translation\Block\Adminhtml\Translation\Edit\BackButton"/>
+        </buttons>
+        <namespace>translation_translation_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>translation_translation_form.translation_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="translation_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="translation/translation/save"/>
+        </settings>
+        <dataProvider class="Magefan\Translation\Model\Translation\DataProvider" name="translation_form_data_source">
+            <settings>
+                <requestFieldName>key_id</requestFieldName>
+                <primaryFieldName>key_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general">
+        <settings>
+            <label/>
+        </settings>
+        <field name="key_id" sortOrder="10" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">translation</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>key_id</dataScope>
+            </settings>
+        </field>
+
+        <field name="string" sortOrder="20" formElement="textarea">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">translation</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Original Text</label>
+                <dataScope>string</dataScope>
+            </settings>
+        </field>
+        <field name="translate" sortOrder="30" formElement="textarea">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">translation</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Translate Text</label>
+                <dataScope>translate</dataScope>
+            </settings>
+        </field>
+        <field name="store_id" formElement="select" sortOrder="40">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">translation</item>
+                    <!--<item name="default" xsi:type="number">2</item>-->
+                    <item name="component" xsi:type="string">Magefan_Translation/js/form/element/is-special</item>
+                    <item name="elementTmpl" xsi:type="string">Magefan_Translation/form/element/is-special</item>
+
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>int</dataType>
+                <label translate="true">Store View</label>
+                <dataScope>store_id</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Magento\Cms\Ui\Component\Listing\Column\Cms\Options"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="locale" formElement="select" sortOrder="50">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                  <item name="source" xsi:type="string">translation</item>
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>int</dataType>
+                <label translate="true">Locale</label>
+                <dataScope>locale</dataScope>
+                <visible>false</visible>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="\Magento\Config\Model\Config\Source\Locale"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+
+    </fieldset>
+
+
+</form>
