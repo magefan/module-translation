@@ -92,10 +92,10 @@ class LocaleToLanguage extends Column
     {
         $languageName = "";
         $locale = $this->locale->toOptionArray();
-        foreach ($locale as $key => $value ) {
-           if ($item['locale'] ==  $value['value']) {
-               $languageName =  $value['label'];
-           }
+        foreach ($locale as $key => $value) {
+            if ($item['locale'] ==  $value['value']) {
+                $languageName =  $value['label'];
+            }
         }
 
         return $languageName;

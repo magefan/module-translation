@@ -111,24 +111,20 @@ class StoreView extends Column
         }
         if (in_array(1, $origStores) && count($origStores) == 1) {
             return __('Default Store View');
-
         }
         $data = $this->systemStore->getStoresStructure(false, $origStores);
 
-        foreach ($origStores as $store){
+        foreach ($origStores as $store) {
             foreach ($data as $website) {
-
                 if ((int)$website['value'] == (int)$store) {
                     $content .= $website['label'] ."<br/>";
                 }
                 foreach ($website['children'] as $group) {
-
                     if ((int)$group['value'] == (int)$store) {
-
                         $content .= $this->escaper->escapeHtml($group['label']) ."<br/>";
                     }
                     foreach ($group['children'] as $sto) {
-                        if ((int)$sto['value'] == (int)$store ) {
+                        if ((int)$sto['value'] == (int)$store) {
                             $content .= $this->escaper->escapeHtml($sto['label']) ."<br/>";
                         }
                     }
