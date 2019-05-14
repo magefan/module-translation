@@ -16,27 +16,20 @@ use Magento\Store\Model\ScopeInterface;
 class Translation extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
     /**
-     * @var \Magento\Framework\Stdlib\DateTime\DateTime
-     */
-    protected $_date;
-    /**
      * @var \Magento\Framework\App\Config\ScopeConfigInterface
      */
     protected $scopeConfig;
 
     /**
-     * Translation constructor.
+     * Translation constructor
      * @param \Magento\Framework\Model\ResourceModel\Db\Context $context
-     * @param \Magento\Framework\Stdlib\DateTime\DateTime $date
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
      */
     public function __construct(
         \Magento\Framework\Model\ResourceModel\Db\Context $context,
-        \Magento\Framework\Stdlib\DateTime\DateTime $date,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
     ) {
         parent::__construct($context);
-        $this->_date = $date;
         $this->scopeConfig = $scopeConfig;
     }
 
