@@ -77,6 +77,12 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         $items = $this->collection->getItems();
         /** @var $translation \Magefan\Translation\Model\Translation */
         foreach ($items as $translation) {
+            $translation->setData(
+                'mf_locale',
+                $translation->getData('locale')
+            );
+            $translation->unsetData('locale');
+
             $this->loadedData[$translation->getId()] = $translation->getData();
         }
 
