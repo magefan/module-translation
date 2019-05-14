@@ -15,9 +15,9 @@ define([
         },
         selectOption: function (id) {
             if ($("#"+id).val()==0) {
-                $('div[data-index="locale"]').show();
+                $('div[data-index="mf_locale"]').show();
             } else {
-               $('div[data-index="locale"]').hide();
+               $('div[data-index="mf_locale"]').hide();
             }
         },
     });

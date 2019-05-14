@@ -7,6 +7,7 @@
 namespace Magefan\Translation\Model\ResourceModel;
 
 use Magento\Framework\Model\AbstractModel;
+use Magento\Store\Model\ScopeInterface;
 
 /**
  * Class Translation
@@ -18,18 +19,25 @@ class Translation extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      * @var \Magento\Framework\Stdlib\DateTime\DateTime
      */
     protected $_date;
+    /**
+     * @var \Magento\Framework\App\Config\ScopeConfigInterface
+     */
+    protected $scopeConfig;
 
     /**
      * Translation constructor.
      * @param \Magento\Framework\Model\ResourceModel\Db\Context $context
      * @param \Magento\Framework\Stdlib\DateTime\DateTime $date
+     * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
      */
     public function __construct(
         \Magento\Framework\Model\ResourceModel\Db\Context $context,
-        \Magento\Framework\Stdlib\DateTime\DateTime $date
+        \Magento\Framework\Stdlib\DateTime\DateTime $date,
+        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
     ) {
         parent::__construct($context);
         $this->_date = $date;
+        $this->scopeConfig = $scopeConfig;
     }
 
     /**
@@ -42,21 +50,21 @@ class Translation extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 
     /**
      * @param AbstractModel $object
-     * @return mixed
-     *
-     *
+     * @return \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      */
     protected function _beforeSave(\Magento\Framework\Model\AbstractModel $object)
     {
-        $value = $object->getData('store_id') ?: null;
-        $crc_string = $object->getData('string') ?: null;
-        ($value =='')?: 0;
-        if ($value > 0) {
-            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-            $store = $objectManager->get('Magento\Framework\Locale\Resolver');
-            $object->setData('locale', $store->getLocale());
+        if ($object->getData('mf_locale')) {
+            $object->setData('locale', $object->getData('mf_locale'));
         }
-        $object->setData('crc_string', crc32($crc_string));
+
+        $storeId = $object->getData('store_id') ?: 0;
+        $crcString = $object->getData('string') ?: '';
+
+        if ($storeId > 0) {
+            $object->setData('locale', $this->scopeConfig->getValue('general/locale/code', ScopeInterface::SCOPE_STORE, $storeId));
+        }
+        $object->setData('crc_string', crc32($crcString));
         return parent::_beforeSave($object);
     }
 }

@@ -116,7 +116,7 @@
                 </select>
             </formElements>
         </field>
-        <field name="locale" formElement="select" sortOrder="50">
+        <field name="mf_locale" formElement="select" sortOrder="50">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                   <item name="source" xsi:type="string">translation</item>
@@ -129,7 +129,7 @@
                 </validation>
                 <dataType>int</dataType>
                 <label translate="true">Locale</label>
-                <dataScope>locale</dataScope>
+                <dataScope>mf_locale</dataScope>
                 <visible>false</visible>
             </settings>
             <formElements>
