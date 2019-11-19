@@ -48,7 +48,7 @@ then if you still need help, open a bug report in GitHub's
 ## License
 The code is licensed under [EULA](https://magefan.com/end-user-license-agreement).
 
-## Other Magefan Extensions That Can Be Installed Via Composer
+## Other [Magento 2 Extensions](https://magefan.com/magento2-extensions) That Can Be Installed Via Composer
   * [Magento 2 Blog Extension](https://magefan.com/magento2-blog-extension)
   * [Magento 2 Blog Extra Extension](https://magefan.com/magento2-blog-extension/pricing)
   * [Magento 2 Login As Customer Extension](https://magefan.com/login-as-customer-magento-2-extension)
