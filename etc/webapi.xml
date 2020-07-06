@@ -9,28 +9,26 @@
     <route url="/V1/translation/get/:id" method="GET">
         <service class="Magefan\Translation\Api\TranslationRepositoryInterface" method="get"/>
         <resources>
-            <resource ref="anonymous"/>
+            <resource ref="Magefan_Translation::translation_translation"/>
         </resources>
     </route>
     <route url="/V1/translation/delete/:id" method="DELETE">
         <service class="Magefan\Translation\Api\TranslationRepositoryInterface" method="deleteById"/>
         <resources>
-            <resource ref="anonymous"/>
+            <resource ref="Magefan_Translation::translation_delete"/>
         </resources>
     </route>
     <route url="/V1/translation/" method="POST">
         <service class="Magefan\Translation\Api\TranslationRepositoryInterface" method="create"/>
         <resources>
-            <resource ref="anonymous"/>
+            <resource ref="Magefan_Translation::save"/>
         </resources>
     </route>
     <route url="/V1/translation/:id" method="PUT">
         <service class="Magefan\Translation\Api\TranslationRepositoryInterface" method="update"/>
         <resources>
-            <resource ref="anonymous"/>
+            <resource ref="Magefan_Translation::save"/>
         </resources>
     </route>
-
-
 </routes>
 

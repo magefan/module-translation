@@ -7,51 +7,45 @@
 namespace Magefan\Translation\Api;
 
 /**
+ * @api
  * Interface TranslationRepositoryInterface
- * @package Magefan\Translation\Api
  */
 interface TranslationRepositoryInterface
 {
-
     /**
-     * @param $id
-     * @return mixed
+     * @param int $id
+     * @return \Magefan\Translation\Api\Data\TranslationInterface
+     * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function getById($id);
 
     /**
      * @param Data\TranslationInterface $translation
-     * @return mixed
+     * @return \Magefan\Translation\Api\Data\TranslationInterface
      */
     public function save(\Magefan\Translation\Api\Data\TranslationInterface $translation);
 
-
-
     /**
      * @param Data\TranslationInterface $translation
-     * @return mixed
+     * @return bool Will returned True if deleted
      */
     public function delete(\Magefan\Translation\Api\Data\TranslationInterface $translation);
-
 
     /**
      * Remove item by id.
      *
      * @api
      * @param int $id.
-     * @return bool.
+     * @return bool Will returned True if deleted
      */
     public function deleteById($id);
-
-
-
 
     /**
      * Returns some translation by id
      *
-     * @api
      * @param int $id Translation name.
-     * @return object Translation
+     * @return \Magefan\Translation\Api\Data\TranslationInterface
+     * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function get($id);
 
@@ -63,8 +57,6 @@ interface TranslationRepositoryInterface
      * @return string.
      */
     public function create($data);
-
-
 
     /**
      * Update  using data

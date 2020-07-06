@@ -79,10 +79,7 @@ class TranslationRepository implements TranslationRepositoryInterface
     }
 
     /**
-     * @param Data\TranslationInterface $translation
-     * @return Data\TranslationInterface|mixed
-     * @throws CouldNotSaveException
-     * @throws NoSuchEntityException
+     * @inheritdoc
      */
     public function save(\Magefan\Translation\Api\Data\TranslationInterface $translation)
     {
@@ -102,13 +99,10 @@ class TranslationRepository implements TranslationRepositoryInterface
     }
 
     /**
-     * @param $id
-     * @return Translation|mixed
-     * @throws NoSuchEntityException
+     * @inheritdoc
      */
     public function getById($id)
     {
-
         $translation = $this->translationFactory->create();
         $translation->load($id);
         if (!$translation->getId()) {
@@ -118,9 +112,7 @@ class TranslationRepository implements TranslationRepositoryInterface
     }
 
     /**
-     * @param Data\TranslationInterface $translation
-     * @return bool|mixed
-     * @throws CouldNotDeleteException
+     * @inheritdoc
      */
     public function delete(\Magefan\Translation\Api\Data\TranslationInterface $translation)
     {
@@ -136,11 +128,7 @@ class TranslationRepository implements TranslationRepositoryInterface
     }
 
     /**
-     * Remove item by id.
-     *
-     * @api
-     * @param int $id.
-     * @return bool.
+     * @inheritdoc
      */
     public function deleteById($id)
     {
@@ -148,11 +136,7 @@ class TranslationRepository implements TranslationRepositoryInterface
     }
 
     /**
-     * Returns some translation by id
-     *
-     * @api
-     * @param int $id Translation name.
-     * @return object Translation
+     * @inheritdoc
      */
     public function get($id)
     {
@@ -165,11 +149,7 @@ class TranslationRepository implements TranslationRepositoryInterface
     }
 
     /**
-     * Create new item.
-     *
-     * @api
-     * @param string $data.
-     * @return string.
+     * @inheritdoc
      */
     public function create($data)
     {
@@ -184,11 +164,7 @@ class TranslationRepository implements TranslationRepositoryInterface
     }
 
     /**
-     * Update  using data
-     *
-     * @param int $id
-     * @param string $data
-     * @return string || false
+     * @inheritdoc
      */
     public function update($id, $data)
     {

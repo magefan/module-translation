@@ -78,6 +78,7 @@ class CustomerGroup extends \Magento\ImportExport\Model\Import\Entity\AbstractEn
      * @var array
      */
     protected $_validators = [];
+
     /**
      * @var \Magento\Framework\Stdlib\DateTime\DateTime
      */
