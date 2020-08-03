@@ -13,7 +13,7 @@ This module allows to make translation in admin panel (Sysmtem > Translation by 
           >
 
 ## Requirements
-  * Magento Community Edition 2.1.x-2.3.x or Magento Enterprise Edition 2.1.x-2.3.x
+  * Magento Community Edition 2.1.x-2.4.0 or Magento Enterprise Edition 2.1.x-2.4.0
 
 ## Installation Method 1 - Installing via composer
   * Open command line
