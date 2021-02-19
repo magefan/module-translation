@@ -12,6 +12,8 @@ This module allows to make translation in admin panel (Sysmtem > Translation by 
             alt="Magneto 2 Translation Extension"
           >
 
+
+<a href="https://magefan.com/magento-2-translation-extension"><img width="300" height="60" src="https://cm.magefan.com/mf_webp/png/media/wysiwyg/DOWNLOAD_NOW.webp"></a>
 ## Requirements
   * Magento Community Edition 2.1.x-2.4.x or Magento Enterprise Edition 2.1.x-2.4.x
 
