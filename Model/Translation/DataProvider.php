@@ -9,9 +9,6 @@ namespace Magefan\Translation\Model\Translation;
 use Magefan\Translation\Model\ResourceModel\Translation\CollectionFactory;
 use Magento\Framework\App\Request\DataPersistorInterface;
 
-/**
- * Class DataProvider
- */
 class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
     /**

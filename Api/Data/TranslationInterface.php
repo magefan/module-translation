@@ -8,7 +8,6 @@ namespace Magefan\Translation\Api\Data;
 
 /**
  * Interface TranslationInterface
- * @package Magefan\Translation\Api\Data
  */
 interface TranslationInterface
 {
@@ -24,7 +23,6 @@ interface TranslationInterface
     const LOCALE = 'locale';
 
     const CRC_STRING = 'crc_string';
-
 
     /**
      * @return mixed

@@ -9,12 +9,13 @@ namespace Magefan\Translation\Controller\Adminhtml\Translation;
 use Magento\Backend\App\Action;
 use Magefan\Translation\Api\TranslationRepositoryInterface as TranslationRepository;
 
-/**
- * Class Edit
- * @package Magefan\Translation\Controller\Adminhtml\Translation
- */
 class Edit extends \Magento\Backend\App\Action
 {
+    /**
+     * Authorization level of a basic admin session
+     */
+    const ADMIN_RESOURCE = 'Magefan_Translation::addedit';
+
     /**
      * @var \Magento\Framework\Registry
      */
@@ -49,8 +50,6 @@ class Edit extends \Magento\Backend\App\Action
         parent::__construct($context);
     }
 
-    const ADMIN_RESOURCE = 'Magefan_Translation::save';
-
     /**
      * Init actions
      *
@@ -62,7 +61,7 @@ class Edit extends \Magento\Backend\App\Action
         /** @var \Magento\Backend\Model\View\Result\Translation $resultPage */
 
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Magefan_Translation::translation_translation')
+        $resultPage->setActiveMenu('Magefan_Translation::addedit')
             ->addBreadcrumb(__('Translation'), __('Translation'))
             ->addBreadcrumb(__('Manage Translation'), __('Manage Translation'));
         return $resultPage;

@@ -8,7 +8,6 @@ namespace Magefan\Translation\Model\Import\CustomerGroup;
 
 /**
  * Interface RowValidatorInterface
- * @package Magefan\Translation\Model\Import\CustomerGroup
  */
 interface RowValidatorInterface extends \Magento\Framework\Validator\ValidatorInterface
 {

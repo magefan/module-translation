@@ -6,12 +6,13 @@
 
 namespace Magefan\Translation\Controller\Adminhtml\Translation;
 
-/**
- * Class NewAction
- * @package Magefan\Translation\Controller\Adminhtml\Translation
- */
 class NewAction extends \Magento\Backend\App\Action
 {
+    /**
+     * Authorization level of a basic admin session
+     */
+    const ADMIN_RESOURCE = 'Magefan_Translation::addedit';
+
     /**
      * @var \Magento\Backend\Model\View\Result\Forward
      */
@@ -28,8 +29,6 @@ class NewAction extends \Magento\Backend\App\Action
         $this->resultForwardFactory = $resultForwardFactory;
         parent::__construct($context);
     }
-
-    const ADMIN_RESOURCE = 'Magefan_Translation::save';
 
     /**
      * @return \Magento\Backend\Model\View\Result\Forward|\Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface

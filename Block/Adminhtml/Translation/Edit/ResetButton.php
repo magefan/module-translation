@@ -8,9 +8,6 @@ namespace Magefan\Translation\Block\Adminhtml\Translation\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
-/**
- * Class ResetButton
- */
 class ResetButton implements ButtonProviderInterface
 {
     /**

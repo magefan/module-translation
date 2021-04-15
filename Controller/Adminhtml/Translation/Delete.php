@@ -6,14 +6,14 @@
 
 namespace Magefan\Translation\Controller\Adminhtml\Translation;
 
-/**
- * Class Delete
- * @package Magefan\Translation\Controller\Adminhtml\Translation
- */
 class Delete extends \Magento\Backend\App\Action
 {
 
-     const ADMIN_RESOURCE = 'Magefan_Translation::translation_delete';
+    /**
+     * Authorization level of a basic admin session
+     */
+    const ADMIN_RESOURCE = 'Magefan_Translation::addedit';
+
     /**
      * Delete action
      *

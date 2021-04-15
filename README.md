@@ -4,7 +4,7 @@
 [![Latest Stable Version](https://poser.pugx.org/magefan/module-translation/v/stable)](https://packagist.org/packages/magefan/module-translation)
 
 
-This module allows to make translation in admin panel (Sysmtem > Translation by Magefan)
+This module allows to make translation in admin panel (Sysmtem > Translations)
 
 
 <img

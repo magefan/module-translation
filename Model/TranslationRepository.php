@@ -17,10 +17,6 @@ use Magefan\Translation\Model\ResourceModel\Translation as ResourceTranslation;
 use Magefan\Translation\Model\ResourceModel\Translation\CollectionFactory as TranslationCollectionFactory;
 use Magento\Store\Model\StoreManagerInterface;
 
-/**
- * Class TranslationRepository
- * @package Magefan\Translation\Model
- */
 class TranslationRepository implements TranslationRepositoryInterface
 {
     /**

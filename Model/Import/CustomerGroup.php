@@ -9,10 +9,6 @@ namespace Magefan\Translation\Model\Import;
 use Magefan\Translation\Model\Import\CustomerGroup\RowValidatorInterface as ValidatorInterface;
 use Magento\ImportExport\Model\Import\ErrorProcessing\ProcessingErrorAggregatorInterface;
 
-/**
- * Class CustomerGroup
- * @package Magefan\Translation\Model\Import
- */
 class CustomerGroup extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
 {
 
