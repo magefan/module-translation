@@ -13,6 +13,8 @@
                 type="Magefan\Translation\Model\Translation" />
     <preference for="Magefan\Translation\Api\TranslationRepositoryInterface"
                 type="Magefan\Translation\Model\TranslationRepository" />
+    <preference for="Magefan\Translation\Api\ConfigInterface"
+                type="Magefan\Translation\Model\Config" />
     <virtualType name="TranslationGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
         <arguments>
             <argument name="collection" xsi:type="object" shared="false">Magefan\Translation\Model\ResourceModel\Translation\Collection</argument>
