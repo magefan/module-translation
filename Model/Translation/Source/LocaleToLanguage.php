@@ -12,10 +12,6 @@ use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
 use Magento\Config\Model\Config\Source\Locale;
 
-/**
- * Class LocaleToLanguage
- * @package Magefan\Translation\Model\Translation\Source
- */
 class LocaleToLanguage extends Column
 {
     /**
@@ -59,7 +55,6 @@ class LocaleToLanguage extends Column
         array $data = [],
         Locale $locale
     ) {
-
         $this->escaper = $escaper;
         $this->locale = $locale;
         parent::__construct($context, $uiComponentFactory, $components, $data);
@@ -73,8 +68,6 @@ class LocaleToLanguage extends Column
      */
     public function prepareDataSource(array $dataSource)
     {
-
-
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as & $item) {
                 $item[$this->getData('name')] = $this->prepareItem($item);

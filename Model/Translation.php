@@ -7,15 +7,9 @@
 namespace Magefan\Translation\Model;
 
 use Magefan\Translation\Api\Data\TranslationInterface;
-use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\DataObject\IdentityInterface;
-use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Model\AbstractModel;
 
-/**
- * Class Translation
- * @package Magefan\Translation\Model
- */
 class Translation extends AbstractModel implements TranslationInterface, IdentityInterface
 {
     const STATUS_ENABLED = 1;

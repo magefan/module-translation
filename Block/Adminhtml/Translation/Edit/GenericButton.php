@@ -10,10 +10,6 @@ use Magento\Backend\Block\Widget\Context;
 use Magefan\Translation\Api\TranslationRepositoryInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
 
-/**
- * Class GenericButton
- * @package Magefan\Translation\Block\Adminhtml\Translation\Edit
- */
 class GenericButton
 {
     /**

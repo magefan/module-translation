@@ -20,10 +20,11 @@ class Config implements ConfigInterface
      * Extension enabled config path
      */
     const XML_PATH_EXTENSION_ENABLED = 'mftranslation/general/enabled';
+
     /**
      * @var ScopeConfigInterface
      */
-    private  $scopeConfig;
+    private $scopeConfig;
 
     /**
      * Config constructor.

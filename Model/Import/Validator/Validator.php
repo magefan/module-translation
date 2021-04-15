@@ -9,10 +9,6 @@ namespace Magefan\Translation\Model\Import\Validator;
 use Magefan\Translation\Model\Import\CustomerGroup\RowValidatorInterface;
 use \Magento\Framework\Validator\AbstractValidator;
 
-/**
- * Class Validator
- * @package Magefan\Translation\Model\Import\Validator
- */
 class Validator extends AbstractValidator implements RowValidatorInterface
 {
     /**

@@ -7,9 +7,11 @@
 declare(strict_types=1);
 
 namespace Magefan\Translation\Api;
+
 /**
- * Interface ConfigInterface
- * @package Magefan\Translation\Api
+ *
+ * @api
+ * @since 2.1.0
  */
 interface ConfigInterface
 {
@@ -17,6 +19,4 @@ interface ConfigInterface
      * @return bool
      */
     public function isEnabled();
-
 }
-

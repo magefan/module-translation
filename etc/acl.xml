@@ -9,10 +9,16 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Magefan_Translation::magefan" title="Magefan" sortOrder="51">
-                    <resource id="Magefan_Translation::translation_translation" title="Translation" sortOrder="10">
-                        <resource id="Magefan_Translation::save" title="Save Translation" translate="title" sortOrder="10" />
-                        <resource id="Magefan_Translation::translation_delete" title="Delete Translation" translate="title" sortOrder="20" />
+                <resource id="Magento_Backend::system">
+                    <resource id="Magefan_Translation::elements" title="Translations" sortOrder="60">
+                        <resource id="Magefan_Translation::addedit" title="Add/Edit" sortOrder="10" />
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Magefan_Translation::config" title="Translations Section" sortOrder="40" />
+                        </resource>
                     </resource>
                 </resource>
             </resource>

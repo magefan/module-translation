@@ -10,10 +10,6 @@ namespace Magefan\Translation\Model\Translation\Source;
 
 use Magento\Framework\Data\OptionSourceInterface;
 
-/**
- * Class Status
- * @package Magefan\Translation\Model\Translation\Source
- */
 class Status implements OptionSourceInterface
 {
     /**

@@ -11,12 +11,13 @@ use Magefan\Translation\Api\TranslationRepositoryInterface as TranslationReposit
 use Magento\Framework\Controller\Result\JsonFactory;
 use Magefan\Translation\Api\Data\TranslationInterface;
 
-/**
- * Class InlineEdit
- * @package Magefan\Translation\Controller\Adminhtml\Translation
- */
 class InlineEdit extends \Magento\Backend\App\Action
 {
+    /**
+     * Authorization level of a basic admin session
+     */
+    const ADMIN_RESOURCE = 'Magefan_Translation::addedit';
+
     /**
      * @var TranslationRepository
      */
@@ -42,8 +43,6 @@ class InlineEdit extends \Magento\Backend\App\Action
         $this->translationRepository = $translationRepository;
         $this->jsonFactory = $jsonFactory;
     }
-
-    const ADMIN_RESOURCE = 'Magefan_Translation::save';
 
     /**
      * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\Result\Json|\Magento\Framework\Controller\ResultInterface
@@ -107,8 +106,11 @@ class InlineEdit extends \Magento\Backend\App\Action
      * @param array $translationData
      * @return $this
      */
-    public function setTranslationData(\Magefan\Translation\Model\Translation $translation, array $extendedTranslationData, array $translationData)
-    {
+    public function setTranslationData(
+        \Magefan\Translation\Model\Translation $translation,
+        array $extendedTranslationData,
+        array $translationData
+    ) {
         $translation->setData(array_merge($translation->getData(), $extendedTranslationData, $translationData));
         return $this;
     }

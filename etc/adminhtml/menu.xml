@@ -7,6 +7,8 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Magefan_Translation::translation_translation" title="Translation by Magefan" translate="title" module="Magefan_Translation" parent="Magento_Backend::system_tools" sortOrder="10" dependsOnModule="Magefan_Translation" action="translation/translation" resource="Magefan_Translation::translation_translation"/>
-        </menu>
+        <add id="Magefan_Translation::elements" title="Translations" translate="title" module="Magefan_Translation" parent="Magento_Backend::system" sortOrder="60"  resource="Magefan_Translation::elements"/>
+        <add id="Magefan_Translation::addedit" title="Add/Edit" translate="title" module="Magefan_Translation" parent="Magefan_Translation::elements" sortOrder="10" action="translation/translation" resource="Magefan_Translation::addedit"/>
+        <add id="Magefan_Translation::config" title="Configuration" translate="title" module="Magefan_Translation" parent="Magefan_Translation::elements" sortOrder="30" action="adminhtml/system_config/edit/section/mftranslation" resource="Magefan_Translation::config"/>
+    </menu>
 </config>

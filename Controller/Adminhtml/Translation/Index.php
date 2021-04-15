@@ -6,18 +6,12 @@
 
 namespace Magefan\Translation\Controller\Adminhtml\Translation;
 
-use phpDocumentor\Reflection\Types\This;
-
-/**
- * Class Index
- * @package Magefan\Translation\Controller\Adminhtml\Translation
- */
 class Index extends \Magento\Backend\App\Action
 {
     /**
      * Authorization level of a basic admin session
      */
-    const ADMIN_RESOURCE = 'Magefan_Translation::index';
+    const ADMIN_RESOURCE = 'Magefan_Translation::addedit';
 
     /**
      * @var \Magento\Framework\View\Result\PageFactory
@@ -65,7 +59,7 @@ class Index extends \Magento\Backend\App\Action
             return $this->resultRedirectFactory->setPath('admin/index/index');
         }
 
-        $resultPage->getConfig()->getTitle()->prepend(__('Translation'));
+        $resultPage->getConfig()->getTitle()->prepend(__('Translations'));
 
         return $resultPage;
     }

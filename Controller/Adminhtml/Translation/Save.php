@@ -11,12 +11,13 @@ use Magefan\Translation\Model\Translation;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\Exception\LocalizedException;
 
-/**
- * Class Save
- * @package Magefan\Translation\Controller\Adminhtml\Translation
- */
 class Save extends \Magento\Backend\App\Action
 {
+    /**
+     * Authorization level of a basic admin session
+     */
+    const ADMIN_RESOURCE = 'Magefan_Translation::addedit';
+
     /**
      * @var DataPersistorInterface
      */
@@ -47,13 +48,13 @@ class Save extends \Magento\Backend\App\Action
     ) {
         $this->dataPersistor = $dataPersistor;
         $this->translationFactory = $translationFactory
-            ?: \Magento\Framework\App\ObjectManager::getInstance()->get(\Magefan\Translation\Model\TranslationFactory::class);
+            ?: \Magento\Framework\App\ObjectManager::getInstance()
+                ->get(\Magefan\Translation\Model\TranslationFactory::class);
         $this->translationRepository = $translationRepository
-            ?: \Magento\Framework\App\ObjectManager::getInstance()->get(\Magefan\Translation\Api\TranslationRepositoryInterface::class);
+            ?: \Magento\Framework\App\ObjectManager::getInstance()
+                ->get(\Magefan\Translation\Api\TranslationRepositoryInterface::class);
         parent::__construct($context);
     }
-
-    const ADMIN_RESOURCE = 'Magefan_Translation::save';
 
     /**
      * Save action

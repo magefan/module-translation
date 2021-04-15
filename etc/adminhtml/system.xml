@@ -12,9 +12,9 @@
     <system>
         <section id="mftranslation" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
             <class>separator-top</class>
-            <label>Transtation Plus</label>
+            <label>Transtation</label>
             <tab>magefan</tab>
-            <resource>Magefan_TranslationPlus::config_extension</resource>
+            <resource>Magefan_Translation::config</resource>
             <group id="general" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
                    showInStore="1">
                 <label>General</label>

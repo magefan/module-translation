@@ -11,12 +11,13 @@ use Magento\Backend\App\Action\Context;
 use Magento\Ui\Component\MassAction\Filter;
 use Magefan\Translation\Model\ResourceModel\Translation\CollectionFactory;
 
-/**
- * Class MassDelete
- * @package Magefan\Translation\Controller\Adminhtml\Translation
- */
 class MassDelete extends \Magento\Backend\App\Action
 {
+    /**
+     * Authorization level of a basic admin session
+     */
+    const ADMIN_RESOURCE = 'Magefan_Translation::addedit';
+
     /**
      * @var Filter
      */
@@ -39,7 +40,6 @@ class MassDelete extends \Magento\Backend\App\Action
         parent::__construct($context);
     }
 
-    const ADMIN_RESOURCE = 'Magefan_Translation::translation_delete';
     /**
      * Execute action
      *

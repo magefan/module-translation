@@ -21,6 +21,9 @@ class Collection extends AbstractCollection
      */
     protected function _construct()
     {
-        $this->_init(\Magefan\Translation\Model\Translation::class, \Magefan\Translation\Model\ResourceModel\Translation::class);
+        $this->_init(
+            \Magefan\Translation\Model\Translation::class,
+            \Magefan\Translation\Model\ResourceModel\Translation::class
+        );
     }
 }
