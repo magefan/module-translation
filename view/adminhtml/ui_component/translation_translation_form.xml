@@ -36,6 +36,7 @@
         <settings>
             <submitUrl path="translation/translation/save"/>
         </settings>
+        <aclResource>Magefan_Translation::addedit</aclResource>
         <dataProvider class="Magefan\Translation\Model\Translation\DataProvider" name="translation_form_data_source">
             <settings>
                 <requestFieldName>key_id</requestFieldName>
