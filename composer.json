@@ -2,9 +2,9 @@
   "name": "magefan/module-translation",
   "description": "This module allowed admin user to change translations in admin panel",
   "type": "magento2-module",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "require": {
-        "magefan/module-community" : ">=2.1.4"
+        "magefan/module-community" : ">=2.1.8"
   },
   "autoload": {
 	"files": [ "registration.php" ],
@@ -12,4 +12,7 @@
 	  "Magefan\\Translation\\": ""
 	}
   }
+  "suggest": {
+        "magefan/module-translation-plus": "Translate product attributes on all store views in one click - visit magefan.com for more details"
+  },
 }
