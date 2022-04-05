@@ -136,7 +136,7 @@
             <formElements>
                 <select>
                     <settings>
-                        <options class="\Magento\Config\Model\Config\Source\Locale"/>
+                        <options class="\Magefan\Translation\Model\Locales"/>
                     </settings>
                 </select>
             </formElements>

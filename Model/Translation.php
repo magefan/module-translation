@@ -19,6 +19,22 @@ class Translation extends AbstractModel implements TranslationInterface, Identit
     const CACHE_TAG = 'magefan_translation';
 
     /**
+     * Prefix of model events names
+     *
+     * @var string
+     */
+    protected $_eventPrefix = 'magefan_translation';
+
+    /*
+     * Parameter name in event
+     *
+     * In observe method you can use $observer->getEvent()->getObject() in this case
+     *
+     * @var string
+     */
+    protected $_eventObject = 'translation';
+
+    /**
      * @var string
      */
     protected $_cacheTag = self::CACHE_TAG;
