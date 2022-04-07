@@ -50,11 +50,6 @@ class TranslationSaveAfter implements ObserverInterface
     private $scopeConfig;
 
     /**
-     * @var array
-     */
-    private array $loadThemes;
-
-    /**
      * @var StoreManagerInterface
      */
     private $storeManager;
@@ -83,7 +78,6 @@ class TranslationSaveAfter implements ObserverInterface
         $this->themeProvider = $themeProvider;
         $this->json = $json;
         $this->date = $date;
-        $this->loadThemes = [];
         $this->storeManager = $storeManager;
     }
 
@@ -94,12 +88,11 @@ class TranslationSaveAfter implements ObserverInterface
     private function getThemePathByStoreId(int $storeId, string $basePath, string $localCode): string
     {
         $themeId  = (int)$this->scopeConfig->getValue('design/theme/theme_id', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $storeId);
-        if (in_array($themeId, $this->loadThemes)) {
-            return '';
-        }
-        $this->loadThemes[] = $themeId;
         $theme = $this->themeProvider->getThemeById($themeId);
         $themeFullPath = $theme->getFullPath();
+        if (!($themeFullPath)) {
+            return '';
+        }
         return $basePath . '/' . $themeFullPath . '/' . $localCode . '/js-translation.json';
     }
 
@@ -127,9 +120,9 @@ class TranslationSaveAfter implements ObserverInterface
                 }
             }
         }
-
         if (!empty($paths)) {
             $changed=false;
+            $paths = array_unique($paths);
             foreach ($paths as $path) {
                 $exists = $this->driverFile->isExists($path);
                 if ($exists) {
