@@ -5,15 +5,12 @@
  */
 declare(strict_types=1);
 
-namespace Magefan\Translation\Model;
+namespace Magefan\Translation\Model\Config\Source;
 
 use Magento\Framework\Locale\Bundle\LanguageBundle;
 use Magento\Framework\Locale\Bundle\RegionBundle;
-/**
- * @api
- * @since 100.0.2
- */
-class Locales implements \Magento\Framework\Option\ArrayInterface
+
+class Locale implements \Magento\Framework\Option\ArrayInterface
 {
     /**
      * @var \Magento\Store\Model\StoreManagerInterface
@@ -44,8 +41,7 @@ class Locales implements \Magento\Framework\Option\ArrayInterface
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Magento\Framework\Locale\ResolverInterface $localeResolver,
         \Magento\Framework\Locale\ConfigInterface $config
-    )
-    {
+    ) {
         $this->storeManager = $storeManager;
         $this->scopeConfig = $scopeConfig;
         $this->localeResolver =  $localeResolver;
@@ -78,9 +74,9 @@ class Locales implements \Magento\Framework\Option\ArrayInterface
     public function toOptionArray()
     {
         $locales = [];
-        foreach($this->storeManager->getStores() as $store) {
+        foreach ($this->storeManager->getStores() as $store) {
             $locale = $this->scopeConfig->getValue('general/locale/code', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $store->getStoreId());
-            if(!in_array( $locale ,$locales )){
+            if (!in_array($locale, $locales)) {
                 $locales[] = $locale;
             }
         }
