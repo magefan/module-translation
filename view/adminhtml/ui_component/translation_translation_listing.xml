@@ -53,16 +53,6 @@
                     <item name="column" xsi:type="string">column</item>
                 </item>
             </argument>
-            <settings>
-                <templates>
-                    <filters>
-                        <select>
-                            <param name="template" xsi:type="string">ui/grid/filters/elements/ui-select</param>
-                            <param name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</param>
-                        </select>
-                    </filters>
-                </templates>
-            </settings>
         </filters>
         <massaction name="listing_massaction">
             <action name="delete">
@@ -80,7 +70,7 @@
         <paging name="listing_paging"/>
         <exportButton name="export_button"/>
     </listingToolbar>
-    <columns name="translation_columns">
+    <columns name="translation_columns" >
         <settings>
             <editorConfig>
                 <param name="clientConfig" xsi:type="array">
@@ -88,7 +78,6 @@
                     <item name="validateBeforeSave" xsi:type="boolean">false</item>
                 </param>
                 <param name="indexField" xsi:type="string">key_id</param>
-                <!--disable inlineTranslate-->
                 <param name="enabled" xsi:type="boolean">false</param>
                 <param name="selectProvider" xsi:type="string">translation_translation_listing.translation_translation_listing.translation_columns.ids</param>
             </editorConfig>
@@ -131,14 +120,14 @@
         </column>
         <column name="store_id"  class="Magefan\Translation\Model\Translation\Source\StoreView">
             <settings>
-                <bodyTmpl>ui/grid/cells/html</bodyTmpl>
-                <sortable>false</sortable>
-                <filter>text</filter>
+                <options class="Magento\Cms\Ui\Component\Listing\Column\Cms\Options"/>
+                <filter>select</filter>
+                <dataType>select</dataType>
                 <editor>
                     <validation>
                         <rule name="required-entry" xsi:type="boolean">true</rule>
                     </validation>
-                    <editorType>text</editorType>
+                    <editorType>select</editorType>
                 </editor>
                 <label translate="true">Store View</label>
             </settings>
@@ -157,12 +146,14 @@
         </column>
         <column name="locale" class="Magefan\Translation\Model\Translation\Source\LocaleToLanguage">
             <settings>
-                <filter>text</filter>
+                <options class="\Magefan\Translation\Model\Config\Source\Locale"/>
+                <filter>select</filter>
+                <dataType>select</dataType>
                 <editor>
                     <validation>
                         <rule name="required-entry" xsi:type="boolean">true</rule>
                     </validation>
-                    <editorType>text</editorType>
+                    <editorType>select</editorType>
                 </editor>
                 <label translate="true">Locale</label>
             </settings>
