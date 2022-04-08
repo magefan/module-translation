@@ -130,6 +130,8 @@
                     <editorType>select</editorType>
                 </editor>
                 <label translate="true">Store View</label>
+                <bodyTmpl>ui/grid/cells/html</bodyTmpl>
+                <sortable>false</sortable>
             </settings>
         </column>
         <column name="translate">
