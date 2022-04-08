@@ -110,13 +110,13 @@ class StoreView extends Column
 
         foreach ($origStores as $store) {
             foreach ($data as $website) {
-                if ((int)$website['value'] == (int)$store) {
+                //if ((int)$website['value'] == (int)$store) {
                     $content .= $website['label'] ."<br/>";
-                }
+                //}
                 foreach ($website['children'] as $group) {
-                    if ((int)$group['value'] == (int)$store) {
+                    //if ((int)$group['value'] == (int)$store) {
                         $content .= $this->escaper->escapeHtml($group['label']) ."<br/>";
-                    }
+                    //}
                     foreach ($group['children'] as $sto) {
                         if ((int)$sto['value'] == (int)$store) {
                             $content .= $this->escaper->escapeHtml($sto['label']) ."<br/>";
