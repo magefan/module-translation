@@ -43,17 +43,17 @@ class LocaleToLanguage extends Column
      * @param ContextInterface $context
      * @param UiComponentFactory $uiComponentFactory
      * @param Escaper $escaper
+     * @param Locale $locale
      * @param array $components
      * @param array $data
-     * @param Locale $locale
      */
     public function __construct(
         ContextInterface $context,
         UiComponentFactory $uiComponentFactory,
         Escaper $escaper,
+        Locale $locale,
         array $components = [],
-        array $data = [],
-        Locale $locale
+        array $data = []
     ) {
         $this->escaper = $escaper;
         $this->locale = $locale;
