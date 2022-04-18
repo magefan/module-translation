@@ -35,7 +35,7 @@ interface TranslationRepositoryInterface
      * Remove item by id.
      *
      * @api
-     * @param int $id.
+     * @param int $id
      * @return bool Will returned True if deleted
      */
     public function deleteById($id);
@@ -53,8 +53,8 @@ interface TranslationRepositoryInterface
      * Create new item.
      *
      * @api
-     * @param string $data.
-     * @return string.
+     * @param string $data
+     * @return string
      */
     public function create($data);
 
