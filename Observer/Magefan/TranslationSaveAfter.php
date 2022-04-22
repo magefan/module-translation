@@ -133,12 +133,12 @@ class TranslationSaveAfter implements ObserverInterface
                         } catch (\InvalidArgumentException $e) {
                             $jsonDecoded = [];
                         }
-                        if (isset($jsonDecoded[$original])) {
+                        //if (isset($jsonDecoded[$original])) {
                             $jsonDecoded[$original] = $tranlate;
                             $jsonEncoded = $this->json->serialize($jsonDecoded);
                             $this->driverFile->filePutContents($path, $jsonEncoded);
                             $changed = true;
-                        }
+                        //}
                     }
                 }
             }
