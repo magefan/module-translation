@@ -4,7 +4,8 @@
   "type": "magento2-module",
   "version": "2.1.5.1",
   "require": {
-        "magefan/module-community" : ">=2.1.10"
+        "magefan/module-community" : ">=2.1.10",
+	"magefan/module-crowdin-integration" : ">=2.0.0"
   },
   "autoload": {
 	"files": [ "registration.php" ],
