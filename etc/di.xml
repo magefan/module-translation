@@ -42,6 +42,11 @@
             </argument>
         </arguments>
     </type>
-
-
+    <type name="Magento\ImportExport\Model\Import\SampleFileProvider">
+        <arguments>
+            <argument name="samples" xsi:type="array">
+                <item name="translation" xsi:type="string">Magefan_Translation</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

@@ -1,0 +1,4 @@
+key_id,string,store_id,translate,locale
+1,"You do not have any saved cards yet.",0,"Vous n'avez pas encore de carte sauvegardée",fr_FR
+2,"Add a new saved card",1,"Ajoutez une nouvelle carte",fr_FR
+,"New entity",1,"New entity translation",fr_FR

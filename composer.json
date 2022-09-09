@@ -2,9 +2,9 @@
   "name": "magefan/module-translation",
   "description": "This module allowed admin user to change translations in admin panel",
   "type": "magento2-module",
-  "version": "2.1.5.1",
+  "version": "2.1.6",
   "require": {
-        "magefan/module-community" : ">=2.1.10",
+        "magefan/module-community" : ">=2.1.11",
 	"magefan/module-crowdin-integration" : ">=2.0.0"
   },
   "autoload": {

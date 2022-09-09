@@ -24,6 +24,8 @@ class CustomerGroup extends \Magento\ImportExport\Model\Import\Entity\AbstractEn
 
     const TABLE_Entity = 'translation';
 
+    const CRC_STRING = 'crc_string';
+
     /**
      * Validation failure message template definitions
      *
@@ -60,7 +62,8 @@ class CustomerGroup extends \Magento\ImportExport\Model\Import\Entity\AbstractEn
         self::STRING,
         self::STORE_ID,
         self::TRANSLATE,
-        self::LOCALE
+        self::LOCALE,
+        self::CRC_STRING
     ];
 
     /**
@@ -159,7 +162,7 @@ class CustomerGroup extends \Magento\ImportExport\Model\Import\Entity\AbstractEn
     }
 
     /**
-     * Save newsletter subscriber
+     * Save transl
      *
      * @return $this
      */
@@ -170,7 +173,7 @@ class CustomerGroup extends \Magento\ImportExport\Model\Import\Entity\AbstractEn
     }
 
     /**
-     * Replace newsletter subscriber
+     * Replace translation
      *
      * @return $this
      */
@@ -181,7 +184,7 @@ class CustomerGroup extends \Magento\ImportExport\Model\Import\Entity\AbstractEn
     }
 
     /**
-     * Deletes newsletter subscriber data from raw data.
+     * Deletes translation data from raw data.
      *
      * @return $this
      */
@@ -207,7 +210,7 @@ class CustomerGroup extends \Magento\ImportExport\Model\Import\Entity\AbstractEn
     }
 
     /**
-     * Save and replace newsletter subscriber
+     * Save and replace translation
      *
      * @return $this
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
@@ -228,6 +231,10 @@ class CustomerGroup extends \Magento\ImportExport\Model\Import\Entity\AbstractEn
                     $this->getErrorAggregator()->addRowToSkip($rowNum);
                     continue;
                 }
+
+                $this->countItemsCreated += (int) !isset($rowData[self::KEY_ID]);
+                $this->countItemsUpdated += (int) isset($rowData[self::KEY_ID]);
+
                 $rowTtile= $rowData[self::STRING];
                 $listTitle[] = $rowTtile;
                 $entityList[$rowTtile][] = [
@@ -235,7 +242,8 @@ class CustomerGroup extends \Magento\ImportExport\Model\Import\Entity\AbstractEn
                     self::STRING    => $rowData[self::STRING],
                     self::STORE_ID  => $rowData[self::STORE_ID],
                     self::TRANSLATE => $rowData[self::TRANSLATE],
-                    self::LOCALE    => $rowData[self::LOCALE]
+                    self::LOCALE    => $rowData[self::LOCALE],
+                    self::CRC_STRING => crc32($rowData[self::STRING])
                 ];
             }
             if (\Magento\ImportExport\Model\Import::BEHAVIOR_REPLACE == $behavior) {
@@ -268,13 +276,15 @@ class CustomerGroup extends \Magento\ImportExport\Model\Import\Entity\AbstractEn
                     $entityIn[] = $row;
                 }
             }
+
             if ($entityIn) {
                 $this->_connection->insertOnDuplicate($tableName, $entityIn, [
                     self::KEY_ID,
                     self::STRING,
                     self::STORE_ID,
                     self::TRANSLATE,
-                    self::LOCALE
+                    self::LOCALE,
+                    self::CRC_STRING
                 ]);
             }
         }
