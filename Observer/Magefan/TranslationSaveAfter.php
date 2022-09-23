@@ -87,6 +87,6 @@ class TranslationSaveAfter implements ObserverInterface
      */
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
-        /* Moved to */
+        /* Moved to Magefan_TranslationPlus */
     }
 }
