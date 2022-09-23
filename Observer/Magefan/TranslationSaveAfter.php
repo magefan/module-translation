@@ -81,77 +81,12 @@ class TranslationSaveAfter implements ObserverInterface
         $this->storeManager = $storeManager;
     }
 
-    /**
-     * @param int $storeId
-     * @return string
-     */
-    private function getThemePathByStoreId(int $storeId, string $basePath, string $localCode): string
-    {
-        $themeId = (int)$this->scopeConfig->getValue(
-            'design/theme/theme_id',
-            \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
-            $storeId
-        ) ?: 3;
-        $theme = $this->themeProvider->getThemeById($themeId);
-        $themeFullPath = $theme->getFullPath();
-        if (!($themeFullPath)) {
-            return '';
-        }
-        return $basePath . '/' . $themeFullPath . '/' . $localCode . '/js-translation.json';
-    }
 
     /**
      * @param \Magento\Framework\Event\Observer $observer
-     * @return void
      */
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
-        $basePath = $this->directoryList->getPath('static');
-        $translation = $observer->getTranslation();
-        $localCode = (string)$translation->getLocale();
-        $storeId = (int)$translation->getStoreId();
-        $original = $translation->getString();
-        $translate = $translation->getTranslate();
-        $paths = [];
-        if ($storeId) {
-            $paths[] = $this->getThemePathByStoreId($storeId, $basePath, $localCode);
-        } else {
-            $paths[] = $basePath . '/adminhtml/Magento/backend/' . $localCode . '/js-translation.json';
-            foreach ($this->storeManager->getStores() as $store) {
-                $path = $this->getThemePathByStoreId((int)$store->getId(), $basePath, $localCode);
-                if ($path) {
-                    $paths[] = $path;
-                }
-            }
-        }
-
-        if (!empty($paths)) {
-            $changed = false;
-            $paths = array_unique($paths);
-            foreach ($paths as $path) {
-                $exists = $this->driverFile->isExists($path);
-                if ($exists) {
-                    $writable = $this->driverFile->isWritable($path);
-                    if ($writable) {
-                        $fileContent = $this->driverFile->fileGetContents($path);
-                        if ($fileContent) {
-                            try {
-                                $jsonDecoded = $this->json->unserialize($fileContent);
-                            } catch (\InvalidArgumentException $e) {
-                                $jsonDecoded = [];
-                            }
-                            $jsonDecoded[$original] = $translate;
-                            $jsonEncoded = $this->json->serialize($jsonDecoded);
-                            $this->driverFile->filePutContents($path, $jsonEncoded);
-                            $changed = true;
-                        }
-                    }
-                }
-            }
-            if ($changed) {
-                $timestampNew = (string)$this->date->gmtTimestamp($this->date->gmtDate());
-                $this->driverFile->filePutContents($basePath . '/deployed_version.txt', $timestampNew);
-            }
-        }
+        /* Moved to Magefan_TranslationPlus */
     }
 }
