@@ -16,7 +16,7 @@ class Translation extends AbstractModel implements TranslationInterface, Identit
 
     const STATUS_DISABLED = 0;
 
-    const CACHE_TAG = 'magefan_translation';
+    const CACHE_TAG = 'mftr_';
 
     /**
      * Prefix of model events names
@@ -52,7 +52,13 @@ class Translation extends AbstractModel implements TranslationInterface, Identit
      */
     public function getIdentities()
     {
-        return [self::CACHE_TAG . '_' . $this->getId()];
+        $identities = [];
+        $identities[] =  self::CACHE_TAG . '_' . $this->getId();
+        //if ($this->getData('key_id') && $this->getData('key_id') != $this->getOrigData('key_id')) {
+            $identities[] = self::CACHE_TAG . '_' . 0;
+        //}
+
+        return $identities;
     }
 
     /**
