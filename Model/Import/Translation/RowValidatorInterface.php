@@ -4,7 +4,7 @@
  * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
  */
 
-namespace Magefan\Translation\Model\Import\CustomerGroup;
+namespace Magefan\Translation\Model\Import\Translation;
 
 /**
  * Interface RowValidatorInterface

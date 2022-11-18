@@ -7,7 +7,7 @@
 namespace Magefan\Translation\Model\Import\Validator;
 
 use Magento\Framework\Validator\AbstractValidator;
-use Magefan\Translation\Model\Import\CustomerGroup\RowValidatorInterface;
+use Magefan\Translation\Model\Import\Translation\RowValidatorInterface;
 
 /**
  * Class AbstractImportValidator
