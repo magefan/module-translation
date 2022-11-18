@@ -6,10 +6,10 @@
 
 namespace Magefan\Translation\Model\Import;
 
-use Magefan\Translation\Model\Import\CustomerGroup\RowValidatorInterface as ValidatorInterface;
+use Magefan\Translation\Model\Import\Translation\RowValidatorInterface as ValidatorInterface;
 use Magento\ImportExport\Model\Import\ErrorProcessing\ProcessingErrorAggregatorInterface;
 
-class CustomerGroup extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
+class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
 {
 
     const KEY_ID = 'key_id';
@@ -89,6 +89,11 @@ class CustomerGroup extends \Magento\ImportExport\Model\Import\Entity\AbstractEn
     protected $_resource;
 
     /**
+     * @var EventManager
+     */
+    private  $eventManager;
+
+    /**
      * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
      */
     public function __construct(
@@ -99,7 +104,8 @@ class CustomerGroup extends \Magento\ImportExport\Model\Import\Entity\AbstractEn
         \Magento\ImportExport\Model\ResourceModel\Helper $resourceHelper,
         \Magento\Framework\Stdlib\StringUtils $string,
         ProcessingErrorAggregatorInterface $errorAggregator,
-        \Magento\Customer\Model\GroupFactory $groupFactory
+        \Magento\Customer\Model\GroupFactory $groupFactory,
+        \Magento\Framework\Event\ManagerInterface $eventManager
     ) {
         $this->jsonHelper = $jsonHelper;
         $this->_importExportData = $importExportData;
@@ -109,6 +115,7 @@ class CustomerGroup extends \Magento\ImportExport\Model\Import\Entity\AbstractEn
         $this->_connection = $resource->getConnection(\Magento\Framework\App\ResourceConnection::DEFAULT_CONNECTION);
         $this->errorAggregator = $errorAggregator;
         $this->groupFactory = $groupFactory;
+        $this->eventManager = $eventManager;
     }
     /**
      * Entity type code getter.
@@ -269,6 +276,16 @@ class CustomerGroup extends \Magento\ImportExport\Model\Import\Entity\AbstractEn
     protected function saveEntityFinish(array $entityData, $table)
     {
         if ($entityData) {
+
+            $entityData = new \Magento\Framework\DataObject(
+                ['elements' => $entityData]
+            );
+            $this->eventManager->dispatch('magefan_translation_save_import_entity_before', [
+                'entityData' => $entityData,
+                'table' => $table
+            ]);
+            $entityData = $entityData->getData('elements');
+
             $tableName  = $this->_resource->getTableName($table);
             $entityIn = [];
             foreach ($entityData as $id => $entityRows) {
