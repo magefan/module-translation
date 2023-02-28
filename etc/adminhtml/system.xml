@@ -10,7 +10,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <section id="mftranslation" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+        <section id="mftranslation" translate="label" type="text" sortOrder="11724926770" showInDefault="1" showInWebsite="1" showInStore="1">
             <class>separator-top</class>
             <label>Translation</label>
             <tab>magefan</tab>
