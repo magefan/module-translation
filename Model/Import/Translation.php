@@ -91,7 +91,7 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
     /**
      * @var EventManager
      */
-    private  $eventManager;
+    private $eventManager;
 
     /**
      * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
