@@ -6,29 +6,75 @@
  */
 -->
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
-    <route url="/V1/translation/get/:id" method="GET">
-        <service class="Magefan\Translation\Api\TranslationRepositoryInterface" method="get"/>
-        <resources>
-            <resource ref="Magefan_Translation::addedit"/>
-        </resources>
-    </route>
-    <route url="/V1/translation/delete/:id" method="DELETE">
-        <service class="Magefan\Translation\Api\TranslationRepositoryInterface" method="deleteById"/>
-        <resources>
-            <resource ref="Magefan_Translation::addedit"/>
-        </resources>
-    </route>
+    <!-- Login Example to get Bearer: 
+
+    curl -X POST "https://mystore.com/index.php/rest/V1/integration/admin/token" \
+     -H "Content-Type:application/json" \
+     -d '{"username":"XXXXXX", "password":"XXXXXX"}'
+    
+    Return bearer XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+    -->
+
+    <!-- Example of adding new translation entity:
+
+    curl -X POST "https://mystore.com/index.php/rest/V1/translation" \
+      -H "Authorization: Bearer XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" \
+      -H "Content-Type:application/json" \
+      -d '{"data":"{\"string\":\"Add to Cart\",\"store_id\":\"0\",\"translate\":\"Add to Cart In Franch\",\"locale\":\"fr_FR\"}"}'
+
+    Return encoded JSON of translation record with key_id (ID).
+    -->
     <route url="/V1/translation/" method="POST">
         <service class="Magefan\Translation\Api\TranslationRepositoryInterface" method="create"/>
         <resources>
             <resource ref="Magefan_Translation::addedit"/>
         </resources>
     </route>
+
+    <!-- Example of getting translation entity by ID:
+
+    curl -X GET "https://mystore.com/index.php/rest/V1/translation/get/37" \
+      -H "Authorization: Bearer XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+    Return encoded JSON of translation record.
+    -->
+    <route url="/V1/translation/get/:id" method="GET">
+        <service class="Magefan\Translation\Api\TranslationRepositoryInterface" method="get"/>
+        <resources>
+            <resource ref="Magefan_Translation::addedit"/>
+        </resources>
+    </route>
+
+
+    <!-- Example of updating translation entity by ID:
+
+    curl -X PUT "https://mystore.com/index.php/rest/V1/translation/37" \
+      -H "Authorization: Bearer XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" \
+      -H "Content-Type:application/json" \
+      -d '{"data":"{\"translate\":\"Add to Cart In Franch v2\"}"}'
+
+    Return encoded JSON of translation record.
+    -->
     <route url="/V1/translation/:id" method="PUT">
         <service class="Magefan\Translation\Api\TranslationRepositoryInterface" method="update"/>
         <resources>
             <resource ref="Magefan_Translation::addedit"/>
         </resources>
     </route>
+
+    <!-- Example of removing translation entity by ID:
+
+    curl -X DELETE "https://mystore.com/index.php/rest/V1/translation/delete/37" \
+      -H "Authorization: Bearer XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+    Return "true" if deleted successfully.
+    -->
+    <route url="/V1/translation/delete/:id" method="DELETE">
+        <service class="Magefan\Translation\Api\TranslationRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="Magefan_Translation::addedit"/>
+        </resources>
+    </route>
+    
 </routes>
 
