@@ -21,6 +21,14 @@ This module allows to make translation in admin panel (Sysmtem > Translations)
 ## Requirements
   * Magento Community Edition 2.1.x-2.4.x or Magento Enterprise Edition 2.1.x-2.4.x
 
+## Editions & Pricing
+  
+<a href="https://magefan.com/magento-2-translation-extension/pricing">
+          <img
+            src="https://cm.magefan.com/wysiwyg/products/magento-2-translation-extension-pricing.png"
+            alt="Pricing for Magento 2 Translation Extension" />
+        </a>
+        
 ## Installation Method 1 - Installing via composer
   * Open command line
   * Using command "cd" navigate to your magento2 root directory
