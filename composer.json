@@ -4,7 +4,7 @@
   "type": "magento2-module",
   "version": "2.2.3",
   "require": {
-        "magefan/module-community" : ">=2.1.16",
+        "magefan/module-community" : ">=2.1.17",
 	"magefan/module-crowdin-integration" : ">=2.0.5"
   },
   "autoload": {
