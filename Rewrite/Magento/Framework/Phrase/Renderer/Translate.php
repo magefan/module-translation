@@ -8,49 +8,13 @@ declare(strict_types=1);
 
 namespace Magefan\Translation\Rewrite\Magento\Framework\Phrase\Renderer;
 
-use Magento\Framework\TranslateInterface;
-use Psr\Log\LoggerInterface;
-use Magento\Framework\Phrase\Renderer\MessageFormatter;
 
 class Translate extends \Magento\Framework\Phrase\Renderer\Translate
 {
-    /**
-     * @var TranslateInterface
-     */
-    protected $translator;
-
-    /**
-     * @var LoggerInterface
-     */
-    protected $logger;
-
-    /**
-     * @var MessageFormatter
-     */
-    private $messageFormatter;
-
-    /**
-     * Renderer construct
-     *
-     * @param TranslateInterface $translator
-     * @param LoggerInterface $logger
-     * @param MessageFormatter $messageFormatter
-     */
-    public function __construct(
-        TranslateInterface $translator,
-        LoggerInterface $logger,
-        MessageFormatter $messageFormatter
-    ) {
-        $this->translator = $translator;
-        $this->logger = $logger;
-        $this->messageFormatter = $messageFormatter;
-    }
 
     /**
      * Render source text
      *
-     * @param array $source
-     * @param array $arguments
      * @return string
      * @throws \Exception
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
@@ -101,7 +65,15 @@ class Translate extends \Magento\Framework\Phrase\Renderer\Translate
 
         //$source[] = array_key_exists($text, $data) ? $data[$text] : end($source);
 
-        return $this->messageFormatter->render($source, $arguments);
+        return $this->messageFormatter()->render($source, $arguments);
     }
 
+    /**
+     * @return \Magento\Framework\Phrase\Renderer\MessageFormatter|mixed
+     */
+    protected function messageFormatter()
+    {
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        return $objectManager->get(\Magento\Framework\Phrase\Renderer\MessageFormatter::class);
+    }
 }
