@@ -21,4 +21,25 @@ class MetadataProvider
         }
         return $result;
     }
+
+     /**
+     * @param \Magento\Ui\Model\Export\MetadataProvider $subject
+     * @param $result
+     * @return void
+     */
+    public function afterGetOptions(
+        \Magento\Ui\Model\Export\MetadataProvider $subject,
+                                                  $result
+    ) {
+        if (false != strpos(\Magento\Framework\Debug::backtrace(true), 'Magefan\Translation')){
+            if (isset($result['locale'])) {
+                unset($result['locale']);
+            }
+            if (isset($result['store_id'])) {
+                unset($result['store_id']);
+            }
+        }
+
+        return $result;
+    }
 }
