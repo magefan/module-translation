@@ -32,7 +32,12 @@ class MetadataProvider
                                                   $result
     ) {
         if (false != strpos(\Magento\Framework\Debug::backtrace(true), 'Magefan\Translation')){
-            unset($result['locale']);
+            if (isset($result['locale'])) {
+                unset($result['locale']);
+            }
+            if (isset($result['store_id'])) {
+                unset($result['store_id']);
+            }
         }
 
         return $result;
