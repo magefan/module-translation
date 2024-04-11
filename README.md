@@ -1,4 +1,4 @@
-# Magento 2 Translation Extension by [Magefan](https://magefan.com/magento2-extensions)
+# [Magento 2 Translation Extension](https://magefan.com/magento-2-translation-extension) by Magefan
 
 [![Total Downloads](https://poser.pugx.org/magefan/module-translation/downloads)](https://packagist.org/packages/magefan/module-translation)
 [![Latest Stable Version](https://poser.pugx.org/magefan/module-translation/v/stable)](https://packagist.org/packages/magefan/module-translation)
@@ -33,7 +33,7 @@ Magento translation can be easy. You just need the right tools!
 
 ## Features
 
-* **Translate Magento from the Admin Panel**
+### Translate Magento from the Admin Panel
 
 Once you install a language pack in your Magento store, you might discover it covers about 50% of the translations. Some words might even be missing because they are not wrapped in the translation function.
 
@@ -44,14 +44,14 @@ That’s why you need the Magento 2 Translation extension to make the translatio
 </p>
 
 
-* **Translate Buttons and Labels**
+### Translate Buttons and Labels
   
 If some buttons, labels or short phrases on your storefront haven’t been translated by the language pack, we’ve got you covered. You can use this Magento 2 Translation Extension to translate them to all available languages. 
 
 Once you add the translation it is applied to all of your store pages; products, categories, CMS pages and blocks. We won’t let you miss anything. 
 
 
-* **Translate Product and Categories**
+### Translate Product and Categories
 
 By default, you have to go to each store view separately to translate content and edit attributes. It is extremely ineffective and time-consuming. But not if you have the Magento 2 Translation extension or Magefan. 
 
@@ -61,13 +61,13 @@ You can now translate all content and edit product attributes without leaving a 
   <img width="853" height="425" src="https://cm.magefan.com/catalog/translate-products-and-categories-magento.png">
 </p>
 
-* **Translate Email Templates**
+### Translate Email Templates
 
 Email marketing is not dead. On the contrary, it is still one of the most popular ways to connect to your customers, retarget or make them convert. So, if you manage a multi-language store, it‘s key to reach out to your customers in their local language. 
 
 Use Magento 2 Translation Extension to translate emails without creating multiple templates. Once you wrap email strings in the translation function, you’ll be able to translate each string in the translations dashboard. 
 
-* **Manage All Translation Better**
+### Manage All Translation Better
 
 Magento localization is a work in process. You always add new content to your store which requires translation. It might become a mess, depending on the number of store views you have and translations already added to your store. But it won’t 
 
@@ -77,7 +77,7 @@ Each translation you make is carefully stored in the Translations panel. You can
   <img width="853" height="425" src="https://cm.magefan.com/wysiwyg/search-and-translate-text-to-translate-magento.png">
 </p>
 
-* **Import/ Export Translations**
+### Import/ Export Translations
 
 If you already have some translations made with the Inline Translate tool or just want to migrate your translations database to a new server, there is an easy way. You can easily import and export your translation between instances. 
 
@@ -192,6 +192,7 @@ The code is licensed under [EULA](https://magefan.com/end-user-license-agreement
 
 ### [Magento 2 Marketing Automation Extensions](https://magefan.com/magento-2-extensions/magento-marketing-automation)
 
+* [Magento 2 Product Labels Extension](https://magefan.com/magento-2-product-labels)
 * [Magento 2 Dynamic Categories](https://magefan.com/magento-2-dynamic-categories)
 * [Magento 2 CMS Display Rules Extension](https://magefan.com/magento-2-cms-display-rules-extension)
 * [Magento 2 Automatic Related Products](https://magefan.com/magento-2-automatic-related-products)
