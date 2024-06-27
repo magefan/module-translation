@@ -24,7 +24,7 @@ Magento translation can be easy. You just need the right tools!
   
 <a href="https://magefan.com/magento-2-translation-extension/pricing">
           <img
-            src="https://cm.magefan.com/wysiwyg/products/magento-2-translation-extension-pricing.png"
+            src="https://cm.magefan.com/wysiwyg/products/translation-pricing.png"
             alt="Pricing for Magento 2 Translation Extension" />
 </a>
 
