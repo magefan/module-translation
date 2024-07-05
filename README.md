@@ -17,7 +17,6 @@ Magento translation can be easy. You just need the right tools!
 
 ## Requirements
   * Magento Community 2.3.0-2.4.x (CE, EE, ECE, B2B)
-  * [Magefan Community Extension](https://github.com/magefan/module-community) >= v2.1.20. Please install this extension first if you use installation via FTP.
   * **Note** This extension requires a license for all Magento Editions. For more information, please check the [Magento 2 Translation Extension pricing page](https://magefan.com/magento-2-translation-extension/pricing).
 
 ## Editions & Pricing
