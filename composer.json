@@ -4,7 +4,7 @@
   "type": "magento2-module",
   "version": "2.3.0",
   "require": {
-        "magefan/module-community" : ">=2.1.28"
+        "magefan/module-community" : ">=2.1.29"
   },
   "autoload": {
 	"files": [ "registration.php" ],
