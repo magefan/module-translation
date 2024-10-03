@@ -54,7 +54,7 @@ class Config implements ConfigInterface
      * @param int|null $storeId
      * @return mixed
      */
-    public function getConfig(string $path, int $storeId = null)
+    public function getConfig($path, $storeId = null)
     {
         return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $storeId);
     }
