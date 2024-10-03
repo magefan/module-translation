@@ -8,6 +8,7 @@ namespace Magefan\Translation\Model;
 
 use Magefan\Translation\Api\ConfigInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Store\Model\ScopeInterface;
 
 /**
  * Magefan Blog Config Model
@@ -43,8 +44,18 @@ class Config implements ConfigInterface
     {
         return (bool)$this->scopeConfig->getValue(
             self::XML_PATH_EXTENSION_ENABLED,
-            \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
+            ScopeInterface::SCOPE_STORE,
             $storeId
         );
+    }
+
+    /**
+     * @param string $path
+     * @param int|null $storeId
+     * @return mixed
+     */
+    public function getConfig(string $path, int $storeId = null)
+    {
+        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $storeId);
     }
 }
