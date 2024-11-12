@@ -2,7 +2,7 @@
   "name": "magefan/module-translation",
   "description": "This module allowed admin user to change translations in admin panel",
   "type": "magento2-module",
-  "version": "2.3.4",
+  "version": "2.3.5",
   "require": {
         "magefan/module-community" : ">=2.1.30"
   },
