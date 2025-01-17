@@ -76,7 +76,7 @@
                 <dataScope>string</dataScope>
             </settings>
         </field>
-        <field name="translate" sortOrder="30" formElement="textarea">
+        <field name="translate" sortOrder="60" formElement="textarea">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="source" xsi:type="string">translation</item>
