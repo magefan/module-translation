@@ -12,6 +12,25 @@
                 <enabled>0</enabled>
                 <mfmodule>Translation</mfmodule>
             </general>
+            <mftranslationapis>
+                <locale_source/>
+                <mfgoogleapi>
+                    <enabled/>
+                    <google_api_key></google_api_key>
+                    <google_priority></google_priority>
+                </mfgoogleapi>
+                <mfchatgptapi>
+                    <enabled/>
+                    <chatgpt_api_key></chatgpt_api_key>
+                    <chat_gpt_priority></chat_gpt_priority>
+                </mfchatgptapi>
+                <mfdeeplapi>
+                    <enabled/>
+                    <deepl_api_key></deepl_api_key>
+                    <deepl_priority></deepl_priority>
+                </mfdeeplapi>
+            </mftranslationapis>
         </mftranslation>
     </default>
 </config>
+
