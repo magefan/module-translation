@@ -21,6 +21,12 @@
                 <field id="version" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <frontend_model>Magefan\Translation\Block\Adminhtml\System\Config\Form\Info</frontend_model>
                 </field>
+                <field id="infoPlus" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Magefan\Translation\Block\Adminhtml\System\Config\Form\InfoTranslationPlus</frontend_model>
+                </field>
+                <field id="infoExtra" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Magefan\Translation\Block\Adminhtml\System\Config\Form\InfoTranslationExtra</frontend_model>
+                </field>
                 <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Extension Enable</label>
@@ -30,6 +36,86 @@
                     <label>Product Key</label>
                     <frontend_model>Magefan\Community\Block\Adminhtml\System\Config\Form\ProductKeyField</frontend_model>
                 </field>
+                <field id="flush_cache_on_translation" translate="label comment" type="select" sortOrder="21" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Flush Cache On Translation Change</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="ignore_gws_permissions" translate="label comment" type="select" sortOrder="22" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Ignore GWS Permissions On Translation Grid</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="mftranslationapis" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Translation APIs (Extra)</label>
+                <field id="locale_source" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <label>Default Locale (Translate From)</label>
+                    <source_model>Magefan\TranslationExtra\Model\Config\Source\LocaleSource</source_model>
+                </field>
+                <group id="mfgoogleapi" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Translation API</label>
+                    <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Enabled</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="google_api_key" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                        <label>API Key</label>
+                    </field>
+                    <field id="google_priority" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>Priority</label>
+                        <comment>Enter a whole number. A higher value means a higher priority. This field can be left empty.</comment>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                    </field>
+                </group>
+                <group id="mfchatgptapi" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>ChatGPT Translation API</label>
+                    <field id="enabled" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Enabled</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="chatgpt_api_key" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                        <label>Chat-GPT API Key</label>
+                    </field>
+                    <field id="chat_gpt_priority" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>Priority</label>
+                        <comment>Enter a whole number. A higher value means a higher priority. This field can be left empty.</comment>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                    </field>
+                </group>
+                <group id="mfdeeplapi" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>DeepL Translation API</label>
+                    <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Enabled</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="deepl_api_key" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                        <label>API Key</label>
+                    </field>
+                    <field id="deepl_priority" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>Priority</label>
+                        <comment>Enter a whole number. A higher value means a higher priority. This field can be left empty.</comment>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                    </field>
+                </group>
             </group>
         </section>
     </system>
