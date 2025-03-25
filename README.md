@@ -6,8 +6,6 @@
 
 Don’t dive deep into the code — use this tool to make the Magento translation a breeze! 
 
-Compatibility: Magento 2.3.0 - 2.4.x (CE, EE, ECE, B2B)
-
 <img  align="right" width="120" height="70" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg">
 
 <a href="https://magefan.com/magento-2-translation-extension"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/download-magefan-extensions.png"></a><a href="https://magefan.com/contact?question=request-free-trial&product_id=1833#contact-form-fields"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/free-trial.png"> 
@@ -35,9 +33,15 @@ Compatibility: Magento 2.3.0 - 2.4.x (CE, EE, ECE, B2B)
 </a>
 
 ## Benefits
-* Convenient website translation from the admin panel
-* Improve the Magento translation database
-* Product/category translation in a few clicks
+* [Manage Translations from the Admin Panel](https://github.com/magefan/module-translation#manage-translations-from-the-admin-panel)
+* [Translate Buttons and Labels Without Coding](https://github.com/magefan/module-translation#translate-buttons-and-labels-without-coding)
+* [Translate Products and Categories for All Store Views](https://github.com/magefan/module-translation#translate-products-and-categories-for-all-store-views)
+* [Add Translations Automatically](https://github.com/magefan/module-translation#add-translations-automatically)
+* [Translate Email Templates](https://github.com/magefan/module-translation#translate-email-templates)
+* [Search and Translate Text Easier](https://github.com/magefan/module-translation#search-and-translate-text-easier)
+* [Keep Track of All Translations](https://github.com/magefan/module-translation#keep-track-of-all-translations)
+* [Import/ Export Translations](https://github.com/magefan/module-translation#import-export-translations)
+
 
 ## Features
 
