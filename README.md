@@ -1,19 +1,26 @@
 # [Magento 2 Translation Extension](https://magefan.com/magento-2-translation-extension) by Magefan
 
+<img align="right" width="120" height="120" src="https://cm.magefan.com/catalog/product/cache/28b407cef1668fd0bdd6f36db3e8e2f0/i/c/icon-translate.jpg">
+
+[Magento 2 Translation](https://magefan.com/magento-2-translation-extension) Extension is the tool that allows you to add translations for buttons, labels, CMS content, email templates, and product and category attributes directly from the admin panel. It makes the translation process easy and intuitive.
+
+Don’t dive deep into the code — use this tool to make the Magento translation a breeze! 
+
+Compatibility: Magento 2.3.0 - 2.4.x (CE, EE, ECE, B2B)
+
+<img  align="right" width="120" height="70" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg">
+
+<a href="https://magefan.com/magento-2-translation-extension"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/download-magefan-extensions.png"></a><a href="https://magefan.com/contact?question=request-free-trial&product_id=1833#contact-form-fields"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/free-trial.png"> 
+
 [![Total Downloads](https://poser.pugx.org/magefan/module-translation/downloads)](https://packagist.org/packages/magefan/module-translation)
 [![Latest Stable Version](https://poser.pugx.org/magefan/module-translation/v/stable)](https://packagist.org/packages/magefan/module-translation)
 
-<a href="https://savelife.in.ua/en/donate-en/#donate-army-card-monthly"><img width="830" height="208" src="https://cm.magefan.com/blog/support-ukraine.png"></a>
+## Useful Links
+  * [User Guide](https://magefan.com/magento-2-translation-extension/documentation)
+  * [Change Log](https://magefan.com/magento-2-translation-extension/change-log)
+  * [FAQs](https://magefan.com/magento-2-translation-extension#pattr-faq)
 
-<img width="150" height="100" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg">
-
-<img align="right" width="120" height="120" src="https://cm.magefan.com/catalog/product/cache/28b407cef1668fd0bdd6f36db3e8e2f0/i/c/icon-translate.jpg">
-
-[Magento 2 Translation](https://magefan.com/magento-2-translation-extension) is the extension that allows you to add a translation for buttons, labels, CMS blocks, email templates, and product and category attributes directly from the admin panel. You don’t have to search for texts available for translation. This translation solution has already found them for you. 
-
-Magento translation can be easy. You just need the right tools!
-
-<a href="https://magefan.com/magento-2-translation-extension"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/download-magefan-extensions.png"></a><a href="https://magefan.com/magento-2-translation-extension#live-demo"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/magefan-live-demo.png"></a>
+## Stand with Ukraine! [How can you help?](https://magefan.com/blog/join-our-donations)
 
 ## Requirements
   * Magento Community 2.3.0-2.4.x (CE, EE, ECE, B2B)
@@ -32,58 +39,89 @@ Magento translation can be easy. You just need the right tools!
 * Improve the Magento translation database
 * Product/category translation in a few clicks
 
-
 ## Features
 
-### Translate Magento from the Admin Panel
+### Manage Translations from the Admin Panel
 
-Once you install a language pack in your Magento store, you might discover it covers about 50% of the translations. Some words might even be missing because they are not wrapped in the translation function.
+Once you install a language pack in your Magento store, you may see that it covers about 50% of the translations. Some words and phrases might be missing, and you’ll need to add them manually.
 
-That’s why you need the Magento 2 Translation extension to make the translation process easier. You can use it to easily add translation to multiple languages from the admin panel. Use the Search & Translate feature to find all the worlds available for translation and translate them in a matter of a few clicks.
+That’s quite a time-consuming process unless you have this Magento Translation tool to make it easier. It allows you to find all text available for translation and add translations for all store views in a matter of a few clicks!
 
 <p align="center">
   <img width="853" height="425" src="https://cm.magefan.com/catalog/magento-translation-from-the-admin-panel.png">
 </p>
 
-
-### Translate Buttons and Labels
+### Translate Buttons and Labels Without Coding
   
-If some buttons, labels or short phrases on your storefront haven’t been translated by the language pack, we’ve got you covered. You can use this Magento 2 Translation Extension to translate them to all available languages. 
+The language packs may not cover all of your labels or buttons. Yet, it’s crucial to have them translated since they are integral elements of your interface and facilitate the customer journey.
 
-Once you add the translation it is applied to all of your store pages; products, categories, CMS pages and blocks. We won’t let you miss anything. 
+The Magento 2 Translation Extension has a solution. It allows you to add translations for the corresponding text via the admin panel. Then, they are applied to all of your store pages: products, categories, CMS pages, and blocks. 
 
+Rest assured that not a single element will be missed!
 
-### Translate Product and Categories
+<p align="center">
+  <img width="853" height="425" src="https://cm.magefan.com/catalog/translate-lables-and-buttons-magento.png">
+</p>
 
-By default, you have to go to each store view separately to translate content and edit attributes. It is extremely ineffective and time-consuming. But not if you have the Magento 2 Translation extension or Magefan. 
+### Translate Products and Categories for All Store Views
 
-You can now translate all content and edit product attributes without leaving a default store view. Just click on the “Translate” button and update your content in a handy pop-up. Alternatively, you can also use the translation form.
+By default, you have to go to each store view separately to translate content and edit attributes. It is extremely ineffective and time-consuming. But not if you have this Magento Translation Extension.
+
+It allows you to translate all content and edit product attributes without leaving a default store view. Just press the “Translate” button and update your content in a handy pop-up. Can you imagine how much time you are going to save?
+
 
 <p align="center">
   <img width="853" height="425" src="https://cm.magefan.com/catalog/translate-products-and-categories-magento.png">
 </p>
 
+### Add Translations Automatically
+To translate even faster, the Magento 2 Translation extension allows you to integrate the Google Translation API and add translations within seconds. 
+
+Automatically translate product and category attributes individually or in bulk, then review and approve translations to ensure they are accurate. This saves you tons of time you can invest in other product management aspects.
+
+<p align="center">
+  <img width="853" height="425" src="https://cm.magefan.com/wysiwyg/magento-google-translation.png">
+</p>
+
+
 ### Translate Email Templates
+Email marketing is one of the most popular ways to stay in touch with your customers and keep them updated on your offers. So, if you manage a multi-language store, it‘s key to reach out to your customers in their local language.
 
-Email marketing is not dead. On the contrary, it is still one of the most popular ways to connect to your customers, retarget or make them convert. So, if you manage a multi-language store, it‘s key to reach out to your customers in their local language. 
+Use this Magento Translation Extension to translate emails without creating multiple templates. Just wrap email strings in the translation function and translate them for all of your store views from the admin panel.
 
-Use Magento 2 Translation Extension to translate emails without creating multiple templates. Once you wrap email strings in the translation function, you’ll be able to translate each string in the translations dashboard. 
+<p align="center">
+  <img width="853" height="425" src="https://cm.magefan.com/catalog/translate-email-templates-in-magento_1.png">
+</p>
 
-### Manage All Translation Better
+### Search and Translate Text Easier
+Adding translations is one thing. However, knowing what phrases are yet to be translated is another task. The Magento 2 Translation extension makes it easier for you.
 
-Magento localization is a work in process. You always add new content to your store which requires translation. It might become a mess, depending on the number of store views you have and translations already added to your store. But it won’t 
-
-Each translation you make is carefully stored in the Translations panel. You can quickly find the required text using filters. Search for translations using original/translated text, locale or store views.
+The Search and Translate dashboard features all strings that haven’t been translated yet. Thus, you can easily find and translate all the entities right in the grid. No need to waste time looking for untranslated text. This module does it for you.
 
 <p align="center">
   <img width="853" height="425" src="https://cm.magefan.com/wysiwyg/search-and-translate-text-to-translate-magento.png">
 </p>
 
+### Keep Track of All Translations
+Magento translation is an ongoing task. You regularly add new content that requires translation, so it’s quite difficult to keep track of what you did or didn’t add. 
+
+The Magento 2 Translation Extension makes the process easier. Each translation you make is carefully stored in the Translations panel. You can quickly find the required text by searching using original/translated text, locale, or store views.
+
+You have a clear picture of the added translations and know exactly where you stand.
+
+<p align="center">
+  <img width="853" height="425" src="https://cm.magefan.com/catalog/magento-translations.png">
+</p>
+
 ### Import/ Export Translations
+If you already have some translations and want to migrate them from one instance to another, there is an easy way. You can import and export your translation between instances using this Magento Translation tool.
 
-If you already have some translations made with the Inline Translate tool or just want to migrate your translations database to a new server, there is an easy way. You can easily import and export your translation between instances. 
+Export all your translations in the CSV/XML format and import them back if needed. It won’t take you more than a few seconds.
 
-Be sure your translations will never go missing. You can always keep them stored in the CSV or XML format.
+<p align="center">
+  <img width="853" height="425" src="https://cm.magefan.com/catalog/import-export-translations-magento.png">
+</p>
+
 
 ## Demo
 
@@ -111,7 +149,7 @@ Try out our open demo and if you like our extension **please give us some star o
       <td align="center" valign="middle">
         <a href="https://tr.demo.magefan.top/admin/admin/">
           <img
-            src="https://magefan.com/static/version1520969775/frontend/Magefan/new/en_US/images/product-tab-demo-2.jpg"
+            src="https://cs.magefan.com/version1732118579/frontend/Magefan/next/en_US/Magefan_CssOptimizer/images/product-tab-demo-2.jpg"
             alt="Magneto 2 Translation Extension Admin Panel Demo"
             height="220"
           >
@@ -132,17 +170,6 @@ Try out our open demo and if you like our extension **please give us some star o
     </tr>
   </tbody>
 </table>
-
-## Documentation
-
-**General**
-* [How to install Magento 2 Translation Extension?](https://magefan.com/magento-2-translation-extension/installation)
-* [How to update Magento 2 Translation Extension?](https://magefan.com/magento-2-translation-extension/updating)
-* [How to uninstall Magento 2 Translation Extension?](https://magefan.com/magento-2-translation-extension/uninstalling)
-
-**Configuration**
-* [How to Add Translations Magento 2 Translation Extension?](https://magefan.com/magento-2-translation-extension/configuration)
-* [How to Edit and Translate Product Attributes in Magento?](https://magefan.com/magento-2-translation-extension/edit-product-attributes)
   
 ## Support
 If you have any issues, please [contact us](mailto:support@magefan.com)
@@ -162,7 +189,7 @@ The code is licensed under [EULA](https://magefan.com/end-user-license-agreement
   * [Magento 2 Google Shopping Feed](https://magefan.com/magento-2-google-shopping-feed-extension)
   * [Magento 2 Google Customer Reviews](https://magefan.com/magento-2-google-customer-reviews)
 
-### [Magento 2 SEO Extensions](https://magefan.com/magento-2-extensions/magento-2-seo-extensions)
+### Magento 2 SEO Extensions
 
   * [Magento 2 SEO Extension](https://magefan.com/magento-2-seo-extension)
   * [Magento 2 Rich Snippets](https://magefan.com/magento-2-rich-snippets)
