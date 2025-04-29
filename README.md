@@ -8,10 +8,14 @@ Don’t dive deep into the code — use this tool to make the Magento translatio
 
 <img  align="right" width="120" height="70" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg">
 
-<a href="https://magefan.com/magento-2-translation-extension"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/download-magefan-extensions.png"></a><a href="https://magefan.com/contact?question=request-free-trial&product_id=1833#contact-form-fields"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/free-trial.png"> 
+<a href="https://magefan.com/magento-2-translation-extension"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/download-magefan-extensions.png"></a>
 
 [![Total Downloads](https://poser.pugx.org/magefan/module-translation/downloads)](https://packagist.org/packages/magefan/module-translation)
 [![Latest Stable Version](https://poser.pugx.org/magefan/module-translation/v/stable)](https://packagist.org/packages/magefan/module-translation)
+
+
+## Important Note:
+The 2.3.8 version of the [Translation extension](https://magefan.com/magento-2-translation-extension) is available only on magefan.com listing.
 
 ## Useful Links
   * [User Guide](https://magefan.com/magento-2-translation-extension/documentation)
