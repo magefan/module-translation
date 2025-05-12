@@ -1,5 +1,8 @@
 # [Magento 2 Translation Extension](https://magefan.com/magento-2-translation-extension) by Magefan
 
+[![Total Downloads](https://poser.pugx.org/magefan/module-translation/downloads)](https://packagist.org/packages/magefan/module-translation)
+[![Latest Stable Version](https://poser.pugx.org/magefan/module-translation/v/stable)](https://packagist.org/packages/magefan/module-translation)
+
 <img align="right" width="120" height="120" src="https://cm.magefan.com/catalog/product/cache/28b407cef1668fd0bdd6f36db3e8e2f0/i/c/icon-translate.jpg">
 
 [Magento 2 Translation](https://magefan.com/magento-2-translation-extension) Extension is the tool that allows you to add translations for buttons, labels, CMS content, email templates, and product and category attributes directly from the admin panel. It makes the translation process easy and intuitive.
@@ -9,10 +12,6 @@ Don’t dive deep into the code — use this tool to make the Magento translatio
 <img  align="right" width="120" height="70" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg">
 
 <a href="https://magefan.com/magento-2-translation-extension"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/download-magefan-extensions.png"></a>
-
-[![Total Downloads](https://poser.pugx.org/magefan/module-translation/downloads)](https://packagist.org/packages/magefan/module-translation)
-[![Latest Stable Version](https://poser.pugx.org/magefan/module-translation/v/stable)](https://packagist.org/packages/magefan/module-translation)
-
 
 ## Important Note:
 The 2.3.8 version of the [Translation extension](https://magefan.com/magento-2-translation-extension) is available only on magefan.com listing.
@@ -216,7 +215,8 @@ The code is licensed under [EULA](https://magefan.com/end-user-license-agreement
   * [Magento 2 Rocket JavaScript](https://magefan.com/rocket-javascript-deferred-javascript)
 
   ### [Magento 2 Admin Panel Extensions](https://magefan.com/magento-2-extensions/admin-extensions)
-
+  
+  * [Magento 2 Size Chart Extension](https://magefan.com/magento-2-size-chart)
   * [Magento 2 Security Extension](https://magefan.com/magento-2-security-extension)
   * [Magento 2 Admin Action Log](https://magefan.com/magento-2-admin-action-log)
   * [Magento 2 Order Editor](https://magefan.com/magento-2-edit-order-extension)
