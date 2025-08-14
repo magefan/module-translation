@@ -5,7 +5,9 @@
 
 <img align="right" width="120" height="120" src="https://cm.magefan.com/catalog/product/cache/28b407cef1668fd0bdd6f36db3e8e2f0/i/c/icon-translate.jpg">
 
-[Magento 2 Translation](https://magefan.com/magento-2-translation-extension) Extension is the tool that allows you to add translations for buttons, labels, CMS content, email templates, and product and category attributes directly from the admin panel. It makes the translation process easy and intuitive.
+[Magento 2 Translation](https://magefan.com/magento-2-translation-extension) Extension is a fully-featured tool that allows you to add translations for buttons, labels, CMS content, email templates, and product and category attributes directly from the admin panel. It makes the translation process easy and intuitive.
+
+Enhance the manual translation, localize your store automatically, and take full control over what gets translated. 
 
 Don’t dive deep into the code — use this tool to make the Magento translation a breeze! 
 
@@ -25,7 +27,7 @@ The 2.3.8 version of the [Translation extension](https://magefan.com/magento-2-t
 
 ## Requirements
   * Magento Community 2.3.0-2.4.x (CE, EE, ECE, B2B)
-  * **Note** This extension requires a license for all Magento Editions. For more information, please check the [Magento 2 Translation Extension pricing page](https://magefan.com/magento-2-translation-extension/pricing).
+  * **Note** This extension requires a license for all Magento Editions. For more information, please check the [Magento 2 Translation Extension pricing](https://magefan.com/magento-2-translation-extension/pricing).
 
 ## Editions & Pricing
   
@@ -36,98 +38,122 @@ The 2.3.8 version of the [Translation extension](https://magefan.com/magento-2-t
 </a>
 
 ## Benefits
-* [Manage Translations from the Admin Panel](https://github.com/magefan/module-translation#manage-translations-from-the-admin-panel)
-* [Translate Buttons and Labels Without Coding](https://github.com/magefan/module-translation#translate-buttons-and-labels-without-coding)
-* [Translate Products and Categories for All Store Views](https://github.com/magefan/module-translation#translate-products-and-categories-for-all-store-views)
+* [Get Your Store Ready for a Global Audience](https://github.com/magefan/module-translation#get-your-store-ready-for-a-global-audience)
+* [Don’t Miss a Single Phrase and Cover All Your Bases](https://github.com/magefan/module-translation#dont-miss-a-single-phrase-and-cover-all-your-bases)
+* [Give A Boost to Manual Translation](https://github.com/magefan/module-translation#give-a-boost-to-manual-translation)
+* [Search and Translate Missing Text Easier](https://github.com/magefan/module-translation#search-and-translate-missing-text-easier)
 * [Add Translations Automatically](https://github.com/magefan/module-translation#add-translations-automatically)
-* [Translate Email Templates](https://github.com/magefan/module-translation#translate-email-templates)
-* [Search and Translate Text Easier](https://github.com/magefan/module-translation#search-and-translate-text-easier)
+* [Benefit From the Scheduled Translation](https://github.com/magefan/module-translation#benefit-from-the-scheduled-translation)
+* [Restrict Specific Entities From Translation](https://github.com/magefan/module-translation#restrict-specific-entities-from-translation)
 * [Keep Track of All Translations](https://github.com/magefan/module-translation#keep-track-of-all-translations)
 * [Import/ Export Translations](https://github.com/magefan/module-translation#import-export-translations)
 
 
 ## Features
 
-### Manage Translations from the Admin Panel
+### Get Your Store Ready for a Global Audience
 
-Once you install a language pack in your Magento store, you may see that it covers about 50% of the translations. Some words and phrases might be missing, and you’ll need to add them manually.
+As profitable as your local market is, you’ll certainly want to explore new possibilities as your business grows. There are numerous things to prepare before going global, and your store localization is one of the most important aspects.
 
-That’s quite a time-consuming process unless you have this Magento Translation tool to make it easier. It allows you to find all text available for translation and add translations for all store views in a matter of a few clicks!
+By translating your store, you communicate your offers clearly and ensure people feel comfortable browsing your catalog. Thus, Magento translation is not optional, it’s obligatory if you want to succeed globally.
+
+That said, to get the job done effectively, you need a reliable Magento translation tool.
+
 
 <p align="center">
-  <img width="853" height="425" src="https://cm.magefan.com/catalog/magento-translation-from-the-admin-panel.png">
+  <img width="853" height="425" src="https://cm.magefan.com/mf_webp/png/media/wysiwyg/product_images/translation/magento-translate-meta-data.webp">
 </p>
 
-### Translate Buttons and Labels Without Coding
-  
-The language packs may not cover all of your labels or buttons. Yet, it’s crucial to have them translated since they are integral elements of your interface and facilitate the customer journey.
 
-The Magento 2 Translation Extension has a solution. It allows you to add translations for the corresponding text via the admin panel. Then, they are applied to all of your store pages: products, categories, CMS pages, and blocks. 
+### Don’t Miss a Single Phrase and Cover All Your Bases
+
+It’s crucial to have all interface elements translated since they are an integral part of your store and facilitate the customer journey.
+
+The Magento 2 Translation Extension has a solution. It allows you to translate labels, buttons, product and category attributes, CMS blocks and pages, email templates, as well as the Magefan Blog entities for all store views right from the admin panel.
 
 Rest assured that not a single element will be missed!
 
+
 <p align="center">
-  <img width="853" height="425" src="https://cm.magefan.com/catalog/translate-lables-and-buttons-magento.png">
+  <img width="853" height="425" src="https://cm.magefan.com/mf_webp/png/media/wysiwyg/product_images/translation/magento-translation.webp">
 </p>
 
-### Translate Products and Categories for All Store Views
+### Give A Boost to Manual Translation
 
 By default, you have to go to each store view separately to translate content and edit attributes. It is extremely ineffective and time-consuming. But not if you have this Magento Translation Extension.
 
-It allows you to translate all content and edit product attributes without leaving a default store view. Just press the “Translate” button and update your content in a handy pop-up. Can you imagine how much time you are going to save?
+It allows you to translate all content and edit product attributes without leaving a default store view. Just press the “Translate” button and update your content in a handy pop-up or a translation form. Can you imagine how much time you are going to save?
+
+<p align="center">
+  <img width="853" height="425" src="https://cm.magefan.com/mf_webp/png/media/wysiwyg/product_images/translation/translate-magento.webp">
+</p>
+
+
+### Search and Translate Missing Text Easier
+
+Adding translations is one thing. However, knowing what phrases are yet to be translated is another task. The Magento 2 Translation extension makes it easier for you.
+
+The "Search and Translate" dashboard features all strings that haven’t been translated yet. Thus, you can easily find and translate all the entities right in the grid. No need to waste time looking for untranslated text. This module does it for you.
 
 
 <p align="center">
-  <img width="853" height="425" src="https://cm.magefan.com/catalog/translate-products-and-categories-magento.png">
+  <img width="853" height="425" src="https://cm.magefan.com/mf_webp/png/media/wysiwyg/product_images/translation/magento-2-translations.webp">
 </p>
 
 ### Add Translations Automatically
-To translate even faster, the Magento 2 Translation extension allows you to integrate the Google Translation API and add translations within seconds. 
 
-Automatically translate product and category attributes individually or in bulk, then review and approve translations to ensure they are accurate. This saves you tons of time you can invest in other product management aspects.
+To translate even faster, the Magento Translation extension allows you to integrate 3 AI engines — Google Translate, ChatGPT, and DeepL — and add translations within seconds. 
+
+Automatically translate product and category attributes, CMS blocks and pages, Magefan Blog posts, and more, individually or in bulk. 
+
+Then, review and adjust translations to ensure they are accurate. This saves you tons of time, which you can invest in other tasks.
+
 
 <p align="center">
-  <img width="853" height="425" src="https://cm.magefan.com/wysiwyg/magento-google-translation.png">
+  <img width="853" height="425" src="https://cm.magefan.com/mf_webp/png/media/wysiwyg/product_images/translation/magento-translation-connector.webp">
 </p>
 
+### Benefit From the Scheduled Translation
 
-### Translate Email Templates
-Email marketing is one of the most popular ways to stay in touch with your customers and keep them updated on your offers. So, if you manage a multi-language store, it‘s key to reach out to your customers in their local language.
+As you update your store content, new material for translation regularly appears on the radar. Still, it’s quite difficult to keep track of changes pending translation. But you don’t have to with this comprehensive Magento translation tool.
 
-Use this Magento Translation Extension to translate emails without creating multiple templates. Just wrap email strings in the translation function and translate them for all of your store views from the admin panel.
+Using this extension, you can set the translation schedule and let the translations be added by cron once your content is updated. Define what entities should be scheduled and monitor the process in the translation schedule grid. 
+
+Maximize your localisation efforts without losing control over the process!
+
 
 <p align="center">
-  <img width="853" height="425" src="https://cm.magefan.com/catalog/translate-email-templates-in-magento_1.png">
+  <img width="853" height="425" src="https://cm.magefan.com/mf_webp/png/media/wysiwyg/product_images/translation/magento-translations-schedule.webp">
 </p>
 
-### Search and Translate Text Easier
-Adding translations is one thing. However, knowing what phrases are yet to be translated is another task. The Magento 2 Translation extension makes it easier for you.
+### Restrict Specific Entities From Translation
 
-The Search and Translate dashboard features all strings that haven’t been translated yet. Thus, you can easily find and translate all the entities right in the grid. No need to waste time looking for untranslated text. This module does it for you.
+While most of your content has to be translated, there are still some specific elements better left untouched. This Magento Translation Extension takes that into account and allows you to skip specific entities from auto translation.
+
+Simply specify the fields you’d like to skip from translation in the extension config, and the extension will ignore them in the process. Be sure your content remains consistent across all store views. 
+
 
 <p align="center">
-  <img width="853" height="425" src="https://cm.magefan.com/wysiwyg/search-and-translate-text-to-translate-magento.png">
+  <img width="853" height="425" src="https://cm.magefan.com/mf_webp/png/media/wysiwyg/product_images/translation/skip-page-fields-from-translation-magento.webp">
 </p>
 
 ### Keep Track of All Translations
+
 Magento translation is an ongoing task. You regularly add new content that requires translation, so it’s quite difficult to keep track of what you did or didn’t add. 
 
-The Magento 2 Translation Extension makes the process easier. Each translation you make is carefully stored in the Translations panel. You can quickly find the required text by searching using original/translated text, locale, or store views.
+The Magento 2 Translation Extension makes the process easier. Each translation you make is carefully stored in the Translations panel. You can quickly find the required text by using original/translated text, locale, or store views filters.
 
-You have a clear picture of the added translations and know exactly where you stand.
+You create your own dictionary, have a clear picture of the added translations, and know exactly where you stand.
 
 <p align="center">
-  <img width="853" height="425" src="https://cm.magefan.com/catalog/magento-translations.png">
+  <img width="853" height="425" src="https://cm.magefan.com/mf_webp/png/media/wysiwyg/product_images/translation/translate-buttons-and-lables-magento.webp">
 </p>
 
 ### Import/ Export Translations
+
 If you already have some translations and want to migrate them from one instance to another, there is an easy way. You can import and export your translation between instances using this Magento Translation tool.
 
 Export all your translations in the CSV/XML format and import them back if needed. It won’t take you more than a few seconds.
-
-<p align="center">
-  <img width="853" height="425" src="https://cm.magefan.com/catalog/import-export-translations-magento.png">
-</p>
 
 
 ## Demo
@@ -275,3 +301,4 @@ The code is licensed under [EULA](https://magefan.com/end-user-license-agreement
   * [Shopify Google Indexer](https://magefan.com/shopify/apps/google-indexing)
   * [Shopify Product Feeds](https://magefan.com/shopify/apps/product-feed)
   * [Shopify Server GTM & GA4](https://magefan.com/shopify/apps/gtm-and-ga4)
+
