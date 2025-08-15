@@ -33,7 +33,7 @@ The 2.3.8 version of the [Translation extension](https://magefan.com/magento-2-t
   
 <a href="https://magefan.com/magento-2-translation-extension/pricing">
           <img
-            src="https://cm.magefan.com/wysiwyg/products/translation-pricing.png"
+            src="https://cm.magefan.com/wysiwyg/products/translation-pricing-plans.png"
             alt="Pricing for Magento 2 Translation Extension" />
 </a>
 
@@ -301,4 +301,5 @@ The code is licensed under [EULA](https://magefan.com/end-user-license-agreement
   * [Shopify Google Indexer](https://magefan.com/shopify/apps/google-indexing)
   * [Shopify Product Feeds](https://magefan.com/shopify/apps/product-feed)
   * [Shopify Server GTM & GA4](https://magefan.com/shopify/apps/gtm-and-ga4)
+
 
