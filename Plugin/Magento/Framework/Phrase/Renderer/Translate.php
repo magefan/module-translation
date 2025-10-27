@@ -6,21 +6,25 @@
 
 declare(strict_types=1);
 
-namespace Magefan\Translation\Rewrite\Magento\Framework\Phrase\Renderer;
+namespace Magefan\Translation\Plugin\Magento\Framework\Phrase\Renderer;
 
 
 class Translate extends \Magento\Framework\Phrase\Renderer\Translate
 {
 
     /**
-     * Render source text
+     * Render source text fix for \n \rn
      *
      * @return string
      * @throws \Exception
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public function render(array $source, array $arguments)
-    {
+    public function aroundRender(
+        \Magento\Framework\Phrase\Renderer\Translate $subject,
+        callable $proceed,
+        array $source,
+        array $arguments
+    ){
         $text = end($source);
         /* If phrase contains escaped quotes then use translation for phrase with non-escaped quote */
         $text = strtr($text, ['\"' => '"', "\\'" => "'"]);
