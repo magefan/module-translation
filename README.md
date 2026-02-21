@@ -11,45 +11,48 @@ Enhance the manual translation, localize your store automatically, and take full
 
 Don’t dive deep into the code — use this tool to make the Magento translation a breeze! 
 
-<img  align="right" width="120" height="70" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg">
+Compatibility: Magento 2.3.0 - 2.4.x (CE, EE, ECE, B2B)
+
+> **Note:** The 2.3.8 version of the [Magento 2 Translation](https://magefan.com/magento-2-translation-extension) extension is available only on magefan.com listing.
+
+<a href="https://magefan.com/blog/join-our-donations"><img align="right" width="120" height="70" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg"></a>
 
 <a href="https://magefan.com/magento-2-translation-extension"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/download-magefan-extensions.png"></a>
+___
+TL;DR:
+Magefan Magento 2 Translation Extension lets you translate Magento 2 content directly from admin or frontend. No CSV files, no code edits, no risk of losing changes after updates — just quick, controlled, SEO-friendly translations.
 
-## Important Note:
-The 2.3.8 version of the [Translation extension](https://magefan.com/magento-2-translation-extension) is available only on magefan.com listing.
+## Why Use Magento 2 Translation Extension?
 
-## Useful Links
-  * [User Guide](https://magefan.com/magento-2-translation-extension/documentation)
-  * [Change Log](https://magefan.com/magento-2-translation-extension/change-log)
-  * [FAQs](https://magefan.com/magento-2-translation-extension#pattr-faq)
+Magento 2 provides language packs by default, but real-world translation needs go far beyond basic label and buttons translation.
 
-## 🇺🇦 Stand with Ukraine! [How can you help?](https://magefan.com/blog/join-our-donations)
+Store owners often need to:
 
-## Requirements
-  * Magento Community 2.3.0-2.4.x (CE, EE, ECE, B2B)
-  * **Note** This extension requires a license for all Magento Editions. For more information, please check the [Magento 2 Translation Extension pricing](https://magefan.com/magento-2-translation-extension/pricing).
+* Adjust default Magento default text
+* Fix inaccurate or missing translations from language packs
+* Translate checkout and cart messages
+* LOcalize product attributes for different markets
+* Modify email template wording and translations
+* Override theme texts and system messges without rewriting templates
 
-## Editions & Pricing
-  
-<a href="https://magefan.com/magento-2-translation-extension/pricing">
-          <img
-            src="https://cm.magefan.com/wysiwyg/products/translation-pricing-plans.png"
-            alt="Pricing for Magento 2 Translation Extension" />
-</a>
+Relying on CSV files with translations makes this process technical for teams that want to apply changes fast, without a developer. 
 
-## Benefits
-* [Get Your Store Ready for a Global Audience](https://github.com/magefan/module-translation#get-your-store-ready-for-a-global-audience)
-* [Don’t Miss a Single Phrase and Cover All Your Bases](https://github.com/magefan/module-translation#dont-miss-a-single-phrase-and-cover-all-your-bases)
-* [Give A Boost to Manual Translation](https://github.com/magefan/module-translation#give-a-boost-to-manual-translation)
-* [Search and Translate Missing Text Easier](https://github.com/magefan/module-translation#search-and-translate-missing-text-easier)
-* [Add Translations Automatically](https://github.com/magefan/module-translation#add-translations-automatically)
-* [Benefit From the Scheduled Translation](https://github.com/magefan/module-translation#benefit-from-the-scheduled-translation)
-* [Restrict Specific Entities From Translation](https://github.com/magefan/module-translation#restrict-specific-entities-from-translation)
-* [Keep Track of All Translations](https://github.com/magefan/module-translation#keep-track-of-all-translations)
-* [Import/ Export Translations](https://github.com/magefan/module-translation#import-export-translations)
+That's why Magento 2 Translation Extension removes this complexity.
+
+It allows you to override and translate text directly from the admin panel without modifying core files or having any technical knowledge.
+
+## Features of Magento 2 Translation Extension
+
+* Magento translations added directly in the admin panel
+* Translation form or popup for bulk translation on all store views
+* Auto translation for on or multiple pages (bulk translation)
+* Auto translation schedule for entire store
+* Integration with AI-based tools: ChatGPT, DeepL, Google Translate
+* Auto transation for Knokout and JavaScript texts
+* Auto-search for all untranslated texts
 
 
-## Features
+## Benefits of Transation Extension for Magento 2
 
 ### Get Your Store Ready for a Global Audience
 
@@ -155,6 +158,38 @@ If you already have some translations and want to migrate them from one instance
 
 Export all your translations in the CSV/XML format and import them back if needed. It won’t take you more than a few seconds.
 
+## Requirements
+  * Magento Community 2.3.0-2.4.x (CE, EE, ECE, B2B)
+  * **Note** This extension requires a license for all Magento Editions. For more information, please check the [Magento 2 Translation Extension pricing](https://magefan.com/magento-2-translation-extension/pricing).
+
+## Pricing for the Magento 2 Translation Extension
+Magento 2 Translation Extension price depends on the amount of translation work you need and the number of translations required.
+
+Magefan Translation module offers 3 plans with Basic covering basic translation fo labels, buttons and default Magento text, Plus offering auto search and handy multi store view translation forms and Extra coverin auto translation across your entire store.
+  
+<a href="https://magefan.com/magento-2-translation-extension/pricing">
+          <img
+            src="https://cm.magefan.com/wysiwyg/products/translation-pricing-plans.png"
+            alt="Pricing for Magento 2 Translation Extension" />
+</a>
+
+## Frequently Asked Questions About Magento 2 Translation
+
+### How do I translate text in Magento without editing CSV files?
+
+You can use Magefan Translation Extension for Magento that allows to add translaitons directly from the admin panel and offer automatic search and translation for all untranslated texts. This eliminates the need to edit language pack files manually.
+
+### Can I edit default Magento labels and messages?
+
+Yes. Magefan Translator for Magento allows you to replace any default Magento text, including system messages, checkout labels, and frontend interface elements as well as translate it to multiple languages.
+
+### Does Magento Translation Extension work with multi-language stores?
+
+Yes. This Translation Extension supports multiple store views and allows you to configure translation schedule or bulk tranlate for every store views separately.
+
+### Will translations remain after Magento updates?
+
+Yes. Magefan Translation Extenion for Magento does not edit core files. This means your translations remain intact during Magento or any other upgrades.
 
 ## Demo
 
@@ -311,5 +346,6 @@ The code is licensed under [EULA](https://magefan.com/end-user-license-agreement
 * [Magent SEO Service](https://magefan.com/magento-2-seo-service)
 * [Custom Magento Development](https://magefan.com/custom-development)
 * [Magento Installation Service](https://magefan.com/installation-service)
+
 
 
