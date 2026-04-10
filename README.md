@@ -51,6 +51,16 @@ It allows you to override and translate text directly from the admin panel witho
 * Auto transation for Knokout and JavaScript texts
 * Auto-search for all untranslated texts
 
+## Pricing for the Magento 2 Translation Extension
+Magento 2 Translation Extension price depends on the amount of translation work you need and the number of translations required.
+
+Magefan Translation module offers 3 plans with Basic covering basic translation fo labels, buttons and default Magento text, Plus offering auto search and handy multi store view translation forms and Extra coverin auto translation across your entire store.
+  
+<a href="https://magefan.com/magento-2-translation-extension/pricing">
+          <img
+            src="https://cm.magefan.com/wysiwyg/products/translation-extension-new-pricing.png"
+            alt="Pricing for Magento 2 Translation Extension" />
+</a>
 
 ## Benefits of Transation Extension for Magento 2
 
@@ -157,21 +167,6 @@ You create your own dictionary, have a clear picture of the added translations, 
 If you already have some translations and want to migrate them from one instance to another, there is an easy way. You can import and export your translation between instances using this Magento Translation tool.
 
 Export all your translations in the CSV/XML format and import them back if needed. It won’t take you more than a few seconds.
-
-## Requirements
-  * Magento Community 2.3.0-2.4.x (CE, EE, ECE, B2B)
-  * **Note** This extension requires a license for all Magento Editions. For more information, please check the [Magento 2 Translation Extension pricing](https://magefan.com/magento-2-translation-extension/pricing).
-
-## Pricing for the Magento 2 Translation Extension
-Magento 2 Translation Extension price depends on the amount of translation work you need and the number of translations required.
-
-Magefan Translation module offers 3 plans with Basic covering basic translation fo labels, buttons and default Magento text, Plus offering auto search and handy multi store view translation forms and Extra coverin auto translation across your entire store.
-  
-<a href="https://magefan.com/magento-2-translation-extension/pricing">
-          <img
-            src="https://cm.magefan.com/wysiwyg/products/translation-pricing-plans.png"
-            alt="Pricing for Magento 2 Translation Extension" />
-</a>
 
 ## Frequently Asked Questions About Magento 2 Translation
 
