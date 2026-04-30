@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Block\Adminhtml\Product\Attribute\Edit">
+        <plugin name="add_auto_translation_button_on_attributes_form" type="Magefan\Translation\Plugin\Backend\Magento\Catalog\Block\Adminhtml\Product\Attribute\Edit" sortOrder="5" disabled="false"/>
+    </type>
+
+    <type name="Magento\Backend\Block\Widget\Grid\Massaction">
+        <plugin name="add_auto_translate_mass_actions_to_blog_grid" type="Magefan\Translation\Plugin\Backend\Magento\Backend\Block\Widget\Grid\Massaction" sortOrder="5" disabled="false"/>
+    </type>
+</config>

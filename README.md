@@ -1,190 +1,131 @@
 # [Magento 2 Translation Extension](https://magefan.com/magento-2-translation-extension) by Magefan
 
-[![Total Downloads](https://poser.pugx.org/magefan/module-translation/downloads)](https://packagist.org/packages/magefan/module-translation)
-[![Latest Stable Version](https://poser.pugx.org/magefan/module-translation/v/stable)](https://packagist.org/packages/magefan/module-translation)
-
 <img align="right" width="120" height="120" src="https://cm.magefan.com/catalog/product/cache/28b407cef1668fd0bdd6f36db3e8e2f0/i/c/icon-translate.jpg">
 
-[Magento 2 Translation](https://magefan.com/magento-2-translation-extension) Extension is a fully-featured tool that allows you to add translations for buttons, labels, CMS content, email templates, and product and category attributes directly from the admin panel. It makes the translation process easy and intuitive.
-
-Enhance the manual translation, localize your store automatically, and take full control over what gets translated. 
+[Magento 2 Translation](https://magefan.com/magento-2-translation-extension) Extension is the tool that allows you to add translations for buttons, labels, CMS content, email templates, and product and category attributes directly from the admin panel. It makes the translation process easy and intuitive.
 
 Don’t dive deep into the code — use this tool to make the Magento translation a breeze! 
 
-Compatibility: Magento 2.3.0 - 2.4.x (CE, EE, ECE, B2B)
+<img  align="right" width="120" height="70" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg">
 
-> **Note:** The 2.3.8 version of the [Magento 2 Translation](https://magefan.com/magento-2-translation-extension) extension is available only on magefan.com listing.
+<a href="https://magefan.com/magento-2-translation-extension"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/download-magefan-extensions.png"></a><a href="https://magefan.com/contact?question=request-free-trial&product_id=1833#contact-form-fields"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/free-trial.png"> 
 
-<a href="https://magefan.com/blog/join-our-donations"><img align="right" width="120" height="70" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg"></a>
+[![Total Downloads](https://poser.pugx.org/magefan/module-translation/downloads)](https://packagist.org/packages/magefan/module-translation)
+[![Latest Stable Version](https://poser.pugx.org/magefan/module-translation/v/stable)](https://packagist.org/packages/magefan/module-translation)
 
-<a href="https://magefan.com/magento-2-translation-extension"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/download-magefan-extensions.png"></a>
-___
-TL;DR:
-Magefan Magento 2 Translation Extension lets you translate Magento 2 content directly from admin or frontend. No CSV files, no code edits, no risk of losing changes after updates — just quick, controlled, SEO-friendly translations.
+## Useful Links
+  * [User Guide](https://magefan.com/magento-2-translation-extension/documentation)
+  * [Change Log](https://magefan.com/magento-2-translation-extension/change-log)
+  * [FAQs](https://magefan.com/magento-2-translation-extension#pattr-faq)
 
-## Why Use Magento 2 Translation Extension?
+## Stand with Ukraine! [How can you help?](https://magefan.com/blog/join-our-donations)
 
-Magento 2 provides language packs by default, but real-world translation needs go far beyond basic label and buttons translation.
+## Requirements
+  * Magento Community 2.3.0-2.4.x (CE, EE, ECE, B2B)
+  * **Note** This extension requires a license for all Magento Editions. For more information, please check the [Magento 2 Translation Extension pricing page](https://magefan.com/magento-2-translation-extension/pricing).
 
-Store owners often need to:
-
-* Adjust default Magento default text
-* Fix inaccurate or missing translations from language packs
-* Translate checkout and cart messages
-* LOcalize product attributes for different markets
-* Modify email template wording and translations
-* Override theme texts and system messges without rewriting templates
-
-Relying on CSV files with translations makes this process technical for teams that want to apply changes fast, without a developer. 
-
-That's why Magento 2 Translation Extension removes this complexity.
-
-It allows you to override and translate text directly from the admin panel without modifying core files or having any technical knowledge.
-
-## Features of Magento 2 Translation Extension
-
-* Magento translations added directly in the admin panel
-* Translation form or popup for bulk translation on all store views
-* Auto translation for on or multiple pages (bulk translation)
-* Auto translation schedule for entire store
-* Integration with AI-based tools: ChatGPT, DeepL, Google Translate
-* Auto transation for Knokout and JavaScript texts
-* Auto-search for all untranslated texts
-
-## Pricing for the Magento 2 Translation Extension
-Magento 2 Translation Extension price depends on the amount of translation work you need and the number of translations required.
-
-Magefan Translation module offers 3 plans with Basic covering basic translation fo labels, buttons and default Magento text, Plus offering auto search and handy multi store view translation forms and Extra coverin auto translation across your entire store.
+## Editions & Pricing
   
 <a href="https://magefan.com/magento-2-translation-extension/pricing">
           <img
-            src="https://cm.magefan.com/wysiwyg/products/translation-extension-new-pricing.png"
+            src="https://cm.magefan.com/wysiwyg/products/translation-pricing.png"
             alt="Pricing for Magento 2 Translation Extension" />
 </a>
 
-## Benefits of Transation Extension for Magento 2
+## Benefits
+* [Manage Translations from the Admin Panel](https://github.com/magefan/module-translation#manage-translations-from-the-admin-panel)
+* [Translate Buttons and Labels Without Coding](https://github.com/magefan/module-translation#translate-buttons-and-labels-without-coding)
+* [Translate Products and Categories for All Store Views](https://github.com/magefan/module-translation#translate-products-and-categories-for-all-store-views)
+* [Add Translations Automatically](https://github.com/magefan/module-translation#add-translations-automatically)
+* [Translate Email Templates](https://github.com/magefan/module-translation#translate-email-templates)
+* [Search and Translate Text Easier](https://github.com/magefan/module-translation#search-and-translate-text-easier)
+* [Keep Track of All Translations](https://github.com/magefan/module-translation#keep-track-of-all-translations)
+* [Import/ Export Translations](https://github.com/magefan/module-translation#import-export-translations)
 
-### Get Your Store Ready for a Global Audience
 
-As profitable as your local market is, you’ll certainly want to explore new possibilities as your business grows. There are numerous things to prepare before going global, and your store localization is one of the most important aspects.
+## Features
 
-By translating your store, you communicate your offers clearly and ensure people feel comfortable browsing your catalog. Thus, Magento translation is not optional, it’s obligatory if you want to succeed globally.
+### Manage Translations from the Admin Panel
 
-That said, to get the job done effectively, you need a reliable Magento translation tool.
+Once you install a language pack in your Magento store, you may see that it covers about 50% of the translations. Some words and phrases might be missing, and you’ll need to add them manually.
 
+That’s quite a time-consuming process unless you have this Magento Translation tool to make it easier. It allows you to find all text available for translation and add translations for all store views in a matter of a few clicks!
 
 <p align="center">
-  <img width="853" height="425" src="https://cm.magefan.com/mf_webp/png/media/wysiwyg/product_images/translation/magento-translate-meta-data.webp">
+  <img width="853" height="425" src="https://cm.magefan.com/catalog/magento-translation-from-the-admin-panel.png">
 </p>
 
+### Translate Buttons and Labels Without Coding
+  
+The language packs may not cover all of your labels or buttons. Yet, it’s crucial to have them translated since they are integral elements of your interface and facilitate the customer journey.
 
-### Don’t Miss a Single Phrase and Cover All Your Bases
-
-It’s crucial to have all interface elements translated since they are an integral part of your store and facilitate the customer journey.
-
-The Magento 2 Translation Extension has a solution. It allows you to translate labels, buttons, product and category attributes, CMS blocks and pages, email templates, as well as the Magefan Blog entities for all store views right from the admin panel.
+The Magento 2 Translation Extension has a solution. It allows you to add translations for the corresponding text via the admin panel. Then, they are applied to all of your store pages: products, categories, CMS pages, and blocks. 
 
 Rest assured that not a single element will be missed!
 
-
 <p align="center">
-  <img width="853" height="425" src="https://cm.magefan.com/mf_webp/png/media/wysiwyg/product_images/translation/magento-translation.webp">
+  <img width="853" height="425" src="https://cm.magefan.com/catalog/translate-lables-and-buttons-magento.png">
 </p>
 
-### Give A Boost to Manual Translation
+### Translate Products and Categories for All Store Views
 
 By default, you have to go to each store view separately to translate content and edit attributes. It is extremely ineffective and time-consuming. But not if you have this Magento Translation Extension.
 
-It allows you to translate all content and edit product attributes without leaving a default store view. Just press the “Translate” button and update your content in a handy pop-up or a translation form. Can you imagine how much time you are going to save?
-
-<p align="center">
-  <img width="853" height="425" src="https://cm.magefan.com/mf_webp/png/media/wysiwyg/product_images/translation/translate-magento.webp">
-</p>
-
-
-### Search and Translate Missing Text Easier
-
-Adding translations is one thing. However, knowing what phrases are yet to be translated is another task. The Magento 2 Translation extension makes it easier for you.
-
-The "Search and Translate" dashboard features all strings that haven’t been translated yet. Thus, you can easily find and translate all the entities right in the grid. No need to waste time looking for untranslated text. This module does it for you.
+It allows you to translate all content and edit product attributes without leaving a default store view. Just press the “Translate” button and update your content in a handy pop-up. Can you imagine how much time you are going to save?
 
 
 <p align="center">
-  <img width="853" height="425" src="https://cm.magefan.com/mf_webp/png/media/wysiwyg/product_images/translation/magento-2-translations.webp">
+  <img width="853" height="425" src="https://cm.magefan.com/catalog/translate-products-and-categories-magento.png">
 </p>
 
 ### Add Translations Automatically
+To translate even faster, the Magento 2 Translation extension allows you to integrate the Google Translation API and add translations within seconds. 
 
-To translate even faster, the Magento Translation extension allows you to integrate 3 AI engines — Google Translate, ChatGPT, and DeepL — and add translations within seconds. 
-
-Automatically translate product and category attributes, CMS blocks and pages, Magefan Blog posts, and more, individually or in bulk. 
-
-Then, review and adjust translations to ensure they are accurate. This saves you tons of time, which you can invest in other tasks.
-
+Automatically translate product and category attributes individually or in bulk, then review and approve translations to ensure they are accurate. This saves you tons of time you can invest in other product management aspects.
 
 <p align="center">
-  <img width="853" height="425" src="https://cm.magefan.com/mf_webp/png/media/wysiwyg/product_images/translation/magento-translation-connector.webp">
+  <img width="853" height="425" src="https://cm.magefan.com/wysiwyg/magento-google-translation.png">
 </p>
 
-### Benefit From the Scheduled Translation
 
-As you update your store content, new material for translation regularly appears on the radar. Still, it’s quite difficult to keep track of changes pending translation. But you don’t have to with this comprehensive Magento translation tool.
+### Translate Email Templates
+Email marketing is one of the most popular ways to stay in touch with your customers and keep them updated on your offers. So, if you manage a multi-language store, it‘s key to reach out to your customers in their local language.
 
-Using this extension, you can set the translation schedule and let the translations be added by cron once your content is updated. Define what entities should be scheduled and monitor the process in the translation schedule grid. 
-
-Maximize your localisation efforts without losing control over the process!
-
+Use this Magento Translation Extension to translate emails without creating multiple templates. Just wrap email strings in the translation function and translate them for all of your store views from the admin panel.
 
 <p align="center">
-  <img width="853" height="425" src="https://cm.magefan.com/mf_webp/png/media/wysiwyg/product_images/translation/magento-translations-schedule.webp">
+  <img width="853" height="425" src="https://cm.magefan.com/catalog/translate-email-templates-in-magento_1.png">
 </p>
 
-### Restrict Specific Entities From Translation
+### Search and Translate Text Easier
+Adding translations is one thing. However, knowing what phrases are yet to be translated is another task. The Magento 2 Translation extension makes it easier for you.
 
-While most of your content has to be translated, there are still some specific elements better left untouched. This Magento Translation Extension takes that into account and allows you to skip specific entities from auto translation.
-
-Simply specify the fields you’d like to skip from translation in the extension config, and the extension will ignore them in the process. Be sure your content remains consistent across all store views. 
-
+The Search and Translate dashboard features all strings that haven’t been translated yet. Thus, you can easily find and translate all the entities right in the grid. No need to waste time looking for untranslated text. This module does it for you.
 
 <p align="center">
-  <img width="853" height="425" src="https://cm.magefan.com/mf_webp/png/media/wysiwyg/product_images/translation/skip-page-fields-from-translation-magento.webp">
+  <img width="853" height="425" src="https://cm.magefan.com/wysiwyg/search-and-translate-text-to-translate-magento.png">
 </p>
 
 ### Keep Track of All Translations
-
 Magento translation is an ongoing task. You regularly add new content that requires translation, so it’s quite difficult to keep track of what you did or didn’t add. 
 
-The Magento 2 Translation Extension makes the process easier. Each translation you make is carefully stored in the Translations panel. You can quickly find the required text by using original/translated text, locale, or store views filters.
+The Magento 2 Translation Extension makes the process easier. Each translation you make is carefully stored in the Translations panel. You can quickly find the required text by searching using original/translated text, locale, or store views.
 
-You create your own dictionary, have a clear picture of the added translations, and know exactly where you stand.
+You have a clear picture of the added translations and know exactly where you stand.
 
 <p align="center">
-  <img width="853" height="425" src="https://cm.magefan.com/mf_webp/png/media/wysiwyg/product_images/translation/translate-buttons-and-lables-magento.webp">
+  <img width="853" height="425" src="https://cm.magefan.com/catalog/magento-translations.png">
 </p>
 
 ### Import/ Export Translations
-
 If you already have some translations and want to migrate them from one instance to another, there is an easy way. You can import and export your translation between instances using this Magento Translation tool.
 
 Export all your translations in the CSV/XML format and import them back if needed. It won’t take you more than a few seconds.
 
-## Frequently Asked Questions About Magento 2 Translation
+<p align="center">
+  <img width="853" height="425" src="https://cm.magefan.com/catalog/import-export-translations-magento.png">
+</p>
 
-### How do I translate text in Magento without editing CSV files?
-
-You can use Magefan Translation Extension for Magento that allows to add translaitons directly from the admin panel and offer automatic search and translation for all untranslated texts. This eliminates the need to edit language pack files manually.
-
-### Can I edit default Magento labels and messages?
-
-Yes. Magefan Translator for Magento allows you to replace any default Magento text, including system messages, checkout labels, and frontend interface elements as well as translate it to multiple languages.
-
-### Does Magento Translation Extension work with multi-language stores?
-
-Yes. This Translation Extension supports multiple store views and allows you to configure translation schedule or bulk tranlate for every store views separately.
-
-### Will translations remain after Magento updates?
-
-Yes. Magefan Translation Extenion for Magento does not edit core files. This means your translations remain intact during Magento or any other upgrades.
 
 ## Demo
 
@@ -242,105 +183,88 @@ then if you still need help, open a bug report in GitHub's
 ## License
 The code is licensed under [EULA](https://magefan.com/end-user-license-agreement).
 
-## [Magento Extensions](https://magefan.com/magento-2-extensions) by Magefan
-
-### Magento 2 SEO Extensions
-
-* [Magento SEO](https://magefan.com/magento-2-seo-extension)
-* [Magento 2 Rich Snippets](https://magefan.com/magento-2-rich-snippets)
-* [Magento 2 HTML Sitemap](https://magefan.com/magento-2-html-sitemap-extension)
-* [Magento 2 XML Sitemap](https://magefan.com/magento-2-xml-sitemap-extension)
-* [Magento 2 Twitter Cards](https://magefan.com/magento-2-twitter-cards-extension)
-* [Magento Open Graph Tags](https://magefan.com/magento-2-open-graph-extension-og-tags)
+## [Magento 2 Extensions](https://magefan.com/magento-2-extensions) by Magefan
 
 ### [Magento 2 Google Extensions](https://magefan.com/magento-2-extensions/google-extensions)
 
-* [Magento Google Tag Manager](https://magefan.com/magento-2-google-tag-manager)
-* [Magento 2 Google Analytics 4](https://magefan.com/magento-2-google-analytics-4)
-* [Magento Google Shopping Feed](https://magefan.com/magento-2-google-shopping-feed-extension)
-* [Magento Google Customer Reviews](https://magefan.com/magento-2-google-customer-reviews)
-* [Magento 2 Google Indexing](https://magefan.com/magento-2-google-indexing-api)
+  * [Magento 2 Google Indexing API](https://magefan.com/magento-2-google-indexing-api)
+  * [Magento 2 Google Analytics 4](https://magefan.com/magento-2-google-analytics-4)
+  * [Magento 2 Google Tag Manager](https://magefan.com/magento-2-google-tag-manager)
+  * [Magento 2 Google Shopping Feed](https://magefan.com/magento-2-google-shopping-feed-extension)
+  * [Magento 2 Google Customer Reviews](https://magefan.com/magento-2-google-customer-reviews)
 
-### [Magento Speed Optimisation Extensions](https://magefan.com/magento-2-extensions/speed-optimization)
+### Magento 2 SEO Extensions
 
-* [Magento 2 Google Page Speed Optimizer](https://magefan.com/magento-2-google-page-speed-optimizer)
-* [Magento 2 WebP Images](https://magefan.com/magento-2-webp-optimized-images)
-* [Magento Full Page Cache Extension](https://magefan.com/magento-2-full-page-cache-warmer)
-* [Magento 2 Lazy Load Images](https://magefan.com/magento-2-image-lazy-load-extension)
-* [Magento 2 Defer JavaScript](https://magefan.com/rocket-javascript-deferred-javascript)
+  * [Magento 2 SEO Extension](https://magefan.com/magento-2-seo-extension)
+  * [Magento 2 Rich Snippets](https://magefan.com/magento-2-rich-snippets)
+  * [Magento 2 HTML Sitemap](https://magefan.com/magento-2-html-sitemap-extension)
+  * [Magento 2 XML Sitemap](https://magefan.com/magento-2-xml-sitemap-extension)
+  * [Magento 2 Twitter Cards](https://magefan.com/magento-2-twitter-cards-extension)
+  * [Magento 2 Facebook Open Graph Tags](https://magefan.com/magento-2-open-graph-extension-og-tags)
 
-### [Magento Admin Extensions](https://magefan.com/magento-2-extensions/admin-extensions)
+### [Magento 2 Speed Optimization Extensions](https://magefan.com/magento-2-extensions/speed-optimization)
 
-* [Magento 2 Dynamic Category](https://magefan.com/magento-2-dynamic-categories)
-* [Magento 2 Size Chart](https://magefan.com/magento-2-size-chart)
-* [Magento 2 Security Extension](https://magefan.com/magento-2-security-extension)
-* [Magento 2 Admin Action Log](https://magefan.com/magento-2-admin-action-log)
-* [Magento Extended Product Grid](https://magefan.com/magento-2-product-grid-inline-editor)
-* [Magento 2 Product Tabs](https://magefan.com/magento-2/extensions/product-tabs)
-* [Magento 2 Product Widget](https://magefan.com/magento-2-product-widget)
-* [Magento 2 Email Attachments](https://magefan.com/magento-2-email-attachments)
-* [Magento 2 Admin View](https://magefan.com/magento-2-admin-view-extension)
-* [Magento 2 Email Notifications](https://magefan.com/magento-2-admin-email-notifications)
-* [Magento 2 Login As Customer](https://magefan.com/login-as-customer-magento-2-extension)
+  * [Magento 2 Google Page Speed Optimizer](https://magefan.com/magento-2-google-page-speed-optimizer)
+  * [Magento 2 Full Page Cache Warmer](https://magefan.com/magento-2-full-page-cache-warmer)
+  * [Magento 2 Image Lazy Load](https://magefan.com/magento-2-image-lazy-load-extension)
+  * [Magento 2 WebP Images](https://magefan.com/magento-2-webp-optimized-images)
+  * [Magento 2 Rocket JavaScript](https://magefan.com/rocket-javascript-deferred-javascript)
 
-### [Magento Order Management Extensions](https://magefan.com/magento-2-extensions/order-management)
+  ### [Magento 2 Admin Panel Extensions](https://magefan.com/magento-2-extensions/admin-extensions)
 
-* [Magento Order Editor](https://magefan.com/magento-2-edit-order-extension)
-* Better [Magento 2 Order Grid](https://magefan.com/magento-2-better-order-grid-extension)
-* [Magento 2 Guest to Customer](https://magefan.com/magento2-convert-guest-to-customer)
-* [Magento POS System](https://magefan.com/magento-pos-system)
+  * [Magento 2 Admin Action Log](https://magefan.com/magento-2-admin-action-log)
+  * [Magento 2 Order Editor](https://magefan.com/magento-2-edit-order-extension)
+  * [Magento 2 Better Order Grid](https://magefan.com/magento-2-better-order-grid-extension)
+  * [Magento 2 Extended Product Grid](https://magefan.com/magento-2-product-grid-inline-editor)
+  * [Magento 2 Product Tabs](https://magefan.com/magento-2/extensions/product-tabs)
+  * [Magento 2 Facebook Pixel](https://magefan.com/magento-2-facebook-pixel-extension)
+  * [Magento 2 Email Attachments](https://magefan.com/magento-2-email-attachments)
+  * [Magento 2 Admin View](https://magefan.com/magento-2-admin-view-extension)
+  * [Magento 2 Admin Email Notifications](https://magefan.com/magento-2-admin-email-notifications)
+  * [Magento 2 Login As Customer](https://magefan.com/login-as-customer-magento-2-extension)
 
-### Magento 2 Blog Extensions
+### [Magento 2 Blog Extensions](https://magefan.com/magento-2-extensions/blog-extensions)
 
-* [Magento 2 Blog Extension](https://magefan.com/magento2-blog-extension)
-* [Magento 2 Multi Blog](https://magefan.com/magento-2-multi-blog-extension)
+  * [Magento 2 Blog](https://magefan.com/magento2-blog-extension)
+  * [Magento 2 Multi Blog](https://magefan.com/magento-2-multi-blog-extension)
+  * [Magento 2 Product Widget](https://magefan.com/magento-2-product-widget)
 
-### [Magento Marketing Extensions](https://magefan.com/magento-2-extensions/marketing-automation)
+### [Magento 2 Marketing Automation Extensions](https://magefan.com/magento-2-extensions/magento-marketing-automation)
 
-* [Magento 2 Facebook Pixel](https://magefan.com/magento-2-facebook-pixel-extension)
-* [Magento TikTok Pixel](https://magefan.com/magento-2-tiktok-pixel)
-* [Magento 2 Dynamic Blocks](https://magefan.com/magento-2-cms-display-rules-extension) and Pages
-* [Magento 2 Cookie Consent](https://magefan.com/magento-2-cookie-consent)
-* [Magento 2 Base Price](https://magefan.com/magento-2-base-price)
-* [Magento 2 Price History](https://magefan.com/magento-2-price-history)
-* [Magento 2 Mautic Extension](https://magefan.com/magento-2-mautic-extension)
-* [Magento 2 YouTube Video](https://magefan.com/magento2-youtube-extension)
+  * [Magento 2 Cookie Consent](https://magefan.com/magento-2-cookie-consent)
+  * [Magento 2 Product Labels](https://magefan.com/magento-2-product-labels)
+  * [Magento 2 Base Price](https://magefan.com/magento-2-base-price)
+  * [Magento 2 Dynamic Categories](https://magefan.com/magento-2-dynamic-categories)
+  * [Magento 2 Dynamic Blocks and Pages Extension](https://magefan.com/magento-2-cms-display-rules-extension)
+  * [Magento 2 Automatic Related Products](https://magefan.com/magento-2-automatic-related-products)
+  * [Magento 2 Price History](https://magefan.com/magento-2-price-history)
+  * [Magento 2 Mautic Extension](https://magefan.com/magento-2-mautic-extension)
+  * [Magento 2 YouTube Video Extension](https://magefan.com/magento2-youtube-extension)    
+ 
+### [Magento 2 Cart Extensions](https://magefan.com/magento-2-extensions/cart-extensions)
 
-### [Magento Promotions Extensions](https://magefan.com/magento-2-extensions/promotions-extensions)
-
-* [Magento 2 Automatic Related Products](https://magefan.com/magento-2-automatic-related-products)
-* [Magento 2 Product Labels](https://magefan.com/magento-2-product-labels)
-* [Magento 2 Coupon Code Extension](https://magefan.com/magento-2-coupon-code-link)
+  * [Better Magento 2 Checkout Extension](https://magefan.com/better-magento-2-checkout-extension)
+  * [Magento 2 Coupon Code Link](https://magefan.com/magento-2-coupon-code-link)
+  * [Magento 2 Guest to Customer](https://magefan.com/magento2-convert-guest-to-customer)
 
 ### [Magento 2 Multi-Language Extensions](https://magefan.com/magento-2-extensions/multi-language-extensions)
 
-* [Magento 2 Hreflang Tags](https://magefan.com/magento2-alternate-hreflang-extension)
-* [Magento 2 Currency Switcher](https://magefan.com/magento-2-currency-switcher-auto-currency-by-country)
-* [Magento 2 Language Switcher](https://magefan.com/magento-2-auto-language-switcher)
-* [Magento 2  Store Switcher](https://magefan.com/magento-2-geoip-switcher-extension)
+  * [Magento 2 Hreflang Tags](https://magefan.com/magento2-alternate-hreflang-extension)
+  * [Magento 2 Auto Currency Switcher](https://magefan.com/magento-2-currency-switcher-auto-currency-by-country)
+  * [Magento 2 Auto Language Switcher](https://magefan.com/magento-2-auto-language-switcher)
+  * [Magento 2 GeoIP Store Switcher](https://magefan.com/magento-2-geoip-switcher-extension)
 
 ### [Developers Tools](https://magefan.com/magento-2-extensions/developer-tools)
 
-* [Magento Zero Downtime Deployment](https://magefan.com/blog/magento-2-zero-downtime-deployment)
-* [Magento 2 Cron Schedule](https://magefan.com/magento-2-cron-schedule)
-* [Magento 2 CLI Extension](https://magefan.com/magento2-cli-extension)
-* [Magento 2 Conflict Detector](https://magefan.com/magento2-conflict-detector)
+  * [Magento 2 Zero Downtime Deployment](https://magefan.com/blog/magento-2-zero-downtime-deployment)
+  * [Magento 2 Cron Schedule](https://magefan.com/magento-2-cron-schedule)
+  * [Magento 2 CLI Extension](https://magefan.com/magento2-cli-extension)
+  * [Magento 2 Conflict Detector](https://magefan.com/magento2-conflict-detector)
+     
+  ## [Shopify Apps](https://magefan.com/shopify/apps) by Magefan
 
-### [Shopify Apps](https://magefan.com/shopify/apps) by Magefan
-
-* [Shopify Login As Customer](https://apps.shopify.com/login-as-customer)
-* [Shopify Blog](https://apps.shopify.com/magefan-blog)
-* [Shopify Size Chart](https://magefan.com/shopify/apps/size-chart)
-* [Shopify Google Indexer](https://magefan.com/shopify/apps/google-indexing)
-* [Shopify Product Feeds](https://magefan.com/shopify/apps/product-feed)
-* [Shopify Server GTM & GA4](https://magefan.com/shopify/apps/gtm-and-ga4)
-
-### [Magento 2 Services](https://magefan.com/services) by Magefan
-
-* [Magento Speed Optimization Service](https://magefan.com/magento-speed-optimization-service)
-* [Magent SEO Service](https://magefan.com/magento-2-seo-service)
-* [Custom Magento Development](https://magefan.com/custom-development)
-* [Magento Installation Service](https://magefan.com/installation-service)
-
-
-
+  * [Shopify Login As Customer](https://apps.shopify.com/login-as-customer)
+  * [Shopify Blog](https://apps.shopify.com/magefan-blog)
+  * [Shopify Size Chart](https://magefan.com/shopify/apps/size-chart)
+  * [Shopify Google Indexer](https://magefan.com/shopify/apps/google-indexing)
+  * [Shopify Product Feeds](https://magefan.com/shopify/apps/product-feed)

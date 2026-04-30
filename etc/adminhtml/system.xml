@@ -22,6 +22,12 @@
                 <field id="version" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <frontend_model>Magefan\Translation\Block\Adminhtml\System\Config\Form\Info</frontend_model>
                 </field>
+                <field id="infoPlus" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Magefan\Translation\Block\Adminhtml\System\Config\Form\InfoTranslationPlus</frontend_model>
+                </field>
+                <field id="infoExtra" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Magefan\Translation\Block\Adminhtml\System\Config\Form\InfoTranslationExtra</frontend_model>
+                </field>
                 <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Extension Enable</label>
@@ -31,6 +37,222 @@
                     <label>Product Key</label>
                     <frontend_model>Magefan\Community\Block\Adminhtml\System\Config\Form\ProductKeyField</frontend_model>
                 </field>
+                <field id="flush_cache_on_translation" translate="label comment" type="select" sortOrder="21" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Flush Cache On Translation Change</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="ignore_gws_permissions" translate="label comment" type="select" sortOrder="22" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Ignore GWS Permissions On Translation Grid</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="mftranslationapis" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Translation APIs (Extra)</label>
+                <field id="locale_source" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <label>Default Locale (Translate From)</label>
+                    <source_model>Magefan\Translation\Model\Config\Source\LocaleSource</source_model>
+                </field>
+
+                <field id="default_translator" translate="label comment" type="select" sortOrder="25" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <label>Default Translator</label>
+                    <source_model>Magefan\Translation\Model\Config\Source\ProcessorsList</source_model>
+                </field>
+
+                <group id="usage_limits" translate="label" type="text" sortOrder="35" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Daily Usage Limit</label>
+
+                    <field id="limit_by" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                        <label>Limit By</label>
+                        <source_model>Magefan\Translation\Model\Config\Source\LimitBy</source_model>
+                    </field>
+
+                    <field id="count" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                        <label>Count</label>
+                        <validate>validate-number validate-greater-than-zero</validate>
+                        <comment><![CDATA[Number of requests or characters]]></comment>
+                    </field>
+
+                    <field id="current_usage" translate="label" sortOrder="25" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label></label>
+                        <frontend_model>Magefan\Translation\Block\Adminhtml\System\Config\Form\CurrentUsage</frontend_model>
+                    </field>
+                </group>
+
+                <group id="mfgoogleapi" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Google Translation API</label>
+
+                    <field id="api_version" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>API Version</label>
+                        <source_model>Magefan\Translation\Model\Config\Source\GoogleApiVersion</source_model>
+                    </field>
+
+                    <field id="google_api_key" translate="label" type="obscure" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>API Key</label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                        <comment><![CDATA[
+                        <a href="https://magefan.com/magento-2-translation-extension/google-translation-api" target="_blank">Get Google Translate API key</a> and enter it here.
+                        ]]></comment>
+                        <depends>
+                            <field id="api_version">v2</field>
+                        </depends>
+                    </field>
+
+                    <field id="v3_auth_data" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <frontend_model>Magefan\Translation\Block\Adminhtml\System\Config\Form\AuthData</frontend_model>
+                        <depends>
+                            <field id="api_version">v3</field>
+                        </depends>
+                    </field>
+                    <field id="v3_config_file_name" translate="label" type="Magento\Config\Block\System\Config\Form\Field\File" sortOrder="15" showInDefault="1"  showInWebsite="0" showInStore="0">
+                        <label>Private Key JSON File </label>
+                        <frontend_model>Magefan\Translation\Block\Adminhtml\System\Config\Form\ConfigFile</frontend_model>
+                        <backend_model>Magefan\Translation\Model\Config\Backend\File</backend_model>
+                        <depends>
+                            <field id="api_version">v3</field>
+                        </depends>
+                    </field>
+
+                    <field id="v3_location" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                        <label>Location</label>
+                        <source_model>Magefan\Translation\Model\Config\Source\GoogleApiLocation</source_model>
+                        <depends>
+                            <field id="api_version">v3</field>
+                        </depends>
+                    </field>
+
+                    <group id="glossary" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>Glossary</label>
+
+                        <field id="enable" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                            <label>Enable</label>
+                            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                            <comment><![CDATA[Available only for - V3 (Advanced - JSON Key / Glossaries)]]></comment>
+                        </field>
+                    </group>
+
+                </group>
+                <group id="mfchatgptapi" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>ChatGPT Translation API</label>
+
+                    <field id="chatgpt_model" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                        <label>ChatGPT Model</label>
+                        <source_model>Magefan\Translation\Model\Config\Source\ChatGPTModels</source_model>
+                    </field>
+
+                    <field id="chatgpt_api_key" translate="label" type="obscure" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>ChatGPT API Key</label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                        <comment><![CDATA[
+                        <a href="https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key" target="_blank">Get ChatGPT API key</a> and enter it here.
+                        ]]></comment>
+                    </field>
+
+                    <field id="additional_instructions" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                        <label>Additional Instructions</label>
+                        <comment><![CDATA[Examples:<br>- Don't translate the string "Have a nice day!". <br>- Preserve formal tone.]]></comment>
+                    </field>
+
+                    <group id="glossary" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>Glossary</label>
+
+                        <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                            <label>Enable</label>
+                            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                            <comment><![CDATA[When enabled, glossary terms are injected into each ChatGPT prompt. No sync is needed — terms are sent with every request.]]></comment>
+                        </field>
+                    </group>
+                </group>
+                <group id="mfdeeplapi" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>DeepL Translation API</label>
+                    <field id="deepl_api_url" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                        <label>API URL</label>
+                        <source_model>\Magefan\Translation\Model\Config\Source\DeeplApiUrl</source_model>
+                    </field>
+                    <field id="deepl_api_key" translate="label" type="obscure" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>API Key</label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                        <comment><![CDATA[
+                        <a href="https://support.deepl.com/hc/en-us/articles/360020695820-API-key-for-DeepL-API" target="_blank">Get DeepL API key</a> and enter it here.
+                        ]]></comment>
+                    </field>
+
+                    <group id="glossary" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>Glossary</label>
+
+                        <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                            <label>Enable</label>
+                            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        </field>
+                    </group>
+                </group>
+            </group>
+
+            <group id="auto_translation" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Auto Translation (Extra)</label>
+
+                <field id="excluded_stores" translate="label" type="multiselect" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                    <label>Excluded Stores</label>
+                    <source_model>Magento\Store\Model\System\Store</source_model>
+                    <comment><![CDATA[
+                        Select store views that should be excluded from auto translation.
+                        ]]></comment>
+                </field>
+
+                <field id="skipped_fields" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Skipped</label>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                    <frontend_model>Magefan\Translation\Block\Adminhtml\System\Config\Form\Field\SkippedFieldsDynamicRow</frontend_model>
+                    <backend_model>Magefan\Translation\Model\System\Config\Backend\SkippedFields</backend_model>
+                </field>
+
+                <group id="schedule_translation" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Schedule Translation</label>
+
+                    <field id="enable" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="source" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                        <depends>
+                            <field id="enable">1</field>
+                        </depends>
+                        <label>Source</label>
+                        <source_model>Magefan\Translation\Model\Config\Source\ScheduleSource</source_model>
+                        <comment><![CDATA[
+                        If you want to translate all entities, press the "Schedule All Entities" button below. Once the content of the translated entities is changed they will be scheduled and translated again.
+                        ]]></comment>
+                    </field>
+
+                    <field id="delay_before_translation" translate="label comment" type="text" sortOrder="35" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                        <depends>
+                            <field id="enable">1</field>
+                        </depends>
+                        <label>Delay Before Translation (minutes)</label>
+                        <validate>validate-zero-or-greater</validate>
+                        <comment><![CDATA[Translation will be delayed by this many minutes from the last save. If the entity is saved again within this window, the timer resets.]]></comment>
+                    </field>
+
+                    <field id="schedule_all_entities_button" translate="label" sortOrder="120" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label></label>
+                        <depends>
+                            <field id="enable">1</field>
+                        </depends>
+                        <frontend_model>Magefan\Translation\Block\Adminhtml\System\Config\Form\ScheduleSelectedSourcesButton</frontend_model>
+                    </field>
+                </group>
             </group>
         </section>
     </system>

@@ -10,6 +10,8 @@
     <body>
         <referenceContainer name="content">
             <uiComponent name="translation_translation_form"/>
+
+            <block name="mf_auto_translate" template="Magefan_Translation::add_edit_translation/auto_translation.phtml" />
         </referenceContainer>
     </body>
 </page>

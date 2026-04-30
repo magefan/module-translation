@@ -1,0 +1,103 @@
+<?php
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ */
+
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+
+<div class="admin__fieldset-wrapper" style="margin-bottom: 40px;">
+    <div class="admin__fieldset-wrapper-content">
+
+        <div class="admin__collapsible-block-wrapper">
+            <div class="admin__collapsible-block"
+                 data-mage-init='{
+                    "collapsible":{
+                        "collapsible": true,
+                        "openedState": "active",
+                        "active": false
+                    }}'>
+
+                <div class="admin__collapsible-title" data-role="title">
+                    <strong>
+                        <p style="font-style: italic; font-size: 0.9em; color: #666; margin: 4px 0 0;">
+                            <?= $escaper->escapeHtml(__('Note: text added in this section will only be translated if it is wrapped in the translation function.')) ?>
+                        </p>
+                    </strong>
+                </div>
+
+                <div class="admin__collapsible-content _show" data-role="content">
+
+                    <div id="translation-info-banner" class="translation-info-banner" role="region" aria-label="<?= $escaper->escapeHtml(__('Translation Info Banner')) ?>">
+                        <span><strong><?= $escaper->escapeHtml(__('Examples')) ?></strong></span>
+                        <br>
+                        <br>
+                        <table class="translation-table" role="table" aria-label="<?= $escaper->escapeHtml(__('Supported Translation Methods')) ?>">
+                            <thead>
+                            <tr>
+                                <th><?= $escaper->escapeHtml(__('Format')) ?></th>
+                                <th><?= $escaper->escapeHtml(__('Works')) ?></th>
+                                <th><?= $escaper->escapeHtml(__('Description')) ?></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><code><?= $escaper->escapeHtml(__("__('Text')")) ?></code></td>
+                                <td class="status-yes">✅</td>
+                                <td><?= $escaper->escapeHtml(__('Most common method, used in modules and themes (PHP)')) ?></td>
+                            </tr>
+                            <tr>
+                                <td><code><?= $escaper->escapeHtml(__('data-bind="i18n: \'Text\'"')) ?></code></td>
+                                <td class="status-yes">✅</td>
+                                <td><?= $escaper->escapeHtml(__('Used in frontend Knockout.js templates')) ?></td>
+                            </tr>
+                            <tr>
+                                <td><code><?= $escaper->escapeHtml(__("\$t('Text')")) ?></code></td>
+                                <td class="status-yes">✅</td>
+                                <td><?= $escaper->escapeHtml(__('Used in JavaScript via mage/translate module')) ?></td>
+                            </tr>
+                            <tr>
+                                <td><code><?= $escaper->escapeHtml(__('{{trans "Text"}}')) ?></code></td>
+                                <td class="status-yes">✅</td>
+                                <td><?= $escaper->escapeHtml(__('Used in CMS blocks, pages, and email templates')) ?></td>
+                            </tr>
+                            <tr>
+                                <td><code><?= $escaper->escapeHtml(__('translate="true"')) ?></code></td>
+                                <td class="status-yes">✅</td>
+                                <td><?= $escaper->escapeHtml(__('Used in UI components and configuration XML files')) ?></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <p class="translation-note">
+                            <?= $escaper->escapeHtml(__('Only strings (text) written in one of the formats above will be translated.')) ?>
+                            <strong><?= $escaper->escapeHtml(__('Texts from product names, CMS content, and database are not supported unless specifically wrapped in the translation function.')) ?></strong>
+                        </p>
+                    </div>
+
+                </div>
+
+                <span>
+                    <a target="_blank" href="https://magefan.com/knowledge-base/magento-translation-functions">
+                        <?= $escaper->escapeHtml(__('Learn more about Magento Translation Functions')) ?>
+                    </a>
+                </span><br><br>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .admin__collapsible-block:not(.active) .admin__collapsible-content {display: none;}
+    .translation-info-banner {position: relative;border: 1px solid #ccc;padding: 50px 20px 15px 20px;margin-bottom: 20px;color: #333;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}
+    .translation-info-banner .close-btn {position: absolute;top: 10px;right: 15px;font-size: 18px;font-weight: bold;cursor: pointer;color: #888;user-select: none;}
+    .translation-info-banner .close-btn:hover {color: #444;}
+    .translation-table {border-collapse: collapse;width: 100%;}
+    .translation-table th,
+    .translation-table td {border: 1px solid #ddd;padding: 8px 12px;text-align: left;}
+    .translation-table th {background-color: #f4f4f4;}
+    .translation-table td.status-yes {color: green;font-weight: bold;text-align: center;}
+    .translation-note {margin-top: 12px;font-style: italic;font-size: 0.9em;color: #555;}
+</style>

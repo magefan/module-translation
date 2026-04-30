@@ -1,0 +1,29 @@
+<?php
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ */
+
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+<div class="mf-promo-page">
+    <div class="mf-promo-badge mf-promo-badge--extra"><?= $escaper->escapeHtml(__('Extra Plan Feature')) ?></div>
+    <h2 class="mf-promo-title"><?= $escaper->escapeHtml(__('Glossary')) ?></h2>
+    <p class="mf-promo-description">
+        <?= $escaper->escapeHtml(__('Maintain consistent, brand-accurate translations across your entire store with a custom glossary of protected terms.')) ?>
+    </p>
+
+    <ul class="mf-promo-features">
+        <li><?= $escaper->escapeHtml(__('Define term pairs to enforce consistent translations')) ?></li>
+        <li><?= $escaper->escapeHtml(__('Protect brand names, product terms, and technical vocabulary')) ?></li>
+        <li><?= $escaper->escapeHtml(__('Glossary is applied automatically during auto-translation')) ?></li>
+        <li><?= $escaper->escapeHtml(__('Manage terms per language pair')) ?></li>
+        <li><?= $escaper->escapeHtml(__('Import and export glossary entries via CSV')) ?></li>
+    </ul>
+    <br>
+    <a class="action-primary mf-promo-btn"
+       href="https://magefan.com/magento-2-translation-extension/pricing?utm_source=admin&utm_medium=menu&utm_campaign=translation"
+       target="_blank">
+        <?= $escaper->escapeHtml(__('Upgrade to Extra')) ?>
+    </a>
+</div>

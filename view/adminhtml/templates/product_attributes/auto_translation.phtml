@@ -1,0 +1,66 @@
+<?php
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ */
+
+/** @var \Magento\Framework\Escaper $escaper
+ * @var \Magefan\Community\Api\SecureHtmlRendererInterface $mfSecureRenderer
+ */
+?>
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$assetRepo = $objectManager->get(\Magento\Framework\View\Asset\Repository::class);
+$img = '<img src="' . $assetRepo->getUrl('Magefan_Translation::images/translate_icon.png') . '" class="mf-translate-icon" width="50" height="50" alt="Auto Translate" title="Auto Translate">';
+?>
+<?php $script = "
+    function initLockedAutoTranslate(tableTrElements) {
+        var theadEl = document.querySelector('table[data-index=\"attribute_options_select\"] thead');
+        var deleteTh = theadEl ? theadEl.querySelector('.col-delete') : null;
+
+        if (deleteTh) {
+            var customTh = document.createElement('th');
+            customTh.innerHTML = '<th class=\"th-auto-translate\">" . $escaper->escapeHtml(__('Auto Translate')) . "</th>';
+            deleteTh.parentNode.insertBefore(customTh, deleteTh);
+        }
+
+        tableTrElements.forEach(function(el) {
+            var deleteTd = el.querySelector('.col-delete');
+            if (deleteTd) {
+                var customTd = document.createElement('td');
+                customTd.innerHTML = '<div class=\"auto-translate mf-locked-feature\" onclick=\"mfTranslationLockedClick()\">" . $img . "</div>';
+                deleteTd.parentNode.insertBefore(customTd, deleteTd);
+            }
+        });
+
+        document.querySelectorAll('table[data-index=\"attribute_options_select\"] tfoot tr').forEach(function(el) {
+            var th = el.querySelector('th');
+            if (th) {
+                th.setAttribute('colspan', parseInt(th.getAttribute('colspan') || 1, 10) + 1);
+            }
+        });
+    }
+
+    function mfTranslationLockedClick() {
+        require(['Magefan_Translation/js/mf-upgrade-plan-popup'], function(mfPopup) {
+            mfPopup('Extra', 'auto-translate', 'button');
+        });
+    }
+
+    var mfTranslationWaitOnGrid = setInterval(function() {
+        var tableTrElements = document.querySelectorAll(
+            'table[data-index=\"attribute_options_select\"] tbody tr, #swatch-visual-options-panel table tbody tr, #swatch-text-options-panel table tbody tr'
+        );
+        if (tableTrElements.length) {
+            clearInterval(mfTranslationWaitOnGrid);
+            initLockedAutoTranslate(tableTrElements);
+        }
+    }, 500);
+"; ?>
+
+<?= /* @noEscape */ $mfSecureRenderer->renderTag('script', [], $script, false) ?>
+
+<style>
+    .auto-translate {cursor: pointer; text-align: center;}
+    .auto-translate img:hover {scale: 1.1;}
+</style>

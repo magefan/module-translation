@@ -1,0 +1,28 @@
+<?php
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ */
+
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+<div class="mf-promo-page">
+    <div class="mf-promo-badge mf-promo-badge--extra"><?= $escaper->escapeHtml(__('Extra Plan Feature')) ?></div>
+    <h2 class="mf-promo-title"><?= $escaper->escapeHtml(__('Translation Schedule')) ?></h2>
+    <p class="mf-promo-description">
+        <?= $escaper->escapeHtml(__('Automate your translation workflow with scheduled tasks — keep your store content translated without any manual effort.')) ?>
+    </p>
+
+    <ul class="mf-promo-features">
+        <li><?= $escaper->escapeHtml(__('Schedule automatic translation of new or updated content')) ?></li>
+        <li><?= $escaper->escapeHtml(__('Target specific store views, entity types, or attributes')) ?></li>
+        <li><?= $escaper->escapeHtml(__('Works with products, categories, CMS pages, and blog posts')) ?></li>
+        <li><?= $escaper->escapeHtml(__('Reduce manual workload and keep translations always up to date')) ?></li>
+    </ul>
+    <br>
+    <a class="action-primary mf-promo-btn"
+       href="https://magefan.com/magento-2-translation-extension/pricing?utm_source=admin&utm_medium=menu&utm_campaign=translation"
+       target="_blank">
+        <?= $escaper->escapeHtml(__('Upgrade to Extra')) ?>
+    </a>
+</div>

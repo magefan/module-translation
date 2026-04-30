@@ -1,11 +1,15 @@
 <?php
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ */
 
+declare(strict_types=1);
 
 namespace Magefan\Translation\Plugin\Magento\Ui\Model\Export;
 
 class MetadataProvider
 {
-
     public function afterGetHeaders(
         \Magento\Ui\Model\Export\MetadataProvider $subject,
         $result
@@ -19,19 +23,36 @@ class MetadataProvider
                 'translate',
                 'locale'];
         }
+
+        if (in_array('Source Text', $result) || in_array('Source Language Code', $result)) {
+            $result = $this->convertToSnakeCase($result);
+        }
+
         return $result;
     }
 
-     /**
-     * @param \Magento\Ui\Model\Export\MetadataProvider $subject
-     * @param $result
-     * @return void
+
+    /**
+     * @param array $input
+     * @return array
      */
+    function convertToSnakeCase(array $input): array
+    {
+        return array_map(function ($item) {
+            return str_replace(' ', '_', strtolower($item));
+        }, $input);
+    }
+
+     /**
+      * @param \Magento\Ui\Model\Export\MetadataProvider $subject
+      * @param $result
+      * @return void
+      */
     public function afterGetOptions(
         \Magento\Ui\Model\Export\MetadataProvider $subject,
-                                                  $result
+        $result
     ) {
-        if (false != strpos(\Magento\Framework\Debug::backtrace(true), 'Magefan\Translation')){
+        if (false != strpos(\Magento\Framework\Debug::backtrace(true), 'Magefan\Translation')) {
             if (isset($result['locale'])) {
                 unset($result['locale']);
             }

@@ -1,0 +1,61 @@
+<?php
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ */
+
+/**
+ * @var $mfSecureRenderer \Magefan\Community\Api\SecureHtmlRendererInterface
+ * @var $block \Magento\Backend\Block\Template
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+<?php
+if ($block->getRequest()->getParam('store')) {
+    return;
+}
+?>
+<?php $script = "
+    require(['jquery', 'domReady!'], function(\$){
+
+        function init() {
+            \$('div.admin__field[data-index]').each(function () {
+                var _this = \$(this);
+
+                if (_this.data('mftanslation')) {
+                    return;
+                }
+                _this.data('mftanslation', 1);
+
+                var r = _this.find(\"[data-config-scope='" . __('[STORE VIEW]') . "']\");
+                if (!r.length) {
+                    return;
+                }
+                if (_this.find('select').length || _this.find('.admin__actions-switch-label').length) {
+                    return;
+                }
+
+                var fc = _this.find('.admin__field-control:first');
+
+                var a = \$('<a href=\"#\" class=\"mf-locked-feature\" style=\"margin-top:10px;display: inline-block;\">" . $escaper->escapeHtml(__('Translate')) . "</a>').click(function(e){
+                    e.preventDefault();
+                    require(['Magefan_Translation/js/mf-upgrade-plan-popup'], function(mfPopup) {
+                        mfPopup('Plus or Extra', 'auto-translate', 'button');
+                    });
+                    return false;
+                });
+
+                fc.append('<br>');
+                fc.append(a);
+            });
+        }
+
+        setInterval(init, 1000);
+    });
+"; ?>
+
+<?= /* @noEscape */ $mfSecureRenderer->renderTag('script', [], $script, false) ?>
+
+<style>
+    .use-default {padding-left: 15px;}
+</style>

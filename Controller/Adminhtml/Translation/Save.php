@@ -43,8 +43,8 @@ class Save extends \Magento\Backend\App\Action
     public function __construct(
         Action\Context $context,
         DataPersistorInterface $dataPersistor,
-        \Magefan\Translation\Model\TranslationFactory $translationFactory = null,
-        \Magefan\Translation\Api\TranslationRepositoryInterface $translationRepository = null
+        ?\Magefan\Translation\Model\TranslationFactory $translationFactory = null,
+        ?\Magefan\Translation\Api\TranslationRepositoryInterface $translationRepository = null
     ) {
         $this->dataPersistor = $dataPersistor;
         $this->translationFactory = $translationFactory

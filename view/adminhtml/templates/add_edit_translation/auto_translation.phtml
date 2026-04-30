@@ -1,0 +1,50 @@
+<?php
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ */
+
+/**
+ * @var \Magefan\Community\Api\SecureHtmlRendererInterface $mfSecureRenderer
+ */
+?>
+
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$assetRepo = $objectManager->get(Magento\Framework\View\Asset\Repository::class);
+$img = '<img src="' . $assetRepo->getUrl('Magefan_Translation::images/translate_icon.png') . '" class="mf-translate-icon" width="50" height="50" alt="Auto Translate" title="Auto Translate" >';
+?>
+
+<?php $script = "
+    function initializeAutoTranslate() {
+        var el = document.querySelector('textarea[name=\"translate\"]');
+        if (!el) return;
+
+        el.insertAdjacentHTML('afterend', '<div class=\"auto-translate\">" . $img . "</div>');
+        var translateIcon = el.parentElement.querySelector('.auto-translate');
+
+        translateIcon.addEventListener('click', function () {
+           require(['Magefan_Translation/js/mf-upgrade-plan-popup'], function(mfPopup) {
+                mfPopup('Extra', 'auto-translate', 'icon');
+            });
+        });
+        translateIcon.style.display = 'inline-block';
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        setTimeout(function () {
+            if (document.querySelector('.entry-edit')) {
+                initializeAutoTranslate();
+            }
+        },3000);
+    });
+";
+?>
+
+<?= /* @noEscape */ $mfSecureRenderer->renderTag('script', [], $script, false) ?>
+
+<style>
+    .auto-translate {display: none; cursor: pointer; margin-left: 15px;}
+    .auto-translate img:hover {scale:1.1}
+    .translation-translation-edit .admin__control-textarea {width: calc(100% - 41px);}
+</style>

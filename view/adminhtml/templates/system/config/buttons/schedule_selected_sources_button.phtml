@@ -1,0 +1,99 @@
+<?php
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ */
+?>
+<?php
+/**
+ * @var $block \Magefan\Translation\Block\Adminhtml\System\Config\Form\ScheduleSelectedSourcesButton
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Magefan\Community\Api\SecureHtmlRendererInterface $mfSecureRenderer
+ */
+?>
+<div class="pp-buttons-container">
+    <button type="button" id="<?= $escaper->escapeHtml($block->getId()) ?>">
+        <span><span><span><?= $escaper->escapeHtml($block->getButtonLabel()) ?></span></span></span>
+    </button>
+</div>
+
+<?php $script = "
+    require(['jquery', 'Magento_Ui/js/modal/confirm'], function($, confirmation) {
+        $('#" . $escaper->escapeHtml($block->getId()) . "').on('click', function(event){
+            event.preventDefault;
+            var baseUrl = '" . $escaper->escapeUrl($block->getScheduleSelectedSourcesUrl()) . "';
+            var selectEl = document.getElementById('mftranslation_auto_translation_schedule_translation_source');
+            var selectedOptions = selectEl ? Array.from(selectEl.selectedOptions) : [];
+            var selected = selectedOptions.map(function(o) { return o.value; });
+            var query = selected.map(function(v) { return 'sources[]=' + encodeURIComponent(v); }).join('&');
+            var url = query ? baseUrl + '?' + query : baseUrl;
+            var listHtml = selectedOptions.length
+                ? '<ul style=\"margin:10px 0 0 18px;list-style:disc\">' + selectedOptions.map(function(o) { return '<li>' + $('<div>').text(o.text).html() + '</li>'; }).join('') + '</ul>'
+                : '<p style=\"margin-top:8px;color:#e22626\">" . $escaper->escapeHtml(__('No sources selected.')) . "</p>';
+            confirmation({
+                title: '" . $escaper->escapeHtml(__('Schedule Selected Sources')) . "',
+                content: '" . $escaper->escapeHtml(__('The following sources will be scheduled for translation:')) . "' + listHtml,
+                actions: {
+                    confirm: function () {
+                        if (selectedOptions.length) { window.location = url; }
+                    },
+                }
+            });
+        });
+    });
+";?>
+
+
+<?= /* @noEscape */ $mfSecureRenderer->renderTag('script', [], $script, false) ?>
+
+<details class="mf-schedule-cmd-details">
+    <summary><?= $escaper->escapeHtml(__('See Available Console Commands')) ?></summary>
+    <div class="mf-schedule-cmd-table">
+        <p><?= $escaper->escapeHtml(__('If you have a lot of entities, the scheduling can take some time. In such case, it\'s better to use the console commands to schedule separate entities:')) ?></p>
+        <table>
+            <thead>
+            <tr>
+                <th><?= $escaper->escapeHtml(__('Schedule Command')) ?></th>
+                <th><?= $escaper->escapeHtml(__('Entity')) ?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td><code>magefan:translation:schedule</code></td><td><?= $escaper->escapeHtml(__('All Entities')) ?></td></tr>
+            <tr><td><code>magefan:translation:schedule --type="category"</code></td><td><?= $escaper->escapeHtml(__('Categories')) ?></td></tr>
+            <tr><td><code>m:t:s --type="product"</code></td><td><?= $escaper->escapeHtml(__('Products')) ?></td></tr>
+            <tr><td><code>m:t:s --type="page"</code></td><td><?= $escaper->escapeHtml(__('CMS Pages')) ?></td></tr>
+            <tr><td><code>m:t:s --type="block"</code></td><td><?= $escaper->escapeHtml(__('CMS Blocks')) ?></td></tr>
+            <tr><td><code>m:t:s --type="product_attribute"</code></td><td><?= $escaper->escapeHtml(__('Product Attributes')) ?></td></tr>
+            <tr><td><code>m:t:s --type="search_and_translate"</code></td><td><?= $escaper->escapeHtml(__('Phrases from Search and Translate')) ?></td></tr>
+            <tr><td><code>m:t:s --type="blog_post"</code></td><td><?= $escaper->escapeHtml(__('Magefan Blog Posts')) ?></td></tr>
+            <tr><td><code>m:t:s --type="blog_tag"</code></td><td><?= $escaper->escapeHtml(__('Magefan Blog Tags')) ?></td></tr>
+            <tr><td><code>m:t:s --type="blog_category"</code></td><td><?= $escaper->escapeHtml(__('Magefan Blog Categories')) ?></td></tr>
+            <tr><td><code>m:t:s --type="blog_author"</code></td><td><?= $escaper->escapeHtml(__('Magefan Blog Authors')) ?></td></tr>
+            <tr><td><code>m:t:s --type="secondblog_post"</code></td><td><?= $escaper->escapeHtml(__('Magefan Second Blog Posts')) ?></td></tr>
+            </tbody>
+        </table>
+        <p style="margin-top:12px;"><?= $escaper->escapeHtml(__('You can narrow down the scope further using optional filters:')) ?></p>
+        <p><code>php bin/magento magefan:translation:schedule --type=product --entity-ids=10,20 --store-ids=2,3 --fields=name,description</code></p>
+        <ul style="margin: 8px 0 0 18px; list-style: disc;">
+            <li><code>--type=product</code> &mdash; <?= $escaper->escapeHtml(__('Entity type to schedule (e.g. product, category, page).')) ?></li>
+            <li><code>--entity-ids=10,20</code> &mdash; <?= $escaper->escapeHtml(__('Comma-separated list of entity IDs to translate. Omit to schedule all entities of the given type.')) ?></li>
+            <li><code>--store-ids=2,3</code> &mdash; <?= $escaper->escapeHtml(__('Comma-separated list of store view IDs to translate into. Omit to use all configured store views.')) ?></li>
+            <li><code>--fields=name,description</code> &mdash; <?= $escaper->escapeHtml(__('Comma-separated list of attribute fields to translate. Omit to translate all translatable fields.')) ?></li>
+        </ul>
+    </div>
+</details>
+
+<style>
+    .mf-schedule-cmd-details {margin: 16px 0;font-size: 14px;}
+    .mf-schedule-cmd-details > summary {cursor: pointer;color: #007bdb;font-size: 13px;user-select: none;list-style: none;display: flex;align-items: center;gap: 6px;}
+    .mf-schedule-cmd-details > summary::-webkit-details-marker {display: none;}
+    .mf-schedule-cmd-details > summary::before {content: '▶';font-size: 10px;transition: transform 0.2s;}
+    .mf-schedule-cmd-details[open] > summary::before {transform: rotate(90deg);}
+    .mf-schedule-cmd-table {margin-top: 12px;}
+    .mf-schedule-cmd-table p {margin-bottom: 10px;}
+    .mf-schedule-cmd-table table {width: 100%;border-collapse: collapse;background: #fff;}
+    .mf-schedule-cmd-table th,
+    .mf-schedule-cmd-table td {padding: 8px 12px !important;border: 1px solid #ddd;vertical-align: top;text-align: left;}
+    .mf-schedule-cmd-table th {background-color: #f2f2f2;}
+    .mf-schedule-cmd-table code {background: #f5f5f5;padding: 2px 6px;border-radius: 4px;font-size: 13px;display: inline-block;max-width: 100%;word-break: break-word;}
+</style>

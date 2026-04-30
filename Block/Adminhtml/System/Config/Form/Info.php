@@ -7,7 +7,7 @@
 namespace Magefan\Translation\Block\Adminhtml\System\Config\Form;
 
 /**
- * Admin blog configurations information block
+ * Admin configurations information block
  */
 class Info extends \Magefan\Community\Block\Adminhtml\System\Config\Form\Info
 {

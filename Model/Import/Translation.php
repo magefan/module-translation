@@ -8,10 +8,10 @@ namespace Magefan\Translation\Model\Import;
 
 use Magefan\Translation\Model\Import\Translation\RowValidatorInterface as ValidatorInterface;
 use Magento\ImportExport\Model\Import\ErrorProcessing\ProcessingErrorAggregatorInterface;
+use Magento\Store\Model\StoreManagerInterface;
 
 class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
 {
-
     const KEY_ID = 'key_id';
 
     const STRING  = 'string';
@@ -94,7 +94,26 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
     private $eventManager;
 
     /**
-     * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+     * @var StoreManagerInterface
+     */
+    private $storeManager;
+
+    /**
+     * @var null
+     */
+    private $allStoreIds = null;
+
+    /**
+     * @param \Magento\Framework\Json\Helper\Data $jsonHelper
+     * @param \Magento\ImportExport\Helper\Data $importExportData
+     * @param \Magento\ImportExport\Model\ResourceModel\Import\Data $importData
+     * @param \Magento\Framework\App\ResourceConnection $resource
+     * @param \Magento\ImportExport\Model\ResourceModel\Helper $resourceHelper
+     * @param \Magento\Framework\Stdlib\StringUtils $string
+     * @param ProcessingErrorAggregatorInterface $errorAggregator
+     * @param \Magento\Customer\Model\GroupFactory $groupFactory
+     * @param \Magento\Framework\Event\ManagerInterface $eventManager
+     * @param StoreManagerInterface $storeManager
      */
     public function __construct(
         \Magento\Framework\Json\Helper\Data $jsonHelper,
@@ -105,7 +124,8 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
         \Magento\Framework\Stdlib\StringUtils $string,
         ProcessingErrorAggregatorInterface $errorAggregator,
         \Magento\Customer\Model\GroupFactory $groupFactory,
-        \Magento\Framework\Event\ManagerInterface $eventManager
+        \Magento\Framework\Event\ManagerInterface $eventManager,
+        StoreManagerInterface $storeManager
     ) {
         $this->jsonHelper = $jsonHelper;
         $this->_importExportData = $importExportData;
@@ -116,6 +136,7 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
         $this->errorAggregator = $errorAggregator;
         $this->groupFactory = $groupFactory;
         $this->eventManager = $eventManager;
+        $this->storeManager = $storeManager;
     }
     /**
      * Entity type code getter.
@@ -147,6 +168,15 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
             $this->addRowError(ValidatorInterface::ERROR_TITLE_IS_EMPTY, $rowNum);
             return false;
         }
+
+        $storeId = $rowData[self::STORE_ID];
+
+        if (!in_array($storeId, $this->getAllStoreIds())) {
+            $errorMessage = (string) __('Store with ID %1 does not exist.', $storeId);
+            $this->addRowError(ValidatorInterface::ERROR_STORE_ID_NOT_EXIST, $rowNum, null, $errorMessage);
+            return false;
+        }
+
         return !$this->getErrorAggregator()->isRowInvalid($rowNum);
     }
 
@@ -328,5 +358,20 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
         } else {
             return false;
         }
+    }
+
+    /**
+     * @return array
+     */
+    private function getAllStoreIds(): array
+    {
+        if (null === $this->allStoreIds) {
+            $this->allStoreIds = [];
+
+            foreach ($this->storeManager->getStores() as $store) {
+                $this->allStoreIds [] = $store->getId();
+            }
+        }
+        return $this->allStoreIds;
     }
 }

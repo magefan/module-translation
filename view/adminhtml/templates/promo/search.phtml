@@ -1,0 +1,30 @@
+<?php
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ */
+
+/** @var \Magento\Framework\Escaper $escaper */
+/** @var \Magefan\Community\Api\SecureHtmlRendererInterface $mfSecureRenderer */
+?>
+<div class="mf-promo-page">
+    <div class="mf-promo-badge mf-promo-badge--plus"><?= $escaper->escapeHtml(__('Plus Plan Feature')) ?></div>
+    <h2 class="mf-promo-title"><?= $escaper->escapeHtml(__('Search and Translate')) ?></h2>
+    <p class="mf-promo-description">
+        <?= $escaper->escapeHtml(__('Find any translatable string across your entire Magento store and translate it instantly — without digging through CSV files or switching between stores.')) ?>
+    </p>
+
+    <ul class="mf-promo-features">
+        <li><?= $escaper->escapeHtml(__('Search translations by source text, translated value, or locale')) ?></li>
+        <li><?= $escaper->escapeHtml(__('Filter results by store view, module, or translation status')) ?></li>
+        <li><?= $escaper->escapeHtml(__('Edit translations inline directly from the search results grid')) ?></li>
+        <li><?= $escaper->escapeHtml(__('Bulk-translate multiple strings in one action')) ?></li>
+        <li><?= $escaper->escapeHtml(__('Instantly find missing or outdated translations')) ?></li>
+    </ul>
+    <br>
+    <a class="action-primary mf-promo-btn"
+       href="https://magefan.com/magento-2-translation-extension/pricing?utm_source=admin&utm_medium=menu&utm_campaign=translation"
+       target="_blank">
+        <?= $escaper->escapeHtml(__('Upgrade to Plus or Extra')) ?>
+    </a>
+</div>
