@@ -62,7 +62,7 @@ Magefan Translation module offers 3 plans with Basic covering basic translation 
             alt="Pricing for Magento 2 Translation Extension" />
 </a>
 
-## Benefits of Transation Extension for Magento 2
+## Benefits of Translation Extension for Magento 2
 
 ### Get Your Store Ready for a Global Audience
 
