@@ -11,4 +11,11 @@
             <item name="mf_auto_translate" xsi:type="string">Magefan\Translation\Block\Adminhtml\AutoTranslateButton</item>
         </item>
     </argument>
+    <fieldset name="auto-translation-extra" sortOrder="100">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="component" xsi:type="string">Magefan_Translation/js/form/components/locked-fieldset</item>
+            </item>
+        </argument>
+    </fieldset>
 </form>

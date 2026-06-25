@@ -22,7 +22,7 @@ define(['Magento_Ui/js/modal/alert', 'mage/translate'], function (mageAlert, $t)
             + '&utm_campaign=' + (utmCampaign || DEFAULT_UTM_CAMPAIGN);
         var content = $t('This option is available in Magefan Translation <strong>%1</strong> plan only.').replace('%1', plan);
         mageAlert({
-            title: $t('You cannot use this option.'),
+            title: $t('Upgrade to use this option.'),
             content: content,
             buttons: [{
                 text: $t('Upgrade Plan Now'),

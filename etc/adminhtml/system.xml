@@ -58,6 +58,15 @@
                     <source_model>Magefan\Translation\Model\Config\Source\LocaleSource</source_model>
                 </field>
 
+                <field id="phrases_locale_source" translate="label comment" type="select" sortOrder="21" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <label>Default Phrases Locale (Translate From)</label>
+                    <comment><![CDATA[Source language for Magento i18n phrases (Search and Translate). Magento phrases are in English by default.]]></comment>
+                    <source_model>Magefan\Translation\Model\Config\Source\PhrasesLocaleSource</source_model>
+                </field>
+
                 <field id="default_translator" translate="label comment" type="select" sortOrder="25" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
                     <depends>
                         <field id="enabled">1</field>
@@ -170,6 +179,40 @@
                         </field>
                     </group>
                 </group>
+
+
+                <group id="mfdeepseekapi" translate="label" type="text" sortOrder="53" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>DeepSeek Translation API</label>
+
+                    <field id="deepseek_model" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                        <label>DeepSeek Model</label>
+                        <source_model>Magefan\Translation\Model\Config\Source\DeepSeekModels</source_model>
+                    </field>
+
+                    <field id="deepseek_api_key" translate="label" type="obscure" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>DeepSeek API Key</label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                        <comment><![CDATA[
+                        <a href="https://api-docs.deepseek.com/" target="_blank">Get DeepSeek API key</a> and enter it here.
+                        ]]></comment>
+                    </field>
+
+                    <field id="additional_instructions" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                        <label>Additional Instructions</label>
+                        <comment><![CDATA[Examples:<br>- Don't translate the string "Have a nice day!". <br>- Preserve formal tone.]]></comment>
+                    </field>
+
+                    <group id="glossary" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>Glossary</label>
+
+                        <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                            <label>Enable</label>
+                            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                            <comment><![CDATA[When enabled, glossary terms are injected into each DeepSeek prompt. No sync is needed — terms are sent with every request.]]></comment>
+                        </field>
+                    </group>
+                </group>
+
                 <group id="mfdeeplapi" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>DeepL Translation API</label>
                     <field id="deepl_api_url" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">

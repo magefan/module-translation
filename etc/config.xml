@@ -11,6 +11,7 @@
             <general>
                 <enabled>0</enabled>
                 <mfmodule>Translation</mfmodule>
+                <mftype>1</mftype>
                 <flush_cache_on_translation>0</flush_cache_on_translation>
                 <ignore_gws_permissions>1</ignore_gws_permissions>
             </general>
@@ -21,6 +22,7 @@
                 </usage_limits>
                 <default_translator>gt</default_translator>
                 <locale_source/>
+                <phrases_locale_source>en_US</phrases_locale_source>
                 <mfgoogleapi>
                     <api_version>v2</api_version>
                     <google_api_key></google_api_key>
@@ -40,6 +42,14 @@
                         <enable>0</enable>
                     </glossary>
                 </mfchatgptapi>
+                <mfdeepseekapi>
+                    <deepseek_model>deepseek-v4-flash</deepseek_model>
+                    <deepseek_api_key></deepseek_api_key>
+                    <additional_instructions></additional_instructions>
+                    <glossary>
+                        <enable>0</enable>
+                    </glossary>
+                </mfdeepseekapi>
                 <mfdeeplapi>
                     <deepl_api_url>https://api-free.deepl.com/v2/translate</deepl_api_url>
                     <deepl_api_key></deepl_api_key>

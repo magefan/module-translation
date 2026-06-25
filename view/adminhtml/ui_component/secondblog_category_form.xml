@@ -11,4 +11,33 @@
             <item name="mf_auto_translate" xsi:type="string">Magefan\Translation\Block\Adminhtml\AutoTranslateButton</item>
         </item>
     </argument>
+    <fieldset name="mf_auto_translation" sortOrder="100">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="component" xsi:type="string">Magefan_Translation/js/form/components/locked-fieldset</item>
+            </item>
+        </argument>
+        <settings>
+            <label translate="true">Auto Translation (Extra)</label>
+            <collapsible>true</collapsible>
+        </settings>
+        <field name="mf_exclude_auto_translation">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">boolean</item>
+                    <item name="label" xsi:type="string" translate="true">Exclude From Auto Translation</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="source" xsi:type="string">category</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                    <item name="dataScope" xsi:type="string">mf_exclude_auto_translation</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="number">1</item>
+                        <item name="false" xsi:type="number">0</item>
+                    </item>
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
 </form>

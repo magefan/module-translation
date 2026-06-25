@@ -91,6 +91,7 @@ class TranslatableData
             case EntityManager::TYPE_PRODUCT:
                 $data[EntityManager::TYPE_PRODUCT] = $this->getCatalogAttributes($this->productAttributeRepository);
                 $data[EntityManager::TYPE_PRODUCT][] = ['label' => __('Customizable Options'), 'code' => 'customizable_options'];
+                $data[EntityManager::TYPE_PRODUCT][] = ['label' => __('Image Alt Texts'), 'code' => 'alt_images'];
                 break;
             case EntityManager::TYPE_PAGE:
                 $data[EntityManager::TYPE_PAGE] = $this->getCmsAttributesByType(EntityManager::TYPE_PAGE);
@@ -140,6 +141,7 @@ class TranslatableData
                 $data[EntityManager::TYPE_CATEGORY] = $this->getCatalogAttributes($this->categoryAttributeRepository);
                 $data[EntityManager::TYPE_PRODUCT] = $this->getCatalogAttributes($this->productAttributeRepository);
                 $data[EntityManager::TYPE_PRODUCT][] = ['label' => __('Customizable Options'), 'code' => 'customizable_options'];
+                $data[EntityManager::TYPE_PRODUCT][] = ['label' => __('Image Alt Texts'), 'code' => 'alt_images'];
                 $data[EntityManager::TYPE_PAGE] = $this->getCmsAttributesByType(EntityManager::TYPE_PAGE);
                 $data[EntityManager::TYPE_BLOCK] = $this->getCmsAttributesByType(EntityManager::TYPE_BLOCK);
 

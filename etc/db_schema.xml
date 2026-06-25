@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="cms_page">
+        <column xsi:type="smallint" name="mf_exclude_auto_translation" unsigned="false" nullable="false" identity="false"
+                default="0" comment="Exclude From Auto Translation"/>
+    </table>
+    <table name="cms_block">
+        <column xsi:type="smallint" name="mf_exclude_auto_translation" unsigned="false" nullable="false" identity="false"
+                default="0" comment="Exclude From Auto Translation"/>
+    </table>
+</schema>

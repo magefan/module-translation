@@ -46,7 +46,6 @@
         </argument>
         <bookmark name="bookmarks"/>
         <columnsControls name="columns_controls" />
-        <filterSearch name="fulltext"/>
         <filters name="listing_filters">
             <argument name="data" xsi:type="array">
                 <item name="observers" xsi:type="array">

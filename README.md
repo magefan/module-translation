@@ -344,4 +344,3 @@ The code is licensed under [EULA](https://magefan.com/end-user-license-agreement
 * [Custom Magento Development](https://magefan.com/custom-development)
 * [Magento Installation Service](https://magefan.com/installation-service)
 
-

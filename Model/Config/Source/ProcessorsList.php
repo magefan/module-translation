@@ -11,6 +11,7 @@ class ProcessorsList implements \Magento\Framework\Option\ArrayInterface
 {
     const GOOGLE_TRANSLATE_PROCESSOR = 'gt';
     const CHAT_GPT_PROCESSOR = 'chat_gpt';
+    const DEEPSEEK_PROCESSOR = 'deepseek';
     const DEEPL_PROCESSOR = 'deepl';
 
     /**
@@ -21,6 +22,7 @@ class ProcessorsList implements \Magento\Framework\Option\ArrayInterface
         $result = [
             ['value' => self::GOOGLE_TRANSLATE_PROCESSOR, 'label' => 'Google Translate'],
             ['value' => self::CHAT_GPT_PROCESSOR,         'label' => 'ChatGPT'],
+            ['value' => self::DEEPSEEK_PROCESSOR,         'label' => 'DeepSeek'],
             ['value' => self::DEEPL_PROCESSOR,            'label' => 'DeepL']
         ];
 
