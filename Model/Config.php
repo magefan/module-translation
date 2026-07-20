@@ -15,6 +15,7 @@ use Magento\Config\Model\ResourceModel\Config\Data\CollectionFactory as ConfigCo
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\Encryption\EncryptorInterface;
 use Magento\Framework\Filesystem\DirectoryList;
+use Magento\Framework\Module\Manager as ModuleManager;
 
 class Config implements ConfigInterface
 {
@@ -74,12 +75,19 @@ class Config implements ConfigInterface
     protected $directoryList;
 
     /**
+     * @var ModuleManager
+     */
+    protected $moduleManager;
+
+    /**
      * @param ScopeConfigInterface $scopeConfig
      * @param StoreManagerInterface $storeManager
      * @param WriterInterface $configWriter
      * @param ConfigCollectionFactory $configCollectionFactory
      * @param DateTime $dateTime
      * @param EncryptorInterface $encryptor
+     * @param DirectoryList $directoryList
+     * @param ModuleManager $moduleManager
      */
     public function __construct(
         ScopeConfigInterface $scopeConfig,
@@ -88,7 +96,8 @@ class Config implements ConfigInterface
         ConfigCollectionFactory $configCollectionFactory,
         DateTime $dateTime,
         EncryptorInterface $encryptor,
-        DirectoryList $directoryList
+        DirectoryList $directoryList,
+        ModuleManager $moduleManager
     ) {
         $this->scopeConfig = $scopeConfig;
         $this->storeManager = $storeManager;
@@ -97,6 +106,7 @@ class Config implements ConfigInterface
         $this->dateTime = $dateTime;
         $this->encryptor = $encryptor;
         $this->directoryList = $directoryList;
+        $this->moduleManager = $moduleManager;
     }
 
     /**
