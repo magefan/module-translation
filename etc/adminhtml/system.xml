@@ -48,7 +48,7 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
                 <field id="cms_per_store_enabled" translate="label comment" type="select" sortOrder="23" showInDefault="1"
-                       showInWebsite="0" showInStore="0">
+                       showInWebsite="0" showInStore="0" canRestore="1">
                     <label>Advanced Multi-language Support for CMS Pages and CMS Blocks</label>
                     <comment><![CDATA[CMS Pages and CMS Blocks can be managed per store view. This is a system-wide setting and cannot be overridden per website/store view.]]></comment>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
