@@ -41,6 +41,9 @@
                     <glossary>
                         <enable>0</enable>
                     </glossary>
+                    <combine_fields>
+                        <enable>1</enable>
+                    </combine_fields>
                 </mfchatgptapi>
                 <mfdeepseekapi>
                     <deepseek_model>deepseek-v4-flash</deepseek_model>
@@ -49,6 +52,9 @@
                     <glossary>
                         <enable>0</enable>
                     </glossary>
+                    <combine_fields>
+                        <enable>1</enable>
+                    </combine_fields>
                 </mfdeepseekapi>
                 <mfdeeplapi>
                     <deepl_api_url>https://api-free.deepl.com/v2/translate</deepl_api_url>
