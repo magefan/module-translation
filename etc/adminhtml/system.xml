@@ -296,6 +296,16 @@
                         <frontend_model>Magefan\Translation\Block\Adminhtml\System\Config\Form\ScheduleSelectedSourcesButton</frontend_model>
                     </field>
                 </group>
+
+                <group id="advanced" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Advanced Settings</label>
+
+                    <field id="combine_fields" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                        <label>Translate Different Fields in a Single Request</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[When enabled, plain-text fields (e.g. name, meta title, meta keywords) without HTML for the same entity and target language are combined into a single translation request instead of one request per field, regardless of which translation engine is selected above. HTML/Page Builder content is always translated as it is now, one request per field or content block. Disabled by default — each field is translated in its own request.]]></comment>
+                    </field>
+                </group>
             </group>
         </section>
     </system>
