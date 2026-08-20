@@ -136,6 +136,10 @@ class TranslatableData
                 $data[EntityManager::TYPE_SECONDBLOG_AUTHOR] = $this->getBlogAuthorFields();
                 break;
 
+            case EntityManager::TYPE_REVIEW:
+                $data[EntityManager::TYPE_REVIEW] = $this->getReviewFields();
+                break;
+
             default:
                 // If no type or unrecognized type is passed, return all
                 $data[EntityManager::TYPE_CATEGORY] = $this->getCatalogAttributes($this->categoryAttributeRepository);
@@ -155,6 +159,10 @@ class TranslatableData
                     $data[EntityManager::TYPE_SECONDBLOG_TAG] = $this->getBlogTagFields();
                     $data[EntityManager::TYPE_SECONDBLOG_CATEGORY] = $this->getBlogCategoryFields();
                     $data[EntityManager::TYPE_SECONDBLOG_AUTHOR] = $this->getBlogAuthorFields();
+                }
+
+                if ($this->moduleManager->isEnabled('Magento_Review')) {
+                    $data[EntityManager::TYPE_REVIEW] = $this->getReviewFields();
                 }
 
                 break;
@@ -348,6 +356,23 @@ class TranslatableData
             ['label' => __('Content'), 'code' => 'content'],
             ['label' => __('Category Image Alt'), 'code' => 'category_img_alt'],
             ['label' => __('Bottom Content'), 'code' => 'bottom_content']
+        ];
+    }
+
+    /**
+     * Product review fields.
+     *
+     * Nickname is intentionally not listed - it holds the reviewer's name,
+     * which must not be machine translated. It is still stored per store view
+     * so it can be corrected manually.
+     *
+     * @return array[]
+     */
+    private function getReviewFields(): array
+    {
+        return [
+            ['label' => __('Summary of Review'), 'code' => 'title', 'type' => 'text'],
+            ['label' => __('Review'), 'code' => 'detail', 'type' => 'text']
         ];
     }
 

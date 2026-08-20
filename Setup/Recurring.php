@@ -30,6 +30,12 @@ class Recurring implements InstallSchemaInterface
             'magefan_second_blog_category',
             'magefan_second_blog_tag',
             'magefan_second_blog_author',
+            // "review" and not "review_detail": ResourceModel\Review::_afterSave()
+            // writes only title/detail/nickname to review_detail, while the main table
+            // is saved through AbstractDb::_prepareDataForSave() and picks the column up.
+            // Handled here rather than in db_schema.xml because Magento_Review can be
+            // disabled, and declaring a column on an undeclared table breaks upgrade.
+            'review',
         ];
 
         $localizationTables = [
