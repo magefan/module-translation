@@ -13,4 +13,14 @@
     <type name="Magento\Backend\Block\Widget\Grid\Massaction">
         <plugin name="add_auto_translate_mass_actions_to_blog_grid" type="Magefan\Translation\Plugin\Backend\Magento\Backend\Block\Widget\Grid\Massaction" sortOrder="5" disabled="false"/>
     </type>
+
+    <!-- Widget\Grid\Extended-based grids (e.g. the review grid) default to this
+         massaction block instead of the plain Massaction class above. -->
+    <type name="Magento\Backend\Block\Widget\Grid\Massaction\Extended">
+        <plugin name="add_auto_translate_mass_actions_to_blog_grid" type="Magefan\Translation\Plugin\Backend\Magento\Backend\Block\Widget\Grid\Massaction" sortOrder="5" disabled="false"/>
+    </type>
+
+    <type name="Magento\Review\Block\Adminhtml\Edit">
+        <plugin name="add_auto_translation_button_on_review_form" type="Magefan\Translation\Plugin\Backend\Magento\Review\Block\Adminhtml\Edit" sortOrder="5" disabled="false"/>
+    </type>
 </config>
