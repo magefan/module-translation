@@ -85,22 +85,6 @@ class EntityManager
     }
 
     /**
-     * Whether an adapter is registered in the pool for this entity type.
-     *
-     * A type can be listed in self::TYPES while its adapter is not available,
-     * because adapters are contributed by Magefan_TranslationExtra, which is an
-     * optional module. Callers iterating over self::TYPES should check this
-     * before calling getEntityAdapter().
-     *
-     * @param int $entityTypeId
-     * @return bool
-     */
-    public function hasEntityAdapter(int $entityTypeId): bool
-    {
-        return isset($this->entityPool[$entityTypeId]);
-    }
-
-    /**
      * @param int $entityTypeId
      * @return mixed
      * @throws \Exception
