@@ -18,9 +18,10 @@ use Magefan\Translation\Model\Config;
  * definition overrides this one entirely (the real, working fieldset) when Plus and
  * Extra are both installed.
  *
- * That subclass also falls back to addLockedExcludeAutoTranslationField() below
- * whenever Extra specifically is missing (Plus alone doesn't act on this flag - see
- * that class), which is why the shared bits here are protected rather than private.
+ * That subclass also reuses addAutoTranslationFieldset() and
+ * addLockedExcludeAutoTranslationField() below for its own Extra-less fallback (Plus
+ * alone doesn't act on this flag - see that class), which is why they're protected
+ * rather than private.
  *
  * Mirrors Magefan\Translation\Plugin\Backend\Magento\Review\Block\Adminhtml\Edit (the
  * "Auto Translate" button teaser) and the locked "Auto Translation (Extra)" fieldset
@@ -69,35 +70,52 @@ class FormPlugin
     }
 
     /**
-     * Adds the locked "Exclude From Auto Translation" fieldset: the same toggle a
-     * working install would show, disabled, with a click-anywhere overlay that opens
-     * the upgrade popup instead of doing anything.
+     * Adds the "Auto Translation (Extra)" fieldset right after review_details, or
+     * returns null without touching the form if it's already there (getForm() runs
+     * more than once per page render) or review_details itself isn't present to
+     * insert after.
      *
-     * Also called by Magefan\TranslationPlus\...\FormPlugin, which extends this class,
-     * for its own Extra-less fallback - guarded the same way afterGetForm() above
-     * guards it, so either caller can call it unconditionally.
+     * Shared between this class's own locked field below and
+     * Magefan\TranslationPlus\...\FormPlugin's real one, so the guard only lives once.
+     *
+     * @param \Magento\Framework\Data\Form $form
+     * @return \Magento\Framework\Data\Form\Element\Fieldset|null
+     */
+    protected function addAutoTranslationFieldset($form)
+    {
+        if (!$form->getElement('review_details') || $form->getElement('mf_auto_translation')) {
+            return null;
+        }
+
+        return $form->addFieldset(
+            'mf_auto_translation',
+            ['legend' => __('Auto Translation (Extra)')],
+            'review_details'
+        );
+    }
+
+    /**
+     * Adds the locked "Exclude From Auto Translation" field: the same toggle a working
+     * install would show, disabled, with a click-anywhere overlay that opens the
+     * upgrade popup instead of doing anything.
      *
      * @param \Magento\Framework\Data\Form $form
      * @return void
      */
     protected function addLockedExcludeAutoTranslationField($form)
     {
-        if (!$form->getElement('review_details') || $form->getElement('mf_auto_translation')) {
+        $fieldset = $this->addAutoTranslationFieldset($form);
+
+        if (!$fieldset) {
             return;
         }
-
-        $fieldset = $form->addFieldset(
-            'mf_auto_translation',
-            ['legend' => __('Auto Translation (Extra)')],
-            'review_details'
-        );
 
         $fieldset->addField(
             'mf_exclude_auto_translation',
             'note',
             [
                 'label' => __('Exclude From Auto Translation'),
-                'text' => $this->getLockedToggleHtml('Extra', 'review-edit', 'fieldset'),
+                'text' => $this->getLockedToggleHtml(),
             ]
         );
     }
@@ -107,16 +125,9 @@ class FormPlugin
      * "Use Default Value" markup the real, working field would use, both inert, with a
      * transparent overlay on top that shows the upgrade popup on any click.
      *
-     * Protected (not the fieldset-adding method's own private helper) so
-     * Magefan\TranslationPlus\...\FormPlugin could call it directly too, if it ever
-     * needs a locked toggle outside of addLockedExcludeAutoTranslationField()'s shape.
-     *
-     * @param string $plan Plan name shown in the popup, e.g. "Extra" or "Plus or Extra"
-     * @param string $utmMedium
-     * @param string $utmCampaign
      * @return string
      */
-    protected function getLockedToggleHtml($plan, $utmMedium, $utmCampaign)
+    private function getLockedToggleHtml()
     {
         $yes = $this->escapeAttr(__('Yes'));
         $no = $this->escapeAttr(__('No'));
@@ -137,7 +148,7 @@ class FormPlugin
             . '<div class="mf-locked-toggle-overlay"'
             . ' style="position:absolute;top:0;left:0;right:0;bottom:0;cursor:pointer;z-index:1;"></div>'
             . '</div>'
-            . $this->getLockedClickHandlerHtml($plan, $utmMedium, $utmCampaign);
+            . $this->getLockedClickHandlerHtml();
     }
 
     /**
@@ -151,20 +162,19 @@ class FormPlugin
 
     /**
      * Delegated on document rather than an inline onclick attribute - inline handlers
-     * are blocked under a strict CSP.
+     * are blocked under a strict CSP. classList.contains() rather than a className
+     * substring match: className is an SVGAnimatedString (no .indexOf) on an SVG
+     * target, e.g. any of the admin icon sprites elsewhere on the page.
      *
-     * @param string $plan
-     * @param string $utmMedium
-     * @param string $utmCampaign
      * @return string
      */
-    private function getLockedClickHandlerHtml($plan, $utmMedium, $utmCampaign)
+    private function getLockedClickHandlerHtml()
     {
         $script = "document.addEventListener('click', function (event) {"
-            . "if (!event.target.className || event.target.className.indexOf('mf-locked-toggle-overlay') === -1) {"
+            . "if (!event.target.classList || !event.target.classList.contains('mf-locked-toggle-overlay')) {"
             . " return; }"
             . "require(['Magefan_Translation/js/mf-upgrade-plan-popup'], function (mfPopup) {"
-            . " mfPopup(" . json_encode($plan) . ", " . json_encode($utmMedium) . ", " . json_encode($utmCampaign) . ");"
+            . " mfPopup('Extra', 'review-edit', 'fieldset');"
             . "});"
             . "});";
 
