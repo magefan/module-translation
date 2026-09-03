@@ -28,6 +28,8 @@ class EntityManager
     public const SECONDBLOG_CATEGORY_ID = 13;
     public const SECONDBLOG_AUTHOR_ID = 14;
 
+    public const REVIEW_ID = 15;
+
     public const TYPE_CATEGORY = 'category';
     public const TYPE_PRODUCT = 'product';
     public const TYPE_PAGE = 'page';
@@ -45,6 +47,8 @@ class EntityManager
     public const TYPE_SECONDBLOG_CATEGORY = 'secondblog_category';
     public const TYPE_SECONDBLOG_AUTHOR = 'secondblog_author';
 
+    public const TYPE_REVIEW = 'review';
+
     public const TYPES = [
         self::TYPE_PRODUCT => self::PRODUCT_ID,
         self::TYPE_CATEGORY => self::CATEGORY_ID,
@@ -61,7 +65,9 @@ class EntityManager
         self::TYPE_SECONDBLOG_POST => self::SECONDBLOG_POST_ID,
         self::TYPE_SECONDBLOG_TAG => self::SECONDBLOG_TAG_ID,
         self::TYPE_SECONDBLOG_CATEGORY => self::SECONDBLOG_CATEGORY_ID,
-        self::TYPE_SECONDBLOG_AUTHOR => self::SECONDBLOG_AUTHOR_ID
+        self::TYPE_SECONDBLOG_AUTHOR => self::SECONDBLOG_AUTHOR_ID,
+
+        self::TYPE_REVIEW => self::REVIEW_ID
     ];
 
     /**

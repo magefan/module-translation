@@ -39,6 +39,8 @@ class ScheduleSource implements \Magento\Framework\Option\ArrayInterface
             ['value' => EntityManager::SECONDBLOG_CATEGORY_ID, 'label' => __('Magefan Second Blog Category')],
             ['value' => EntityManager::SECONDBLOG_AUTHOR_ID,   'label' => __('Magefan Second Blog Author')],
 
+            ['value' => EntityManager::REVIEW_ID,               'label' => __('Product Review')],
+
             ['value' => EntityManager::TRANSLATE_ID,            'label' => __('Phrases from Search And Translate')]
         ];
 
