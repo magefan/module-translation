@@ -23,4 +23,10 @@
     <type name="Magento\Review\Block\Adminhtml\Edit">
         <plugin name="add_auto_translation_button_on_review_form" type="Magefan\Translation\Plugin\Backend\Magento\Review\Block\Adminhtml\Edit" sortOrder="5" disabled="false"/>
     </type>
+
+    <!-- Teaser only - Magefan\TranslationPlus\Plugin\Magento\Review\Block\Adminhtml\Edit\FormPlugin
+         registers under this same plugin name and fully overrides it when Plus is installed. -->
+    <type name="Magento\Review\Block\Adminhtml\Edit\Form">
+        <plugin name="magefan_translation_plus_review_edit_form_use_default" type="Magefan\Translation\Plugin\Backend\Magento\Review\Block\Adminhtml\Edit\FormPlugin" sortOrder="10" disabled="false"/>
+    </type>
 </config>
