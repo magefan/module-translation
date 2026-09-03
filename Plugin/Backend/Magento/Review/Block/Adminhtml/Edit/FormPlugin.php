@@ -7,8 +7,8 @@ declare(strict_types=1);
 
 namespace Magefan\Translation\Plugin\Backend\Magento\Review\Block\Adminhtml\Edit;
 
+use Magefan\Community\Api\SecureHtmlRendererInterface;
 use Magefan\Translation\Model\Config;
-use Magefan\Translation\Model\LockedToggleFieldHtml;
 
 /**
  * Basic-tier teaser for the "Exclude From Auto Translation" review field. Registered
@@ -36,20 +36,20 @@ class FormPlugin
     protected $config;
 
     /**
-     * @var LockedToggleFieldHtml
+     * @var SecureHtmlRendererInterface
      */
-    protected $lockedToggleFieldHtml;
+    protected $mfSecureRenderer;
 
     /**
      * @param Config $config
-     * @param LockedToggleFieldHtml $lockedToggleFieldHtml
+     * @param SecureHtmlRendererInterface $mfSecureRenderer
      */
     public function __construct(
         Config $config,
-        LockedToggleFieldHtml $lockedToggleFieldHtml
+        SecureHtmlRendererInterface $mfSecureRenderer
     ) {
         $this->config = $config;
-        $this->lockedToggleFieldHtml = $lockedToggleFieldHtml;
+        $this->mfSecureRenderer = $mfSecureRenderer;
     }
 
     /**
@@ -97,8 +97,77 @@ class FormPlugin
             'note',
             [
                 'label' => __('Exclude From Auto Translation'),
-                'text' => $this->lockedToggleFieldHtml->render('Extra', 'review-edit', 'fieldset'),
+                'text' => $this->getLockedToggleHtml('Extra', 'review-edit', 'fieldset'),
             ]
         );
+    }
+
+    /**
+     * Renders a locked stand-in for a toggle-switch field: the same toggle +
+     * "Use Default Value" markup the real, working field would use, both inert, with a
+     * transparent overlay on top that shows the upgrade popup on any click.
+     *
+     * Protected (not the fieldset-adding method's own private helper) so
+     * Magefan\TranslationPlus\...\FormPlugin could call it directly too, if it ever
+     * needs a locked toggle outside of addLockedExcludeAutoTranslationField()'s shape.
+     *
+     * @param string $plan Plan name shown in the popup, e.g. "Extra" or "Plus or Extra"
+     * @param string $utmMedium
+     * @param string $utmCampaign
+     * @return string
+     */
+    protected function getLockedToggleHtml($plan, $utmMedium, $utmCampaign)
+    {
+        $yes = $this->escapeAttr(__('Yes'));
+        $no = $this->escapeAttr(__('No'));
+
+        return '<div style="position:relative;display:inline-block;">'
+            . '<div>'
+            . '<div class="admin__actions-switch" data-role="switcher">'
+            . '<input type="checkbox" class="admin__actions-switch-checkbox" id="mf_locked_toggle" disabled="disabled" />'
+            . '<label class="admin__actions-switch-label" for="mf_locked_toggle">'
+            . '<span class="admin__actions-switch-text" data-text-on="' . $yes . '" data-text-off="' . $no . '"></span>'
+            . '</label>'
+            . '</div>'
+            . '<label style="display:block;margin-top:8px;font-weight:normal;">'
+            . '<input type="checkbox" class="checkbox" checked="checked" disabled="disabled" /> '
+            . $this->escapeAttr(__('Use Default Value'))
+            . '</label>'
+            . '</div>'
+            . '<div class="mf-locked-toggle-overlay"'
+            . ' style="position:absolute;top:0;left:0;right:0;bottom:0;cursor:pointer;z-index:1;"></div>'
+            . '</div>'
+            . $this->getLockedClickHandlerHtml($plan, $utmMedium, $utmCampaign);
+    }
+
+    /**
+     * @param \Magento\Framework\Phrase $phrase
+     * @return string
+     */
+    private function escapeAttr($phrase)
+    {
+        return htmlspecialchars((string)$phrase, ENT_QUOTES);
+    }
+
+    /**
+     * Delegated on document rather than an inline onclick attribute - inline handlers
+     * are blocked under a strict CSP.
+     *
+     * @param string $plan
+     * @param string $utmMedium
+     * @param string $utmCampaign
+     * @return string
+     */
+    private function getLockedClickHandlerHtml($plan, $utmMedium, $utmCampaign)
+    {
+        $script = "document.addEventListener('click', function (event) {"
+            . "if (!event.target.className || event.target.className.indexOf('mf-locked-toggle-overlay') === -1) {"
+            . " return; }"
+            . "require(['Magefan_Translation/js/mf-upgrade-plan-popup'], function (mfPopup) {"
+            . " mfPopup(" . json_encode($plan) . ", " . json_encode($utmMedium) . ", " . json_encode($utmCampaign) . ");"
+            . "});"
+            . "});";
+
+        return $this->mfSecureRenderer->renderTag('script', [], $script, false);
     }
 }
