@@ -65,6 +65,9 @@
                     <source>0</source>
                     <delay_before_translation>10</delay_before_translation>
                 </schedule_translation>
+                <advanced>
+                    <combine_fields>0</combine_fields>
+                </advanced>
             </auto_translation>
         </mftranslation>
     </default>
