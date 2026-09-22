@@ -40,7 +40,7 @@ if ($block->getRequest()->getParam('store')) {
                 var a = \$('<a href=\"#\" class=\"mf-locked-feature\" style=\"margin-top:10px;display: inline-block;\">" . $escaper->escapeHtml(__('Translate')) . "</a>').click(function(e){
                     e.preventDefault();
                     require(['Magefan_Translation/js/mf-upgrade-plan-popup'], function(mfPopup) {
-                        mfPopup('Plus or Extra', 'auto-translate', 'button');
+                        mfPopup('Plus or Extra', 'auto-translate', 'button-attr');
                     });
                     return false;
                 });

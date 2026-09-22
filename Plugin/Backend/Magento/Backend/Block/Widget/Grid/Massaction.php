@@ -24,6 +24,8 @@ class Massaction
         'secondblog_category_index',
         'secondblog_tag_index',
         'secondblogauthor_author_index',
+        'review_product_index',
+        'review_product_pending',
     ];
 
     /**

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright © Magefan (support@magefan.com). All rights reserved.
+* Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+*/
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="page.main.actions">
+            <block class="Magento\Backend\Block\Store\Switcher" name="store_switcher"
+                   template="Magefan_Translation::cms/store-switcher-promo.phtml">
+                <action method="setUseConfirm">
+                    <argument name="params" xsi:type="string">1</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -22,7 +22,8 @@ class Locked extends Action
 
         $this->messageManager->addNotice(
             __(
-                'This option is available in Magefan Translation Extra plan only. Please upgrade at <a href="%1" target="_blank">' .$url. '</a>.',
+                'This option is available in Magefan Translation Extra plan only.
+                       Please <a href="%1" target="_blank">upgrade plan</a> to use this feature.',
                 $url . $params
             )
         );
