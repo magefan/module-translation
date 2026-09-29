@@ -13,6 +13,15 @@ class ChatGPTModels implements \Magento\Framework\Option\ArrayInterface
      * @var string[]
      */
     private $models = [
+        'gpt-6-luna',
+        'gpt-6-sol',
+        'gpt-6-astra',
+
+        // GPT-5.6
+        'gpt-5.6-luna',
+        'gpt-5.6-terra',
+        'gpt-5.6-sol',
+
         'gpt-5.2',
 
         'gpt-5',
