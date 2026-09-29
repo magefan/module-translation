@@ -35,7 +35,7 @@
                     </glossary>
                 </mfgoogleapi>
                 <mfchatgptapi>
-                    <chatgpt_model>gpt-4o-mini</chatgpt_model>
+                    <chatgpt_model>gpt-6-luna</chatgpt_model>
                     <chatgpt_api_key></chatgpt_api_key>
                     <additional_instructions></additional_instructions>
                     <glossary>
