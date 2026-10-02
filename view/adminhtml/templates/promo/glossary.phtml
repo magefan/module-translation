@@ -5,6 +5,7 @@
  */
 
 /** @var \Magento\Framework\Escaper $escaper */
+/** @var \Magefan\Translation\Block\Adminhtml\Promo $block */
 ?>
 <div class="mf-promo-page">
     <div class="mf-promo-badge mf-promo-badge--extra"><?= $escaper->escapeHtml(__('Extra Plan Feature')) ?></div>
@@ -22,7 +23,7 @@
     </ul>
     <br>
     <a class="action-primary mf-promo-btn"
-       href="https://magefan.com/magento-2-translation-extension/pricing?utm_source=admin&utm_medium=menu&utm_campaign=translation"
+       href="<?= $escaper->escapeUrl($block->getUpgradePlanUrl()) ?>"
        target="_blank">
         <?= $escaper->escapeHtml(__('Upgrade to Extra')) ?>
     </a>

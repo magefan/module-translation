@@ -5,6 +5,7 @@
  */
 
 /** @var \Magento\Framework\Escaper $escaper */
+/** @var \Magefan\Translation\Block\Adminhtml\Promo $block */
 /** @var \Magefan\Community\Api\SecureHtmlRendererInterface $mfSecureRenderer */
 ?>
 <div class="mf-promo-page">
@@ -23,7 +24,7 @@
     </ul>
     <br>
     <a class="action-primary mf-promo-btn"
-       href="https://magefan.com/magento-2-translation-extension/pricing?utm_source=admin&utm_medium=menu&utm_campaign=translation"
+       href="<?= $escaper->escapeUrl($block->getUpgradePlanUrl()) ?>"
        target="_blank">
         <?= $escaper->escapeHtml(__('Upgrade to Plus or Extra')) ?>
     </a>

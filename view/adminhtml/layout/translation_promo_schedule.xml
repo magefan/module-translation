@@ -8,7 +8,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block class="Magento\Backend\Block\Template" name="mf.translation.promo.schedule"
+            <block class="Magefan\Translation\Block\Adminhtml\Promo" name="mf.translation.promo.schedule"
                    template="Magefan_Translation::promo/schedule.phtml"/>
         </referenceContainer>
     </body>
