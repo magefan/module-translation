@@ -8,31 +8,9 @@ declare(strict_types=1);
 
 namespace Magefan\Translation\Controller\Adminhtml\Promo;
 
-use Magento\Backend\App\Action;
-use Magento\Backend\App\Action\Context;
-use Magento\Framework\View\Result\PageFactory;
+use Magefan\Community\Controller\Adminhtml\AbstractPromo as CommunityAbstractPromo;
 
-abstract class AbstractPromo extends Action
+abstract class AbstractPromo extends CommunityAbstractPromo
 {
-    const ADMIN_RESOURCE = 'Magefan_Translation::elements';
-
-    /**
-     * @var PageFactory
-     */
-    private $resultPageFactory;
-
-    public function __construct(Context $context, PageFactory $resultPageFactory)
-    {
-        parent::__construct($context);
-        $this->resultPageFactory = $resultPageFactory;
-    }
-
-    abstract protected function getPageTitle(): string;
-
-    public function execute()
-    {
-        $resultPage = $this->resultPageFactory->create();
-        $resultPage->getConfig()->getTitle()->prepend(__($this->getPageTitle()));
-        return $resultPage;
-    }
+    public const ADMIN_RESOURCE = 'Magefan_Translation::elements';
 }

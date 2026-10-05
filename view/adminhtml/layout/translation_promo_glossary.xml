@@ -8,8 +8,25 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block class="Magento\Backend\Block\Template" name="mf.translation.promo.glossary"
-                   template="Magefan_Translation::promo/glossary.phtml"/>
+            <block class="Magefan\Community\Block\Adminhtml\Promo" name="mf.translation.promo.glossary">
+                <arguments>
+                    <argument name="plan" xsi:type="string">extra</argument>
+                    <argument name="badge" xsi:type="string" translate="true">Extra Plan Feature</argument>
+                    <argument name="title" xsi:type="string" translate="true">Glossary</argument>
+                    <argument name="description" xsi:type="string" translate="true">Maintain consistent, brand-accurate translations across your entire store with a custom glossary of protected terms.</argument>
+                    <argument name="features" xsi:type="array">
+                        <item name="f0" xsi:type="string" translate="true">Define term pairs to enforce consistent translations</item>
+                        <item name="f1" xsi:type="string" translate="true">Protect brand names, product terms, and technical vocabulary</item>
+                        <item name="f2" xsi:type="string" translate="true">Glossary is applied automatically during auto-translation</item>
+                        <item name="f3" xsi:type="string" translate="true">Manage terms per language pair</item>
+                        <item name="f4" xsi:type="string" translate="true">Import and export glossary entries via CSV</item>
+                    </argument>
+                    <argument name="section" xsi:type="string">mftranslation</argument>
+                    <argument name="module_name" xsi:type="string">Magefan_Translation</argument>
+                    <argument name="utm_campaign" xsi:type="string">translation</argument>
+                    <argument name="button_label" xsi:type="string" translate="true">Upgrade to Extra</argument>
+                </arguments>
+            </block>
         </referenceContainer>
     </body>
 </page>
