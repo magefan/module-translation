@@ -29,4 +29,23 @@
     <type name="Magento\Review\Block\Adminhtml\Edit\Form">
         <plugin name="magefan_translation_plus_review_edit_form_use_default" type="Magefan\Translation\Plugin\Backend\Magento\Review\Block\Adminhtml\Edit\FormPlugin" sortOrder="10" disabled="false"/>
     </type>
+
+    <type name="Magefan\Community\Controller\Adminhtml\Promo\Index">
+        <arguments>
+            <argument name="pages" xsi:type="array">
+                <item name="translation_promo_search" xsi:type="array">
+                    <item name="resource" xsi:type="string">Magefan_Translation::elements</item>
+                    <item name="title" xsi:type="string" translate="true">Search and Translate</item>
+                </item>
+                <item name="translation_promo_schedule" xsi:type="array">
+                    <item name="resource" xsi:type="string">Magefan_Translation::elements</item>
+                    <item name="title" xsi:type="string" translate="true">Translation Schedule</item>
+                </item>
+                <item name="translation_promo_glossary" xsi:type="array">
+                    <item name="resource" xsi:type="string">Magefan_Translation::elements</item>
+                    <item name="title" xsi:type="string" translate="true">Glossary</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
 </config>
