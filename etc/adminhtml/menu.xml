@@ -12,10 +12,10 @@
         <add id="Magefan_Translation::config" title="Configuration" translate="title" module="Magefan_Translation" parent="Magefan_Translation::elements" sortOrder="30" action="adminhtml/system_config/edit/section/mftranslation" resource="Magefan_Translation::config"/>
 
         <!-- Plus -->
-        <add id="Magefan_Translation::promo_search" title="Search and Translate" translate="title" module="Magefan_Translation" parent="Magefan_Translation::elements" sortOrder="20" action="translation/promo/search" resource="Magefan_Translation::elements"/>
+        <add id="Magefan_Translation::promo_search" title="Search and Translate" translate="title" module="Magefan_Translation" parent="Magefan_Translation::elements" sortOrder="20" action="mfcommunity/promo/index/page/translation_promo_search" resource="Magefan_Translation::elements"/>
 
         <!-- Extra-->
-        <add id="Magefan_TranslationExtra::promo_TranslationSchedule" title="Translation Schedule" translate="title" module="Magefan_Translation" parent="Magefan_Translation::elements" sortOrder="10" action="translation/promo/schedule" resource="Magefan_Translation::elements"/>
-        <add id="Magefan_TranslationExtra::promo_glossary" title="Glossary" translate="title" module="Magefan_Translation" parent="Magefan_Translation::elements" sortOrder="27" action="translation/promo/glossary" resource="Magefan_Translation::elements"/>
+        <add id="Magefan_TranslationExtra::promo_TranslationSchedule" title="Translation Schedule" translate="title" module="Magefan_Translation" parent="Magefan_Translation::elements" sortOrder="10" action="mfcommunity/promo/index/page/translation_promo_schedule" resource="Magefan_Translation::elements"/>
+        <add id="Magefan_TranslationExtra::promo_glossary" title="Glossary" translate="title" module="Magefan_Translation" parent="Magefan_Translation::elements" sortOrder="27" action="mfcommunity/promo/index/page/translation_promo_glossary" resource="Magefan_Translation::elements"/>
     </menu>
 </config>
