@@ -26,6 +26,8 @@ class Massaction
         'secondblogauthor_author_index',
         'review_product_index',
         'review_product_pending',
+        'adminhtml_email_template_index',
+        'adminhtml_email_template_grid',
     ];
 
     /**
@@ -40,6 +42,20 @@ class Massaction
         Config $config
     ) {
         $this->config = $config;
+    }
+
+    /**
+     * A grid with no mass actions of its own, like the email template grid, checks
+     * isAvailable() before anything calls getItems(), and AbstractMassaction::getCount()
+     * reads the items directly - so they are added here as well. addItem() is keyed by
+     * id, so adding them twice is harmless.
+     *
+     * @param $subject
+     * @return void
+     */
+    public function beforeIsAvailable($subject)
+    {
+        $this->beforeGetItems($subject);
     }
 
     /**
