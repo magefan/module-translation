@@ -29,4 +29,15 @@
     <type name="Magento\Review\Block\Adminhtml\Edit\Form">
         <plugin name="magefan_translation_plus_review_edit_form_use_default" type="Magefan\Translation\Plugin\Backend\Magento\Review\Block\Adminhtml\Edit\FormPlugin" sortOrder="10" disabled="false"/>
     </type>
+
+    <!-- Teaser only - Magefan\TranslationExtra registers under this same plugin name and replaces it. -->
+    <type name="Magento\Backend\Block\Widget\Button\Toolbar">
+        <plugin name="add_auto_translation_button_on_email_template_form" type="Magefan\Translation\Plugin\Backend\Magento\Backend\Block\Widget\Button\EmailTemplateToolbar" sortOrder="5" disabled="false"/>
+    </type>
+
+    <!-- Teaser only - Magefan\TranslationPlus\Plugin\Magento\Email\Block\Adminhtml\Template\Edit\FormPlugin
+         registers under this same plugin name and fully overrides it when Plus is installed. -->
+    <type name="Magento\Email\Block\Adminhtml\Template\Edit\Form">
+        <plugin name="magefan_translation_plus_email_template_edit_form_use_default" type="Magefan\Translation\Plugin\Backend\Magento\Email\Block\Adminhtml\Template\Edit\FormPlugin" sortOrder="10" disabled="false"/>
+    </type>
 </config>
