@@ -57,6 +57,7 @@ abstract class AbstractLegacyEditFormPlugin
 
     /**
      * utm_medium of the upgrade popup, telling which page it was opened from.
+     * A plain slug, it is put into the script as is.
      *
      * @return string
      */
@@ -166,7 +167,7 @@ abstract class AbstractLegacyEditFormPlugin
             . "if (!event.target.classList || !event.target.classList.contains('mf-locked-toggle-overlay')) {"
             . " return; }"
             . "require(['Magefan_Translation/js/mf-upgrade-plan-popup'], function (mfPopup) {"
-            . " mfPopup('Extra', " . json_encode($this->getUpgradePopupSource()) . ", 'fieldset');"
+            . " mfPopup('Extra', '" . $this->getUpgradePopupSource() . "', 'fieldset');"
             . "});"
             . "});";
 
