@@ -30,6 +30,8 @@ class EntityManager
 
     public const REVIEW_ID = 15;
 
+    public const EMAIL_TEMPLATE_ID = 16;
+
     public const TYPE_CATEGORY = 'category';
     public const TYPE_PRODUCT = 'product';
     public const TYPE_PAGE = 'page';
@@ -49,6 +51,8 @@ class EntityManager
 
     public const TYPE_REVIEW = 'review';
 
+    public const TYPE_EMAIL_TEMPLATE = 'email_template';
+
     public const TYPES = [
         self::TYPE_PRODUCT => self::PRODUCT_ID,
         self::TYPE_CATEGORY => self::CATEGORY_ID,
@@ -67,7 +71,9 @@ class EntityManager
         self::TYPE_SECONDBLOG_CATEGORY => self::SECONDBLOG_CATEGORY_ID,
         self::TYPE_SECONDBLOG_AUTHOR => self::SECONDBLOG_AUTHOR_ID,
 
-        self::TYPE_REVIEW => self::REVIEW_ID
+        self::TYPE_REVIEW => self::REVIEW_ID,
+
+        self::TYPE_EMAIL_TEMPLATE => self::EMAIL_TEMPLATE_ID
     ];
 
     /**

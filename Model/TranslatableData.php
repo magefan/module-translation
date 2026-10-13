@@ -141,6 +141,10 @@ class TranslatableData
                 $data[EntityManager::TYPE_REVIEW] = $this->getReviewFields();
                 break;
 
+            case EntityManager::TYPE_EMAIL_TEMPLATE:
+                $data[EntityManager::TYPE_EMAIL_TEMPLATE] = $this->getEmailTemplateFields();
+                break;
+
             default:
                 // If no type or unrecognized type is passed, return all
                 $data[EntityManager::TYPE_CATEGORY] = $this->getCatalogAttributes($this->categoryAttributeRepository);
@@ -164,6 +168,10 @@ class TranslatableData
 
                 if ($this->moduleManager->isEnabled('Magento_Review')) {
                     $data[EntityManager::TYPE_REVIEW] = $this->getReviewFields();
+                }
+
+                if ($this->moduleManager->isEnabled('Magento_Email')) {
+                    $data[EntityManager::TYPE_EMAIL_TEMPLATE] = $this->getEmailTemplateFields();
                 }
 
                 break;
@@ -375,6 +383,21 @@ class TranslatableData
         return [
             ['label' => __('Summary of Review'), 'code' => 'title', 'type' => 'text'],
             ['label' => __('Review'), 'code' => 'detail', 'type' => 'text']
+        ];
+    }
+
+    /**
+     * Transactional email template fields.
+     *
+     * Template Styles is intentionally not listed - it is CSS, not text.
+     *
+     * @return array[]
+     */
+    private function getEmailTemplateFields(): array
+    {
+        return [
+            ['label' => __('Template Subject'), 'code' => 'template_subject', 'type' => 'text'],
+            ['label' => __('Template Content'), 'code' => 'template_text', 'type' => 'html']
         ];
     }
 

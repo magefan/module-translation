@@ -36,6 +36,8 @@ class Recurring implements InstallSchemaInterface
             // Handled here rather than in db_schema.xml because Magento_Review can be
             // disabled, and declaring a column on an undeclared table breaks upgrade.
             'review',
+            // Same as "review": Magento_Email can be disabled too.
+            'email_template',
         ];
 
         $localizationTables = [

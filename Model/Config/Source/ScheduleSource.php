@@ -41,6 +41,8 @@ class ScheduleSource implements \Magento\Framework\Option\ArrayInterface
 
             ['value' => EntityManager::REVIEW_ID,               'label' => __('Product Review')],
 
+            ['value' => EntityManager::EMAIL_TEMPLATE_ID,       'label' => __('Email Template')],
+
             ['value' => EntityManager::TRANSLATE_ID,            'label' => __('Phrases from Search And Translate')]
         ];
 
