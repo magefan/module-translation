@@ -8,8 +8,24 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block class="Magento\Backend\Block\Template" name="mf.translation.promo.schedule"
-                   template="Magefan_Translation::promo/schedule.phtml"/>
+            <block class="Magefan\Community\Block\Adminhtml\Promo" name="mf.translation.promo.schedule">
+                <arguments>
+                    <argument name="plan" xsi:type="string">extra</argument>
+                    <argument name="badge" xsi:type="string" translate="true">Extra Plan Feature</argument>
+                    <argument name="title" xsi:type="string" translate="true">Translation Schedule</argument>
+                    <argument name="description" xsi:type="string" translate="true">Automate your translation workflow with scheduled tasks — keep your store content translated without any manual effort.</argument>
+                    <argument name="features" xsi:type="array">
+                        <item name="f0" xsi:type="string" translate="true">Schedule automatic translation of new or updated content</item>
+                        <item name="f1" xsi:type="string" translate="true">Target specific store views, entity types, or attributes</item>
+                        <item name="f2" xsi:type="string" translate="true">Works with products, categories, CMS pages, and blog posts</item>
+                        <item name="f3" xsi:type="string" translate="true">Reduce manual workload and keep translations always up to date</item>
+                    </argument>
+                    <argument name="section" xsi:type="string">mftranslation</argument>
+                    <argument name="module_name" xsi:type="string">Magefan_Translation</argument>
+                    <argument name="utm_campaign" xsi:type="string">translation</argument>
+                    <argument name="button_label" xsi:type="string" translate="true">Upgrade to Extra</argument>
+                </arguments>
+            </block>
         </referenceContainer>
     </body>
 </page>

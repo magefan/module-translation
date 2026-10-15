@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright © Magefan (support@magefan.com). All rights reserved.
+* Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+*/
+-->
+<!--
+    The core email template grid has no mass actions, so it has no massaction block to
+    add "Auto Translate" to. Its items come only from the Massaction plugins
+    (the locked teaser here, the real per store view actions in Magefan_TranslationExtra);
+    with none of them active the block stays unavailable and the grid looks as before.
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="adminhtml.system.email.template.grid">
+            <block class="Magento\Backend\Block\Widget\Grid\Massaction" name="adminhtml.system.email.template.grid.massaction" as="grid.massaction">
+                <arguments>
+                    <argument name="massaction_id_field" xsi:type="string">template_id</argument>
+                    <argument name="form_field_name" xsi:type="string">template_ids</argument>
+                    <argument name="use_select_all" xsi:type="string">1</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

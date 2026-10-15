@@ -13,6 +13,14 @@ use Magefan\Translation\Model\Config;
 class Massaction
 {
     /**
+     * Email template grid page and its ajax reload
+     */
+    private const EMAIL_TEMPLATE_GRID_ACTIONS = [
+        'adminhtml_email_template_index',
+        'adminhtml_email_template_grid',
+    ];
+
+    /**
      * @var string[]
      */
     private $supportedActions = [
@@ -26,6 +34,8 @@ class Massaction
         'secondblogauthor_author_index',
         'review_product_index',
         'review_product_pending',
+        'adminhtml_email_template_index',
+        'adminhtml_email_template_grid',
     ];
 
     /**
@@ -40,6 +50,22 @@ class Massaction
         Config $config
     ) {
         $this->config = $config;
+    }
+
+    /**
+     * The email template grid has no mass actions of its own, so it checks isAvailable()
+     * before anything calls getItems(), and AbstractMassaction::getCount() reads the
+     * items directly - for that grid only, they are added here as well. addItem() is
+     * keyed by id, so adding them twice is harmless.
+     *
+     * @param $subject
+     * @return void
+     */
+    public function beforeIsAvailable($subject)
+    {
+        if (in_array($subject->getRequest()->getFullActionName(), self::EMAIL_TEMPLATE_GRID_ACTIONS, true)) {
+            $this->beforeGetItems($subject);
+        }
     }
 
     /**

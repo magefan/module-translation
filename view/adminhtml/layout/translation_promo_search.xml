@@ -8,8 +8,25 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block class="Magento\Backend\Block\Template" name="mf.translation.promo.search"
-                   template="Magefan_Translation::promo/search.phtml"/>
+            <block class="Magefan\Community\Block\Adminhtml\Promo" name="mf.translation.promo.search">
+                <arguments>
+                    <argument name="plan" xsi:type="string">plus</argument>
+                    <argument name="badge" xsi:type="string" translate="true">Plus Plan Feature</argument>
+                    <argument name="title" xsi:type="string" translate="true">Search and Translate</argument>
+                    <argument name="description" xsi:type="string" translate="true">Find any translatable string across your entire Magento store and translate it instantly — without digging through CSV files or switching between stores.</argument>
+                    <argument name="features" xsi:type="array">
+                        <item name="f0" xsi:type="string" translate="true">Search translations by source text, translated value, or locale</item>
+                        <item name="f1" xsi:type="string" translate="true">Filter results by store view, module, or translation status</item>
+                        <item name="f2" xsi:type="string" translate="true">Edit translations inline directly from the search results grid</item>
+                        <item name="f3" xsi:type="string" translate="true">Bulk-translate multiple strings in one action</item>
+                        <item name="f4" xsi:type="string" translate="true">Instantly find missing or outdated translations</item>
+                    </argument>
+                    <argument name="section" xsi:type="string">mftranslation</argument>
+                    <argument name="module_name" xsi:type="string">Magefan_Translation</argument>
+                    <argument name="utm_campaign" xsi:type="string">translation</argument>
+                    <argument name="button_label" xsi:type="string" translate="true">Upgrade to Plus or Extra</argument>
+                </arguments>
+            </block>
         </referenceContainer>
     </body>
 </page>
