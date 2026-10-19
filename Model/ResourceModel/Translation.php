@@ -18,6 +18,7 @@ class Translation extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 
     /**
      * Translation constructor
+     *
      * @param \Magento\Framework\Model\ResourceModel\Db\Context $context
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
      */
@@ -38,6 +39,8 @@ class Translation extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     }
 
     /**
+     * Before save.
+     *
      * @param AbstractModel $object
      * @return \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      */

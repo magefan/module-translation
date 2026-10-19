@@ -16,7 +16,7 @@ use Magento\Framework\Serialize\Serializer\Json;
 
 class AuthData extends \Magento\Config\Block\System\Config\Form\Field
 {
-    const SECRET_CONTENT_FIELDS = [
+    public const SECRET_CONTENT_FIELDS = [
         'private_key',
         'private_key_id'
     ];
@@ -37,6 +37,8 @@ class AuthData extends \Magento\Config\Block\System\Config\Form\Field
     private $json;
 
     /**
+     * Initialize dependencies.
+     *
      * @param Context $context
      * @param ScopeConfigInterface $scopeConfig
      * @param Config $config
@@ -57,6 +59,8 @@ class AuthData extends \Magento\Config\Block\System\Config\Form\Field
     }
 
     /**
+     * Get element html.
+     *
      * @param AbstractElement $element
      * @return string
      */
@@ -73,13 +77,15 @@ class AuthData extends \Magento\Config\Block\System\Config\Form\Field
             try {
                 foreach ($this->json->unserialize($data) as $configTitle => $configValue) {
                     $i++;
+                    $shownValue = in_array($configTitle, self::SECRET_CONTENT_FIELDS) ? '**************' : $configValue;
                     $configOptionHtml .= '  <tr class="' . ($i%2 ? '_odd-row' : '') . '">
                     <td><div class="data-grid-cell-content">' . $configTitle . '</div></td>
-                    <td><div class="data-grid-cell-content">' . (in_array($configTitle, self::SECRET_CONTENT_FIELDS) ? '**************' : $configValue) . '</div></td>
+                    <td><div class="data-grid-cell-content">' . $shownValue . '</div></td>
                     </tr>';
                 }
             } catch (\Exception $exception) {
-                $configOptionHtml = '<span style="color: red">Private Key JSON is not valid. Please upload correct JSON file.<span>';
+                $configOptionHtml = '<span style="color: red">'
+                    . 'Private Key JSON is not valid. Please upload correct JSON file.</span>';
             }
 
             if (strlen($configOptionHtml)) {

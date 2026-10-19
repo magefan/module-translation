@@ -15,6 +15,11 @@ class Locked extends Action
 {
     public const ADMIN_RESOURCE = 'Magento_Backend::admin';
 
+    /**
+     * Show the upgrade plan notice and go back.
+     *
+     * @return \Magento\Framework\Controller\Result\Redirect
+     */
     public function execute()
     {
         $url = 'https://magefan.com/magento-2-translation-extension/pricing';

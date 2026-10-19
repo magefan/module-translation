@@ -10,6 +10,8 @@ namespace Magefan\Translation\Model\Config\Source;
 class DeepSeekModels implements \Magento\Framework\Option\ArrayInterface
 {
     /**
+     * Get options as value-label pairs.
+     *
      * @return array
      */
     public function toOptionArray()

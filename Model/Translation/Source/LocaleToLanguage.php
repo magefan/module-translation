@@ -15,15 +15,11 @@ use Magento\Config\Model\Config\Source\Locale;
 class LocaleToLanguage extends Column
 {
     /**
-     * Escaper
-     *
      * @var \Magento\Framework\Escaper
      */
     protected $escaper;
 
     /**
-     * Store manager
-     *
      * @var StoreManager
      */
     protected $storeManager;
@@ -40,6 +36,7 @@ class LocaleToLanguage extends Column
 
     /**
      * LocaleToLanguage constructor.
+     *
      * @param ContextInterface $context
      * @param UiComponentFactory $uiComponentFactory
      * @param Escaper $escaper
@@ -78,6 +75,8 @@ class LocaleToLanguage extends Column
     }
 
     /**
+     * Prepare item.
+     *
      * @param array $item
      * @return string
      */

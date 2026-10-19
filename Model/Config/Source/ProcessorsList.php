@@ -9,12 +9,14 @@ namespace Magefan\Translation\Model\Config\Source;
 
 class ProcessorsList implements \Magento\Framework\Option\ArrayInterface
 {
-    const GOOGLE_TRANSLATE_PROCESSOR = 'gt';
-    const CHAT_GPT_PROCESSOR = 'chat_gpt';
-    const DEEPSEEK_PROCESSOR = 'deepseek';
-    const DEEPL_PROCESSOR = 'deepl';
+    public const GOOGLE_TRANSLATE_PROCESSOR = 'gt';
+    public const CHAT_GPT_PROCESSOR = 'chat_gpt';
+    public const DEEPSEEK_PROCESSOR = 'deepseek';
+    public const DEEPL_PROCESSOR = 'deepl';
 
     /**
+     * Get options as value-label pairs.
+     *
      * @return array[]
      */
     public function toOptionArray()
@@ -29,8 +31,9 @@ class ProcessorsList implements \Magento\Framework\Option\ArrayInterface
         return $result;
     }
 
-
     /**
+     * Get processor label.
+     *
      * @param string $processorCode
      * @return string
      */

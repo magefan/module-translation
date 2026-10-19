@@ -16,9 +16,11 @@ use Magefan\Translation\Model\Config;
 class CurrentUsage extends Field
 {
 
-    const CURRENT_USAGE_TEMPLATE = 'system/config/current_usage.phtml';
+    public const CURRENT_USAGE_TEMPLATE = 'system/config/current_usage.phtml';
 
     /**
+     * Prepare layout.
+     *
      * @return $this|Field
      */
     protected function _prepareLayout()
@@ -33,6 +35,8 @@ class CurrentUsage extends Field
     }
 
     /**
+     * Render element html.
+     *
      * @param AbstractElement $element
      * @return string
      */
@@ -45,6 +49,8 @@ class CurrentUsage extends Field
     }
 
     /**
+     * Get element html.
+     *
      * @param AbstractElement $element
      * @return string
      */

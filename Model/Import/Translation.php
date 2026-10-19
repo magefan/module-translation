@@ -12,19 +12,19 @@ use Magento\Store\Model\StoreManagerInterface;
 
 class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEntity
 {
-    const KEY_ID = 'key_id';
+    public const KEY_ID = 'key_id';
 
-    const STRING  = 'string';
+    public const STRING  = 'string';
 
-    const STORE_ID = 'store_id';
+    public const STORE_ID = 'store_id';
 
-    const TRANSLATE = 'translate';
+    public const TRANSLATE = 'translate';
 
-    const LOCALE = 'locale';
+    public const LOCALE = 'locale';
 
-    const TABLE_Entity = 'translation';
+    public const TABLE_ENTITY = 'translation';
 
-    const CRC_STRING = 'crc_string';
+    public const CRC_STRING = 'crc_string';
 
     /**
      * Validation failure message template definitions
@@ -53,9 +53,7 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
     protected $groupFactory;
 
     /**
-     * Valid column names
-     *
-     * @array
+     * @var array
      */
     protected $validColumnNames = [
         self::KEY_ID,
@@ -104,6 +102,8 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
     private $allStoreIds = null;
 
     /**
+     * Initialize dependencies.
+     *
      * @param \Magento\Framework\Json\Helper\Data $jsonHelper
      * @param \Magento\ImportExport\Helper\Data $importExportData
      * @param \Magento\ImportExport\Model\ResourceModel\Import\Data $importData
@@ -241,7 +241,7 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
             }
         }
         if ($listTitle) {
-            $this->deleteEntityFinish(array_unique($listTitle), self::TABLE_Entity);
+            $this->deleteEntityFinish(array_unique($listTitle), self::TABLE_ENTITY);
         }
         return $this;
     }
@@ -285,21 +285,21 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
             }
             if (\Magento\ImportExport\Model\Import::BEHAVIOR_REPLACE == $behavior) {
                 if ($listTitle) {
-                    if ($this->deleteEntityFinish(array_unique($listTitle), self::TABLE_Entity)) {
-                        $this->saveEntityFinish($entityList, self::TABLE_Entity);
+                    if ($this->deleteEntityFinish(array_unique($listTitle), self::TABLE_ENTITY)) {
+                        $this->saveEntityFinish($entityList, self::TABLE_ENTITY);
                     }
                 }
             } elseif (\Magento\ImportExport\Model\Import::BEHAVIOR_APPEND == $behavior) {
-                $this->saveEntityFinish($entityList, self::TABLE_Entity);
+                $this->saveEntityFinish($entityList, self::TABLE_ENTITY);
             }
         }
         return $this;
     }
 
     /**
-     * Save product prices.
+     * Save the imported translations.
      *
-     * @param array $priceData
+     * @param array $entityData
      * @param string $table
      * @return $this
      */
@@ -339,8 +339,10 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
     }
 
     /**
+     * Delete entity finish.
+     *
      * @param array $listTitle
-     * @param $table
+     * @param string $table
      * @return bool
      */
     protected function deleteEntityFinish(array $listTitle, $table)
@@ -361,6 +363,8 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
     }
 
     /**
+     * Get all store ids.
+     *
      * @return array
      */
     private function getAllStoreIds(): array

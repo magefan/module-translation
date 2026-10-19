@@ -4,14 +4,16 @@
  * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
  */
 
-/** @var \Magento\Framework\Escaper $escaper
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Magento\Framework\Escaper $escaper
  * @var \Magefan\Community\Api\SecureHtmlRendererInterface $mfSecureRenderer
  */
 ?>
 <?php
-$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-$assetRepo = $objectManager->get(\Magento\Framework\View\Asset\Repository::class);
-$img = '<img src="' . $assetRepo->getUrl('Magefan_Translation::images/translate_icon.png') . '" class="mf-translate-icon" width="50" height="50" alt="Auto Translate" title="Auto Translate">';
+$iconUrl = $block->getViewFileUrl('Magefan_Translation::images/translate_icon.png');
+$img = '<img src="' . $escaper->escapeUrl($iconUrl) . '"'
+    . ' class="mf-translate-icon" width="50" height="50" alt="Auto Translate" title="Auto Translate">';
 ?>
 <?php $script = "
     function initLockedAutoTranslate(tableTrElements) {
@@ -20,7 +22,8 @@ $img = '<img src="' . $assetRepo->getUrl('Magefan_Translation::images/translate_
 
         if (deleteTh) {
             var customTh = document.createElement('th');
-            customTh.innerHTML = '<th class=\"th-auto-translate\">" . $escaper->escapeHtml(__('Auto Translate')) . "</th>';
+            customTh.innerHTML = '<th class=\"th-auto-translate\">'
+                + '" . $escaper->escapeHtml(__('Auto Translate')) . "</th>';
             deleteTh.parentNode.insertBefore(customTh, deleteTh);
         }
 
@@ -28,7 +31,8 @@ $img = '<img src="' . $assetRepo->getUrl('Magefan_Translation::images/translate_
             var deleteTd = el.querySelector('.col-delete');
             if (deleteTd) {
                 var customTd = document.createElement('td');
-                customTd.innerHTML = '<div class=\"auto-translate mf-locked-feature\" onclick=\"mfTranslationLockedClick()\">" . $img . "</div>';
+                customTd.innerHTML = '<div class=\"auto-translate mf-locked-feature\"'
+                    + ' onclick=\"mfTranslationLockedClick()\">" . $img . "</div>';
                 deleteTd.parentNode.insertBefore(customTd, deleteTd);
             }
         });
@@ -49,7 +53,9 @@ $img = '<img src="' . $assetRepo->getUrl('Magefan_Translation::images/translate_
 
     var mfTranslationWaitOnGrid = setInterval(function() {
         var tableTrElements = document.querySelectorAll(
-            'table[data-index=\"attribute_options_select\"] tbody tr, #swatch-visual-options-panel table tbody tr, #swatch-text-options-panel table tbody tr'
+            'table[data-index=\"attribute_options_select\"] tbody tr,'
+            + ' #swatch-visual-options-panel table tbody tr,'
+            + ' #swatch-text-options-panel table tbody tr'
         );
         if (tableTrElements.length) {
             clearInterval(mfTranslationWaitOnGrid);

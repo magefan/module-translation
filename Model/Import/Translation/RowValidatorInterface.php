@@ -11,13 +11,14 @@ namespace Magefan\Translation\Model\Import\Translation;
  */
 interface RowValidatorInterface extends \Magento\Framework\Validator\ValidatorInterface
 {
-    const ERROR_INVALID_TITLE= 'InvalidValueTITLE';
-    const ERROR_TITLE_IS_EMPTY = 'EmptyTITLE';
-    const ERROR_STORE_ID_NOT_EXIST = 'StoreIdNotExist';
+    public const ERROR_INVALID_TITLE= 'InvalidValueTITLE';
+    public const ERROR_TITLE_IS_EMPTY = 'EmptyTITLE';
+    public const ERROR_STORE_ID_NOT_EXIST = 'StoreIdNotExist';
 
     /**
      * Initialize validator
      *
+     * @param \Magento\CatalogImportExport\Model\Import\Product $context
      * @return $this
      */
     public function init($context);

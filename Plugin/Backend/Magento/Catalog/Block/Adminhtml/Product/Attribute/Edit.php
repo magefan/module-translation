@@ -18,6 +18,8 @@ class Edit
     private $config;
 
     /**
+     * Initialize dependencies.
+     *
      * @param Config $config
      */
     public function __construct(
@@ -26,6 +28,13 @@ class Edit
         $this->config = $config;
     }
 
+    /**
+     * Add the "Auto Translate" button, that offers the Extra plan, to the product attribute edit page.
+     *
+     * @param \Magento\Catalog\Block\Adminhtml\Product\Attribute\Edit $subject
+     * @param \Magento\Framework\View\LayoutInterface $layout
+     * @return array
+     */
     public function beforeSetLayout(
         \Magento\Catalog\Block\Adminhtml\Product\Attribute\Edit $subject,
         $layout
@@ -45,6 +54,11 @@ class Edit
         return [$layout];
     }
 
+    /**
+     * Get the button click handler that opens the upgrade plan popup.
+     *
+     * @return string
+     */
     private function getOnClick(): string
     {
         return "require(['Magefan_Translation/js/mf-upgrade-plan-popup'], function(mfPopup){"

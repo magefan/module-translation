@@ -5,6 +5,10 @@
  */
 
 /** @var \Magento\Framework\Escaper $escaper */
+
+$noteText = __(
+    'Note: text added in this section will only be translated if it is wrapped in the translation function.'
+);
 ?>
 
 <div class="admin__fieldset-wrapper" style="margin-bottom: 40px;">
@@ -22,18 +26,20 @@
                 <div class="admin__collapsible-title" data-role="title">
                     <strong>
                         <p style="font-style: italic; font-size: 0.9em; color: #666; margin: 4px 0 0;">
-                            <?= $escaper->escapeHtml(__('Note: text added in this section will only be translated if it is wrapped in the translation function.')) ?>
+                            <?= $escaper->escapeHtml($noteText) ?>
                         </p>
                     </strong>
                 </div>
 
                 <div class="admin__collapsible-content _show" data-role="content">
 
-                    <div id="translation-info-banner" class="translation-info-banner" role="region" aria-label="<?= $escaper->escapeHtml(__('Translation Info Banner')) ?>">
+                    <div id="translation-info-banner" class="translation-info-banner" role="region"
+                         aria-label="<?= $escaper->escapeHtml(__('Translation Info Banner')) ?>">
                         <span><strong><?= $escaper->escapeHtml(__('Examples')) ?></strong></span>
                         <br>
                         <br>
-                        <table class="translation-table" role="table" aria-label="<?= $escaper->escapeHtml(__('Supported Translation Methods')) ?>">
+                        <table class="translation-table" role="table"
+                               aria-label="<?= $escaper->escapeHtml(__('Supported Translation Methods')) ?>">
                             <thead>
                             <tr>
                                 <th><?= $escaper->escapeHtml(__('Format')) ?></th>
@@ -45,7 +51,9 @@
                             <tr>
                                 <td><code><?= $escaper->escapeHtml(__("__('Text')")) ?></code></td>
                                 <td class="status-yes">✅</td>
-                                <td><?= $escaper->escapeHtml(__('Most common method, used in modules and themes (PHP)')) ?></td>
+                                <td><?= $escaper->escapeHtml(
+                                    __('Most common method, used in modules and themes (PHP)')
+                                ) ?></td>
                             </tr>
                             <tr>
                                 <td><code><?= $escaper->escapeHtml(__('data-bind="i18n: \'Text\'"')) ?></code></td>
@@ -60,19 +68,29 @@
                             <tr>
                                 <td><code><?= $escaper->escapeHtml(__('{{trans "Text"}}')) ?></code></td>
                                 <td class="status-yes">✅</td>
-                                <td><?= $escaper->escapeHtml(__('Used in CMS blocks, pages, and email templates')) ?></td>
+                                <td><?= $escaper->escapeHtml(
+                                    __('Used in CMS blocks, pages, and email templates')
+                                ) ?></td>
                             </tr>
                             <tr>
                                 <td><code><?= $escaper->escapeHtml(__('translate="true"')) ?></code></td>
                                 <td class="status-yes">✅</td>
-                                <td><?= $escaper->escapeHtml(__('Used in UI components and configuration XML files')) ?></td>
+                                <td><?= $escaper->escapeHtml(
+                                    __('Used in UI components and configuration XML files')
+                                ) ?></td>
                             </tr>
                             </tbody>
                         </table>
 
                         <p class="translation-note">
-                            <?= $escaper->escapeHtml(__('Only strings (text) written in one of the formats above will be translated.')) ?>
-                            <strong><?= $escaper->escapeHtml(__('Texts from product names, CMS content, and database are not supported unless specifically wrapped in the translation function.')) ?></strong>
+                            <?= $escaper->escapeHtml(
+                                __('Only strings (text) written in one of the formats above will be translated.')
+                            ) ?>
+                            <strong><?= $escaper->escapeHtml(
+                                // the phrase alone is over 120 characters, splitting it breaks translations
+                                // phpcs:ignore Generic.Files.LineLength.TooLong
+                                __('Texts from product names, CMS content, and database are not supported unless specifically wrapped in the translation function.')
+                            ) ?></strong>
                         </p>
                     </div>
 
@@ -91,8 +109,10 @@
 
 <style>
     .admin__collapsible-block:not(.active) .admin__collapsible-content {display: none;}
-    .translation-info-banner {position: relative;border: 1px solid #ccc;padding: 50px 20px 15px 20px;margin-bottom: 20px;color: #333;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}
-    .translation-info-banner .close-btn {position: absolute;top: 10px;right: 15px;font-size: 18px;font-weight: bold;cursor: pointer;color: #888;user-select: none;}
+    .translation-info-banner {position: relative;border: 1px solid #ccc;padding: 50px 20px 15px 20px;
+        margin-bottom: 20px;color: #333;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}
+    .translation-info-banner .close-btn {position: absolute;top: 10px;right: 15px;font-size: 18px;
+        font-weight: bold;cursor: pointer;color: #888;user-select: none;}
     .translation-info-banner .close-btn:hover {color: #444;}
     .translation-table {border-collapse: collapse;width: 100%;}
     .translation-table th,

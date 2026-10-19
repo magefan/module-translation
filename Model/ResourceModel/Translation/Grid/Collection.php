@@ -22,18 +22,18 @@ class Collection extends TranslationCollection implements SearchResultInterface
     protected $aggregations;
 
     /**
+     * Initialize dependencies.
+     *
      * @param \Magento\Framework\Data\Collection\EntityFactoryInterface $entityFactory
      * @param \Psr\Log\LoggerInterface $logger
      * @param \Magento\Framework\Data\Collection\Db\FetchStrategyInterface $fetchStrategy
      * @param \Magento\Framework\Event\ManagerInterface $eventManager
-     * @param \Magento\Store\Model\StoreManagerInterface $storeManager
-     * @param \Magento\Framework\EntityManager\MetadataPool $metadataPool
-     * @param mixed|null $mainTable
+     * @param string $mainTable
      * @param string $eventPrefix
-     * @param mixed $eventObject
-     * @param mixed $resourceModel
+     * @param string $eventObject
+     * @param string $resourceModel
      * @param string $model
-     * @param null $connection
+     * @param \Magento\Framework\DB\Adapter\AdapterInterface|null $connection
      * @param \Magento\Framework\Model\ResourceModel\Db\AbstractDb|null $resource
      *
      * @SuppressWarnings(PHPMD.ExcessiveParameterList)
@@ -66,6 +66,8 @@ class Collection extends TranslationCollection implements SearchResultInterface
     }
 
     /**
+     * Get aggregations.
+     *
      * @return AggregationInterface
      */
     public function getAggregations()
@@ -74,6 +76,8 @@ class Collection extends TranslationCollection implements SearchResultInterface
     }
 
     /**
+     * Set aggregations.
+     *
      * @param AggregationInterface $aggregations
      * @return $this
      */

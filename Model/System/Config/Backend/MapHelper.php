@@ -20,6 +20,8 @@ class MapHelper
     protected $mathRandom;
 
     /**
+     * Initialize dependencies.
+     *
      * @param Random $mathRandom
      */
     public function __construct(

@@ -40,6 +40,8 @@ class ChatGPTModels implements \Magento\Framework\Option\ArrayInterface
     ];
 
     /**
+     * Get options as value-label pairs.
+     *
      * @return array
      */
     public function toOptionArray()

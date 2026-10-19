@@ -14,6 +14,8 @@ class ConfigFile extends \Magento\Config\Block\System\Config\Form\Field
 {
 
     /**
+     * Get element html.
+     *
      * @param AbstractElement $element
      * @return string
      */
@@ -21,12 +23,14 @@ class ConfigFile extends \Magento\Config\Block\System\Config\Form\Field
     {
         $additionalCss = '
             <p class="note">
-                <span>Please read <a href="https://cloud.google.com/iam/docs/keys-create-delete" target="_blank">Google Documentation</a> on how to get a JSON key file.</span>
+                <span>Please read <a href="https://cloud.google.com/iam/docs/keys-create-delete" target="_blank">'
+            . 'Google Documentation</a> on how to get a JSON key file.</span>
             </p>';
 
         $additionalscript = '
             <script>
-            let input = document.getElementById("mftranslation_mftranslationapis_mfgoogleapi_v3_config_file_name");
+            let fieldId = "mftranslation_mftranslationapis_mfgoogleapi_v3_config_file_name";
+            let input = document.getElementById(fieldId);
               const myFile = new File(["Config"], "config", {
                     type: "false",
                     lastModified: new Date(),
@@ -36,15 +40,18 @@ class ConfigFile extends \Magento\Config\Block\System\Config\Form\Field
                 dataTransfer.items.add(myFile);
                 input.files = dataTransfer.files;
 
-                let inputDelete = document.getElementById("mftranslation_mftranslationapis_mfgoogleapi_v3_config_file_name_delete");
-                let labelDelete = document.querySelector("label[for=mftranslation_mftranslationapis_mfgoogleapi_v3_config_file_name_delete]");
-                let file = document.querySelector("#row_mftranslation_mftranslationapis_mfgoogleapi_v3_config_file_name input[type=hidden]");
+                let inputDelete = document.getElementById(fieldId + "_delete");
+                let labelDelete = document.querySelector("label[for=" + fieldId + "_delete]");
+                let file = document.querySelector("#row_" + fieldId + " input[type=hidden]");
+                let valueDiv = document.querySelector("#row_" + fieldId + " td.value div");
 
-                document.querySelector("#row_mftranslation_mftranslationapis_mfgoogleapi_v3_config_file_name td.value div").innerHTML = "";
-                document.querySelector("#row_mftranslation_mftranslationapis_mfgoogleapi_v3_config_file_name td.value div").innerHTML = inputDelete.outerHTML + labelDelete.outerHTML + file.outerHTML;
+                valueDiv.innerHTML = "";
+                valueDiv.innerHTML = inputDelete.outerHTML + labelDelete.outerHTML + file.outerHTML;
             </script>
             ';
 
-        return parent::_getElementHtml($element) . $additionalCss . ($element->getEscapedValue() ? $additionalscript : '');
+        return parent::_getElementHtml($element)
+            . $additionalCss
+            . ($element->getEscapedValue() ? $additionalscript : '');
     }
 }

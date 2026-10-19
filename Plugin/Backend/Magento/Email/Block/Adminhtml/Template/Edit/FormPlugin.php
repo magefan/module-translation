@@ -22,7 +22,7 @@ class FormPlugin extends AbstractLegacyEditFormPlugin
     /**
      * Fieldset of the core email template form the auto translation one goes after
      */
-    const BASE_FIELDSET = 'base_fieldset';
+    public const BASE_FIELDSET = 'base_fieldset';
 
     /**
      * Add the locked field, for saved templates only.
@@ -43,9 +43,9 @@ class FormPlugin extends AbstractLegacyEditFormPlugin
     }
 
     /**
-     * After the core "Template Information" fieldset.
+     * Get the fieldset to add the fields after: the core "Template Information" fieldset.
      *
-     * @inheritdoc
+     * @return string
      */
     protected function getBaseFieldsetId(): string
     {

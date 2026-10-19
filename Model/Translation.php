@@ -12,11 +12,11 @@ use Magento\Framework\Model\AbstractModel;
 
 class Translation extends AbstractModel implements TranslationInterface, IdentityInterface
 {
-    const STATUS_ENABLED = 1;
+    public const STATUS_ENABLED = 1;
 
-    const STATUS_DISABLED = 0;
+    public const STATUS_DISABLED = 0;
 
-    const CACHE_TAG = 'mftr_';
+    public const CACHE_TAG = 'mftr_';
 
     /**
      * Prefix of model events names
@@ -25,7 +25,7 @@ class Translation extends AbstractModel implements TranslationInterface, Identit
      */
     protected $_eventPrefix = 'magefan_translation';
 
-    /*
+    /**
      * Parameter name in event
      *
      * In observe method you can use $observer->getEvent()->getObject() in this case
@@ -40,7 +40,7 @@ class Translation extends AbstractModel implements TranslationInterface, Identit
     protected $_cacheTag = self::CACHE_TAG;
 
     /**
-     *
+     * Initialize resource model.
      */
     protected function _construct()
     {
@@ -48,6 +48,8 @@ class Translation extends AbstractModel implements TranslationInterface, Identit
     }
 
     /**
+     * Get identities for cache.
+     *
      * @return array|string[]
      */
     public function getIdentities()
@@ -62,6 +64,8 @@ class Translation extends AbstractModel implements TranslationInterface, Identit
     }
 
     /**
+     * Get default values.
+     *
      * @return array
      */
     public function getDefaultValues()
@@ -71,6 +75,8 @@ class Translation extends AbstractModel implements TranslationInterface, Identit
     }
 
     /**
+     * Get available statuses.
+     *
      * @return array
      */
     public function getAvailableStatuses()
@@ -79,6 +85,8 @@ class Translation extends AbstractModel implements TranslationInterface, Identit
     }
 
     /**
+     * Get id.
+     *
      * @return mixed
      */
     public function getId()
@@ -87,6 +95,8 @@ class Translation extends AbstractModel implements TranslationInterface, Identit
     }
 
     /**
+     * Get string.
+     *
      * @return mixed
      */
     public function getString()
@@ -95,6 +105,8 @@ class Translation extends AbstractModel implements TranslationInterface, Identit
     }
 
     /**
+     * Get store id.
+     *
      * @return mixed
      */
     public function getStoreId()
@@ -103,6 +115,8 @@ class Translation extends AbstractModel implements TranslationInterface, Identit
     }
 
     /**
+     * Get translate.
+     *
      * @return mixed
      */
     public function getTranslate()
@@ -111,6 +125,8 @@ class Translation extends AbstractModel implements TranslationInterface, Identit
     }
 
     /**
+     * Get locale.
+     *
      * @return mixed
      */
     public function getLocale()
@@ -119,6 +135,8 @@ class Translation extends AbstractModel implements TranslationInterface, Identit
     }
 
     /**
+     * Get crc string.
+     *
      * @return mixed
      */
     public function getCrcString()
@@ -127,6 +145,8 @@ class Translation extends AbstractModel implements TranslationInterface, Identit
     }
 
     /**
+     * Set id.
+     *
      * @param mixed $id
      * @return Translation|AbstractModel|mixed
      */
@@ -136,7 +156,9 @@ class Translation extends AbstractModel implements TranslationInterface, Identit
     }
 
     /**
-     * @param $string
+     * Set string.
+     *
+     * @param string $string
      * @return Translation|mixed
      */
     public function setString($string)
@@ -145,7 +167,9 @@ class Translation extends AbstractModel implements TranslationInterface, Identit
     }
 
     /**
-     * @param $storeid
+     * Set store id.
+     *
+     * @param int $storeid
      * @return Translation|mixed
      */
     public function setStoreId($storeid)
@@ -154,7 +178,9 @@ class Translation extends AbstractModel implements TranslationInterface, Identit
     }
 
     /**
-     * @param $translate
+     * Set translate.
+     *
+     * @param string $translate
      * @return Translation|mixed
      */
     public function setTranslate($translate)
@@ -163,7 +189,9 @@ class Translation extends AbstractModel implements TranslationInterface, Identit
     }
 
     /**
-     * @param $locale
+     * Set locale.
+     *
+     * @param string $locale
      * @return Translation|mixed
      */
     public function setLocale($locale)
@@ -172,7 +200,9 @@ class Translation extends AbstractModel implements TranslationInterface, Identit
     }
 
     /**
-     * @param $crcstring
+     * Set crc string.
+     *
+     * @param int $crcstring
      * @return Translation|mixed
      */
     public function setCrcString($crcstring)

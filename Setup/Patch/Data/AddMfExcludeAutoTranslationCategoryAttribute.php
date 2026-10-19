@@ -28,6 +28,8 @@ class AddMfExcludeAutoTranslationCategoryAttribute implements DataPatchInterface
     private $eavSetupFactory;
 
     /**
+     * Initialize dependencies.
+     *
      * @param ModuleDataSetupInterface $moduleDataSetup
      * @param EavSetupFactory $eavSetupFactory
      */

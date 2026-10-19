@@ -15,20 +15,26 @@ class SkippedFieldsDynamicRow extends \Magento\Config\Block\System\Config\Form\F
     protected $translatableFields;
 
     /**
+     * Get translatable fiels.
+     *
      * @return \Magento\Framework\View\Element\BlockInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
     protected function _getTranslatableFiels()
     {
         if (!$this->translatableFields) {
-            $this->translatableFields = $this->createBlock(\Magefan\Translation\Block\Adminhtml\System\Config\Form\Field\TranslatableFields::class);
+            $this->translatableFields = $this->createBlock(
+                \Magefan\Translation\Block\Adminhtml\System\Config\Form\Field\TranslatableFields::class
+            );
             $this->translatableFields->setClass('translatable_fields_select');
         }
         return $this->translatableFields;
     }
 
     /**
-     * @param $object
+     * Create block.
+     *
+     * @param string $object
      * @return \Magento\Framework\View\Element\BlockInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
@@ -64,6 +70,8 @@ class SkippedFieldsDynamicRow extends \Magento\Config\Block\System\Config\Form\F
     }
 
     /**
+     * Is inherit checkbox required.
+     *
      * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
      * @return bool
      */
@@ -83,12 +91,15 @@ class SkippedFieldsDynamicRow extends \Magento\Config\Block\System\Config\Form\F
     {
         $optionExtraAttr = [];
 
-        $optionExtraAttr['option_' . $this->_getTranslatableFiels()->calcOptionHash($row->getData('translatable_fields'))] = 'selected="selected"';
+        $optionHash = $this->_getTranslatableFiels()->calcOptionHash($row->getData('translatable_fields'));
+        $optionExtraAttr['option_' . $optionHash] = 'selected="selected"';
 
         $row->setData('option_extra_attrs', $optionExtraAttr);
     }
 
     /**
+     * To html.
+     *
      * @return \Magento\Framework\Phrase|string
      * @throws \Exception
      */

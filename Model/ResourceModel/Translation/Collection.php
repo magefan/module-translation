@@ -10,10 +10,19 @@ use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
 class Collection extends AbstractCollection
 {
+    /**
+     * @var string
+     */
     protected $_idFieldName = 'key_id';
 
+    /**
+     * @var string
+     */
     protected $_eventPrefix = 'translation_translation_collection';
 
+    /**
+     * @var string
+     */
     protected $_eventObject = 'translation_collection';
 
     /**

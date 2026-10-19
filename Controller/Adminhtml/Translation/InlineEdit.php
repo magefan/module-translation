@@ -16,7 +16,7 @@ class InlineEdit extends \Magento\Backend\App\Action
     /**
      * Authorization level of a basic admin session
      */
-    const ADMIN_RESOURCE = 'Magefan_Translation::addedit';
+    public const ADMIN_RESOURCE = 'Magefan_Translation::addedit';
 
     /**
      * @var TranslationRepository
@@ -30,6 +30,7 @@ class InlineEdit extends \Magento\Backend\App\Action
 
     /**
      * InlineEdit constructor.
+     *
      * @param Context $context
      * @param TranslationRepository $translationRepository
      * @param JsonFactory $jsonFactory
@@ -45,6 +46,8 @@ class InlineEdit extends \Magento\Backend\App\Action
     }
 
     /**
+     * Execute action.
+     *
      * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\Result\Json|\Magento\Framework\Controller\ResultInterface
      */
     public function execute()
@@ -91,8 +94,10 @@ class InlineEdit extends \Magento\Backend\App\Action
     }
 
     /**
+     * Get error with translation id.
+     *
      * @param TranslationInterface $translation
-     * @param $errorText
+     * @param string $errorText
      * @return string
      */
     protected function getErrorWithTranslationId(TranslationInterface $translation, $errorText)
@@ -101,6 +106,8 @@ class InlineEdit extends \Magento\Backend\App\Action
     }
 
     /**
+     * Set translation data.
+     *
      * @param \Magefan\Translation\Model\Translation $translation
      * @param array $extendedTranslationData
      * @param array $translationData

@@ -27,6 +27,8 @@ class EmailTemplateToolbar
     private $config;
 
     /**
+     * Initialize dependencies.
+     *
      * @param Config $config
      */
     public function __construct(
@@ -65,6 +67,8 @@ class EmailTemplateToolbar
     }
 
     /**
+     * Get on click.
+     *
      * @return string
      */
     private function getOnClick(): string

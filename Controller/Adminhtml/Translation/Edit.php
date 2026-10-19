@@ -14,7 +14,7 @@ class Edit extends \Magento\Backend\App\Action
     /**
      * Authorization level of a basic admin session
      */
-    const ADMIN_RESOURCE = 'Magefan_Translation::addedit';
+    public const ADMIN_RESOURCE = 'Magefan_Translation::addedit';
 
     /**
      * @var \Magento\Framework\Registry
@@ -33,6 +33,7 @@ class Edit extends \Magento\Backend\App\Action
 
     /**
      * Edit constructor.
+     *
      * @param Action\Context $context
      * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
      * @param \Magento\Framework\Registry $registry
