@@ -15,7 +15,6 @@ use Magento\Framework\Data\Collection\AbstractDb;
 use Magento\Framework\Encryption\EncryptorInterface;
 use Magento\Framework\Filesystem;
 use Magento\Framework\Filesystem\Driver\File as FileDriver;
-use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Model\Context;
 use Magento\Framework\Model\ResourceModel\AbstractResource;
 use Magento\Framework\Registry;
@@ -53,10 +52,10 @@ class File extends \Magento\Config\Model\Config\Backend\File
      * @param WriterInterface $configWriter
      * @param EncryptorInterface $encryptor
      * @param RequestInterface $request
+     * @param FileDriver $fileDriver
      * @param AbstractResource|null $resource
      * @param AbstractDb|null $resourceCollection
      * @param array $data
-     * @param FileDriver|null $fileDriver
      */
     public function __construct(
         Context              $context,
@@ -69,13 +68,13 @@ class File extends \Magento\Config\Model\Config\Backend\File
         WriterInterface      $configWriter,
         EncryptorInterface   $encryptor,
         RequestInterface $request,
+        FileDriver           $fileDriver,
         ?AbstractResource     $resource = null,
         ?AbstractDb           $resourceCollection = null,
-        array                $data = [],
-        ?FileDriver          $fileDriver = null
+        array                $data = []
     ) {
         $this->configWriter = $configWriter;
-        $this->fileDriver = $fileDriver ?: ObjectManager::getInstance()->get(FileDriver::class);
+        $this->fileDriver = $fileDriver;
         $this->encryptor = $encryptor;
         $this->request = $request;
         parent::__construct(
