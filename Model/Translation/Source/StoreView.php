@@ -16,22 +16,16 @@ use Magento\Store\Model\StoreManagerInterface as StoreManager;
 class StoreView extends Column
 {
     /**
-     * Escaper
-     *
      * @var \Magento\Framework\Escaper
      */
     protected $escaper;
 
     /**
-     * System store
-     *
      * @var SystemStore
      */
     protected $systemStore;
 
     /**
-     * Store manager
-     *
      * @var StoreManager
      */
     protected $storeManager;
@@ -43,6 +37,7 @@ class StoreView extends Column
 
     /**
      * StoreView constructor.
+     *
      * @param ContextInterface $context
      * @param UiComponentFactory $uiComponentFactory
      * @param SystemStore $systemStore
@@ -84,6 +79,8 @@ class StoreView extends Column
     }
 
     /**
+     * Prepare item.
+     *
      * @param array $item
      * @return \Magento\Framework\Phrase|string
      */

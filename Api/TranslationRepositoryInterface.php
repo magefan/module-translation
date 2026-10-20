@@ -13,6 +13,8 @@ namespace Magefan\Translation\Api;
 interface TranslationRepositoryInterface
 {
     /**
+     * Get by id.
+     *
      * @param int $id
      * @return \Magefan\Translation\Api\Data\TranslationInterface
      * @throws \Magento\Framework\Exception\LocalizedException
@@ -20,12 +22,16 @@ interface TranslationRepositoryInterface
     public function getById($id);
 
     /**
+     * Save.
+     *
      * @param Data\TranslationInterface $translation
      * @return \Magefan\Translation\Api\Data\TranslationInterface
      */
     public function save(\Magefan\Translation\Api\Data\TranslationInterface $translation);
 
     /**
+     * Delete.
+     *
      * @param Data\TranslationInterface $translation
      * @return bool Will returned True if deleted
      */

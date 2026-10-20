@@ -10,6 +10,13 @@ namespace Magefan\Translation\Plugin\Magento\Ui\Model\Export;
 
 class MetadataProvider
 {
+    /**
+     * Use the field names as headers of the translation and glossary grid exports.
+     *
+     * @param \Magento\Ui\Model\Export\MetadataProvider $subject
+     * @param array $result
+     * @return array
+     */
     public function afterGetHeaders(
         \Magento\Ui\Model\Export\MetadataProvider $subject,
         $result
@@ -31,28 +38,31 @@ class MetadataProvider
         return $result;
     }
 
-
     /**
+     * Convert to snake case.
+     *
      * @param array $input
      * @return array
      */
-    function convertToSnakeCase(array $input): array
+    private function convertToSnakeCase(array $input): array
     {
         return array_map(function ($item) {
             return str_replace(' ', '_', strtolower($item));
         }, $input);
     }
 
-     /**
-      * @param \Magento\Ui\Model\Export\MetadataProvider $subject
-      * @param $result
-      * @return void
-      */
+    /**
+     * Remove the locale and store_id options when the export is made by Magefan Translation.
+     *
+     * @param \Magento\Ui\Model\Export\MetadataProvider $subject
+     * @param array $result
+     * @return array
+     */
     public function afterGetOptions(
         \Magento\Ui\Model\Export\MetadataProvider $subject,
         $result
     ) {
-        if (false != strpos(\Magento\Framework\Debug::backtrace(true), 'Magefan\Translation')) {
+        if (false !== strpos(\Magento\Framework\Debug::backtrace(true), 'Magefan\Translation')) {
             if (isset($result['locale'])) {
                 unset($result['locale']);
             }

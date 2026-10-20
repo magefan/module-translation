@@ -16,9 +16,11 @@ class ScheduleSelectedSourcesButton extends Field
     /**
      * Template for button
      */
-    const BUTTON_TEMPLATE = 'Magefan_Translation::system/config/buttons/schedule_selected_sources_button.phtml';
+    public const BUTTON_TEMPLATE = 'Magefan_Translation::system/config/buttons/schedule_selected_sources_button.phtml';
 
     /**
+     * Prepare layout.
+     *
      * @return $this|Field
      */
     protected function _prepareLayout()
@@ -32,6 +34,8 @@ class ScheduleSelectedSourcesButton extends Field
     }
 
     /**
+     * Render element html.
+     *
      * @param AbstractElement $element
      * @return string
      */
@@ -44,6 +48,8 @@ class ScheduleSelectedSourcesButton extends Field
     }
 
     /**
+     * Get schedule selected sources url.
+     *
      * @return string
      */
     public function getScheduleSelectedSourcesUrl(): string
@@ -52,6 +58,8 @@ class ScheduleSelectedSourcesButton extends Field
     }
 
     /**
+     * Get element html.
+     *
      * @param AbstractElement $element
      * @return string
      */

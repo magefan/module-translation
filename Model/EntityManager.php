@@ -82,6 +82,8 @@ class EntityManager
     private $entityPool;
 
     /**
+     * Initialize dependencies.
+     *
      * @param array $entityPool
      */
     public function __construct(
@@ -91,14 +93,18 @@ class EntityManager
     }
 
     /**
+     * Get entity adapter.
+     *
      * @param int $entityTypeId
      * @return mixed
-     * @throws \Exception
+     * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function getEntityAdapter(int $entityTypeId)
     {
         if (!isset($this->entityPool[$entityTypeId])) {
-            throw new \Exception((string)__('Can not find entity type id "%1" in pool.', $entityTypeId));
+            throw new \Magento\Framework\Exception\LocalizedException(
+                __('Can not find entity type id "%1" in pool.', $entityTypeId)
+            );
         }
 
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();

@@ -16,7 +16,7 @@ class Save extends \Magento\Backend\App\Action
     /**
      * Authorization level of a basic admin session
      */
-    const ADMIN_RESOURCE = 'Magefan_Translation::addedit';
+    public const ADMIN_RESOURCE = 'Magefan_Translation::addedit';
 
     /**
      * @var DataPersistorInterface
@@ -35,6 +35,7 @@ class Save extends \Magento\Backend\App\Action
 
     /**
      * Save constructor.
+     *
      * @param Action\Context $context
      * @param DataPersistorInterface $dataPersistor
      * @param \Magefan\Translation\Model\TranslationFactory|null $translationFactory
@@ -106,7 +107,10 @@ class Save extends \Magento\Backend\App\Action
             } catch (LocalizedException $e) {
                 $this->messageManager->addExceptionMessage($e->getPrevious() ?:$e);
             } catch (\Exception $e) {
-                $this->messageManager->addExceptionMessage($e, __('Something went wrong while saving the translation.'));
+                $this->messageManager->addExceptionMessage(
+                    $e,
+                    __('Something went wrong while saving the translation.')
+                );
             }
 
             $this->dataPersistor->set('translation_translation', $data);

@@ -13,6 +13,8 @@ class GoogleApiVersion implements \Magento\Framework\Data\OptionSourceInterface
     public const VERSION_3 = 'v3';
 
     /**
+     * Get options as value-label pairs.
+     *
      * @return array[]
      */
     public function toOptionArray()

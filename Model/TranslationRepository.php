@@ -51,6 +51,7 @@ class TranslationRepository implements TranslationRepositoryInterface
 
     /**
      * TranslationRepository constructor.
+     *
      * @param ResourceTranslation $resource
      * @param TranslationFactory $translationFactory
      * @param Data\TranslationInterfaceFactory $dataTranslationFactory

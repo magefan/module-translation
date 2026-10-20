@@ -55,6 +55,8 @@ class TranslatableData
     private $moduleManager;
 
     /**
+     * Initialize dependencies.
+     *
      * @param SearchCriteriaBuilder $searchCriteriaBuilder
      * @param FilterBuilder $filterBuilder
      * @param CategoryAttributeRepositoryInterface $categoryAttributeRepository
@@ -81,6 +83,12 @@ class TranslatableData
         $this->moduleManager = $moduleManager;
     }
 
+    /**
+     * Get the translatable attributes and fields per entity type, of one type or of all types.
+     *
+     * @param string|null $type
+     * @return array
+     */
     public function getList(?string $type = null): array
     {
         $data = [];
@@ -91,7 +99,10 @@ class TranslatableData
                 break;
             case EntityManager::TYPE_PRODUCT:
                 $data[EntityManager::TYPE_PRODUCT] = $this->getCatalogAttributes($this->productAttributeRepository);
-                $data[EntityManager::TYPE_PRODUCT][] = ['label' => __('Customizable Options'), 'code' => 'customizable_options'];
+                $data[EntityManager::TYPE_PRODUCT][] = [
+                    'label' => __('Customizable Options'),
+                    'code' => 'customizable_options'
+                ];
                 $data[EntityManager::TYPE_PRODUCT][] = ['label' => __('Image Alt Texts'), 'code' => 'alt_images'];
                 break;
             case EntityManager::TYPE_PAGE:
@@ -149,7 +160,10 @@ class TranslatableData
                 // If no type or unrecognized type is passed, return all
                 $data[EntityManager::TYPE_CATEGORY] = $this->getCatalogAttributes($this->categoryAttributeRepository);
                 $data[EntityManager::TYPE_PRODUCT] = $this->getCatalogAttributes($this->productAttributeRepository);
-                $data[EntityManager::TYPE_PRODUCT][] = ['label' => __('Customizable Options'), 'code' => 'customizable_options'];
+                $data[EntityManager::TYPE_PRODUCT][] = [
+                    'label' => __('Customizable Options'),
+                    'code' => 'customizable_options'
+                ];
                 $data[EntityManager::TYPE_PRODUCT][] = ['label' => __('Image Alt Texts'), 'code' => 'alt_images'];
                 $data[EntityManager::TYPE_PAGE] = $this->getCmsAttributesByType(EntityManager::TYPE_PAGE);
                 $data[EntityManager::TYPE_BLOCK] = $this->getCmsAttributesByType(EntityManager::TYPE_BLOCK);
@@ -181,7 +195,8 @@ class TranslatableData
     }
 
     /**
-     * Returns [{code, label}] for every field of the given type that is not excluded.
+     * Get [{code, label}] for every field of the given type that is not excluded.
+     *
      * Returns [] for types without per-field metadata (product_attribute, search_and_translate).
      *
      * @param string $entityType
@@ -216,6 +231,8 @@ class TranslatableData
     }
 
     /**
+     * Get allowed fields.
+     *
      * @param string $entityType
      * @return array
      */
@@ -225,6 +242,8 @@ class TranslatableData
     }
 
     /**
+     * Remove not allowed fields.
+     *
      * @param array $fields
      * @param string $entityType
      * @return array
@@ -245,7 +264,9 @@ class TranslatableData
     }
 
     /**
-     * @param $repository
+     * Get catalog attributes.
+     *
+     * @param CategoryAttributeRepositoryInterface|ProductAttributeRepositoryInterface $repository
      * @return array
      */
     private function getCatalogAttributes($repository): array
@@ -272,7 +293,9 @@ class TranslatableData
         $typeGroup = $this->filterGroupBuilder->addFilter($typeFilter)->create();
         $visibilityGroup = $this->filterGroupBuilder->addFilter($visibilityFilter)->create();
 
-        $searchCriteria = $this->searchCriteriaBuilder->setFilterGroups([$inputGroup, $typeGroup, $visibilityGroup])->create();
+        $searchCriteria = $this->searchCriteriaBuilder
+            ->setFilterGroups([$inputGroup, $typeGroup, $visibilityGroup])
+            ->create();
         $attributesList = $repository->getList($searchCriteria)->getItems();
 
         $attributes = [];
@@ -296,7 +319,9 @@ class TranslatableData
     }
 
     /**
-     * @param $entityType
+     * Get cms attributes by type.
+     *
+     * @param string $entityType
      * @return array[]
      */
     private function getCmsAttributesByType($entityType): array
@@ -320,6 +345,8 @@ class TranslatableData
     }
 
     /**
+     * Get blog post fields.
+     *
      * @return array[]
      */
     private function getBlogPostFields(): array
@@ -339,6 +366,8 @@ class TranslatableData
     }
 
     /**
+     * Get blog tag fields.
+     *
      * @return array[]
      */
     private function getBlogTagFields(): array
@@ -353,6 +382,8 @@ class TranslatableData
     }
 
     /**
+     * Get blog category fields.
+     *
      * @return array[]
      */
     private function getBlogCategoryFields(): array
@@ -402,6 +433,8 @@ class TranslatableData
     }
 
     /**
+     * Get blog author fields.
+     *
      * @return array[]
      */
     private function getBlogAuthorFields(): array

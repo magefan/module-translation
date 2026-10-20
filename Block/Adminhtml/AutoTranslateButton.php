@@ -14,6 +14,8 @@ use Magefan\Community\Block\Adminhtml\Edit\GenericButton;
 class AutoTranslateButton extends GenericButton implements ButtonProviderInterface
 {
     /**
+     * Get button data.
+     *
      * @return array
      */
     public function getButtonData()

@@ -24,6 +24,8 @@ class Translate
     protected $logger;
 
     /**
+     * Initialize dependencies.
+     *
      * @param TranslateInterface $translator
      * @param LoggerInterface $logger
      */
@@ -36,8 +38,10 @@ class Translate
     }
 
     /**
-     * @param $subject
-     * @param $result
+     * After render.
+     *
+     * @param \Magento\Framework\Phrase\Renderer\Translate $subject
+     * @param string $result
      * @param array $source
      * @param array $arguments
      * @return false|mixed|string
@@ -84,6 +88,8 @@ class Translate
     }
 
     /**
+     * Message formatter.
+     *
      * @return \Magento\Framework\Phrase\Renderer\MessageFormatter|mixed
      */
     private function messageFormatter()

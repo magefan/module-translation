@@ -23,6 +23,8 @@ class SkippedFields extends \Magento\Framework\App\Config\Value
     private $mapHelper;
 
     /**
+     * Initialize dependencies.
+     *
      * @param Context $context
      * @param Registry $registry
      * @param ScopeConfigInterface $config

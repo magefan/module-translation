@@ -19,6 +19,7 @@ class Status implements OptionSourceInterface
 
     /**
      * Status constructor.
+     *
      * @param \Magefan\Translation\Model\Translation $translation
      */
     public function __construct(\Magefan\Translation\Model\Translation $translation)
@@ -27,6 +28,8 @@ class Status implements OptionSourceInterface
     }
 
     /**
+     * Get options as value-label pairs.
+     *
      * @return array
      */
     public function toOptionArray()

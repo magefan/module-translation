@@ -11,6 +11,8 @@ namespace Magefan\Translation\Block\Adminhtml\System\Config\Form;
 class InfoTranslationExtra extends InfoPlan
 {
     /**
+     * Get min plan.
+     *
      * @return string
      */
     protected function getMinPlan(): string
@@ -19,6 +21,8 @@ class InfoTranslationExtra extends InfoPlan
     }
 
     /**
+     * Get sections json.
+     *
      * @return string
      */
     protected function getSectionsJson(): string
@@ -31,6 +35,8 @@ class InfoTranslationExtra extends InfoPlan
     }
 
     /**
+     * Get text.
+     *
      * @return string
      */
     protected function getText(): string

@@ -9,6 +9,8 @@ namespace Magefan\Translation\Plugin\Backend;
 
 use Magefan\Community\Api\SecureHtmlRendererInterface;
 use Magefan\Translation\Model\Config;
+use Magento\Framework\App\ObjectManager;
+use Magento\Framework\Escaper;
 
 /**
  * Base for the basic-tier "Exclude From Auto Translation" teasers on legacy admin edit
@@ -37,15 +39,27 @@ abstract class AbstractLegacyEditFormPlugin
     protected $mfSecureRenderer;
 
     /**
+     * @var Escaper
+     */
+    private $escaper;
+
+    /**
+     * Initialize dependencies.
+     *
+     * The escaper is optional, as the Magefan_TranslationPlus subclasses pass the first two arguments only.
+     *
      * @param Config $config
      * @param SecureHtmlRendererInterface $mfSecureRenderer
+     * @param Escaper|null $escaper
      */
     public function __construct(
         Config $config,
-        SecureHtmlRendererInterface $mfSecureRenderer
+        SecureHtmlRendererInterface $mfSecureRenderer,
+        ?Escaper $escaper = null
     ) {
         $this->config = $config;
         $this->mfSecureRenderer = $mfSecureRenderer;
+        $this->escaper = $escaper ?: ObjectManager::getInstance()->get(Escaper::class);
     }
 
     /**
@@ -56,7 +70,8 @@ abstract class AbstractLegacyEditFormPlugin
     abstract protected function getBaseFieldsetId(): string;
 
     /**
-     * utm_medium of the upgrade popup, telling which page it was opened from.
+     * Get the utm_medium of the upgrade popup, telling which page it was opened from.
+     *
      * A plain slug, it is put into the script as is.
      *
      * @return string
@@ -128,7 +143,8 @@ abstract class AbstractLegacyEditFormPlugin
         return '<div style="position:relative;display:inline-block;">'
             . '<div>'
             . '<div class="admin__actions-switch" data-role="switcher">'
-            . '<input type="checkbox" class="admin__actions-switch-checkbox" id="mf_locked_toggle" disabled="disabled" />'
+            . '<input type="checkbox" class="admin__actions-switch-checkbox" id="mf_locked_toggle"'
+            . ' disabled="disabled" />'
             . '<label class="admin__actions-switch-label" for="mf_locked_toggle">'
             . '<span class="admin__actions-switch-text" data-text-on="' . $yes . '" data-text-off="' . $no . '"></span>'
             . '</label>'
@@ -145,12 +161,14 @@ abstract class AbstractLegacyEditFormPlugin
     }
 
     /**
+     * Escape attr.
+     *
      * @param \Magento\Framework\Phrase|string $phrase
      * @return string
      */
     private function escapeAttr($phrase)
     {
-        return htmlspecialchars((string)$phrase, ENT_QUOTES);
+        return $this->escaper->escapeHtml((string)$phrase);
     }
 
     /**

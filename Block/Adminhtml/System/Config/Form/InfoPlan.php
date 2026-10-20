@@ -13,23 +13,29 @@ use Magefan\Community\Api\SecureHtmlRendererInterface;
 abstract class InfoPlan extends \Magefan\Community\Block\Adminhtml\System\Config\Form\Info
 {
     /**
+     * Get min plan.
+     *
      * @return string
      */
     abstract protected function getMinPlan(): string;
 
     /**
+     * Get sections json.
+     *
      * @return string
      */
     abstract protected function getSectionsJson(): string;
 
     /**
+     * Get text.
+     *
      * @return string
      */
     abstract protected function getText(): string;
 
-
     /**
      * Return info block html
+     *
      * @param  \Magento\Framework\Data\Form\Element\AbstractElement $element
      * @return string
      */
@@ -43,7 +49,9 @@ abstract class InfoPlan extends \Magefan\Community\Block\Adminhtml\System\Config
 
         if ($text = $this->getText()) {
             $textHtml = '<div style="padding:10px;background-color:#f8f8f8;border:1px solid #ddd;margin-bottom:7px;">';
-            $textHtml .= $text . ' <a style="color: #ef672f; text-decoration: underline;" href="https://magefan.com/magento-2-translation-extension/pricing?utm_source=admin&utm_medium=config&utm_campaign=upgrade-link" target="_blank">Read more</a>.';
+            $textHtml .= $text . ' <a style="color: #ef672f; text-decoration: underline;"'
+                . ' href="https://magefan.com/magento-2-translation-extension/pricing'
+                . '?utm_source=admin&utm_medium=config&utm_campaign=upgrade-link" target="_blank">Read more</a>.';
             $textHtml .= '</div>';
         }
 

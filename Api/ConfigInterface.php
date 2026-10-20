@@ -16,6 +16,8 @@ namespace Magefan\Translation\Api;
 interface ConfigInterface
 {
     /**
+     * Is enabled.
+     *
      * @return bool
      */
     public function isEnabled();

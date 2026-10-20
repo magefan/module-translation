@@ -11,8 +11,9 @@ namespace Magefan\Translation\Model\Config\Source;
 class PhrasesLocaleSource extends \Magefan\Translation\Model\Config\Source\LocaleSource
 {
     /**
-     * Always includes en_US because Magento i18n phrases are in English by default,
-     * even when no English store view is configured.
+     * Get the store view locales, always with en_US.
+     *
+     * Magento i18n phrases are in English by default, even when no English store view is configured.
      *
      * @return array
      */
@@ -20,7 +21,9 @@ class PhrasesLocaleSource extends \Magefan\Translation\Model\Config\Source\Local
     {
         $options = array_filter(
             parent::toOptionArray(),
-            static function ($option) { return $option['value'] !== 'en_US'; }
+            static function ($option) {
+                return $option['value'] !== 'en_US';
+            }
         );
 
         array_splice($options, 1, 0, [['value' => 'en_US', 'label' => 'English (United States)']]);

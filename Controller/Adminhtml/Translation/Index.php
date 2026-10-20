@@ -11,7 +11,7 @@ class Index extends \Magento\Backend\App\Action
     /**
      * Authorization level of a basic admin session
      */
-    const ADMIN_RESOURCE = 'Magefan_Translation::addedit';
+    public const ADMIN_RESOURCE = 'Magefan_Translation::addedit';
 
     /**
      * @var \Magento\Framework\View\Result\PageFactory
@@ -25,6 +25,7 @@ class Index extends \Magento\Backend\App\Action
 
     /**
      * Index constructor.
+     *
      * @param \Magento\Backend\App\Action\Context $context
      * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
      * @param \Magefan\Translation\Api\ConfigInterface $configInterface
@@ -46,6 +47,8 @@ class Index extends \Magento\Backend\App\Action
     }
 
     /**
+     * Execute action.
+     *
      * @return \Magento\Framework\Controller\Result\RedirectFactory
      */
     public function execute()

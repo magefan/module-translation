@@ -21,22 +21,23 @@ class Config implements ConfigInterface
     /**
      * Extension enabled config path
      */
-    const XML_PATH_EXTENSION_ENABLED = 'mftranslation/general/enabled';
+    public const XML_PATH_EXTENSION_ENABLED = 'mftranslation/general/enabled';
 
-    const XML_PATH_USAGE_LIMITS_LIMIT_BY = 'mftranslation/mftranslationapis/usage_limits/limit_by';
-    const XML_PATH_USAGE_LIMITS_COUNT = 'mftranslation/mftranslationapis/usage_limits/count';
+    public const XML_PATH_USAGE_LIMITS_LIMIT_BY = 'mftranslation/mftranslationapis/usage_limits/limit_by';
+    public const XML_PATH_USAGE_LIMITS_COUNT = 'mftranslation/mftranslationapis/usage_limits/count';
 
-    const XML_PATH_API_USAGE = 'mftranslation/today_api_usage';
+    public const XML_PATH_API_USAGE = 'mftranslation/today_api_usage';
 
-    const XML_PATH_AUTO_TRANSLATION_SKIPPED_FIELDS = 'mftranslation/auto_translation/skipped_fields';
+    public const XML_PATH_AUTO_TRANSLATION_SKIPPED_FIELDS = 'mftranslation/auto_translation/skipped_fields';
 
     /**
      * credentials section
      */
-    const XML_PATH_GOOGLE_V3_CONFIG_FILE_NAME = 'mftranslation/mftranslationapis/mfgoogleapi/v3_config_file_name';
-    const XML_PATH_GOOGLE_V3_AUTH_DATA = 'mftranslation/mftranslationapis/mfgoogleapi/v3_auth_data';
+    public const XML_PATH_GOOGLE_V3_CONFIG_FILE_NAME =
+        'mftranslation/mftranslationapis/mfgoogleapi/v3_config_file_name';
+    public const XML_PATH_GOOGLE_V3_AUTH_DATA = 'mftranslation/mftranslationapis/mfgoogleapi/v3_auth_data';
 
-    const SHOW_TO_CUSTOMER_ERROR_CODE = 911;
+    public const SHOW_TO_CUSTOMER_ERROR_CODE = 911;
 
     /**
      * @var ScopeConfigInterface
@@ -74,12 +75,15 @@ class Config implements ConfigInterface
     protected $directoryList;
 
     /**
+     * Initialize dependencies.
+     *
      * @param ScopeConfigInterface $scopeConfig
      * @param StoreManagerInterface $storeManager
      * @param WriterInterface $configWriter
      * @param ConfigCollectionFactory $configCollectionFactory
      * @param DateTime $dateTime
      * @param EncryptorInterface $encryptor
+     * @param DirectoryList $directoryList
      */
     public function __construct(
         ScopeConfigInterface $scopeConfig,
@@ -100,6 +104,8 @@ class Config implements ConfigInterface
     }
 
     /**
+     * Is enabled.
+     *
      * @param int|null $storeId
      * @return bool
      */
@@ -109,15 +115,22 @@ class Config implements ConfigInterface
     }
 
     /**
+     * Get skipped fields.
+     *
      * @param int|null $storeId
      * @return array
      */
     public function getSkippedFields(?int $storeId = null): array
     {
-        return (array)json_decode((string)$this->getConfig(self::XML_PATH_AUTO_TRANSLATION_SKIPPED_FIELDS, $storeId), true);
+        return (array)json_decode(
+            (string)$this->getConfig(self::XML_PATH_AUTO_TRANSLATION_SKIPPED_FIELDS, $storeId),
+            true
+        );
     }
 
     /**
+     * Get usage limit by.
+     *
      * @param int|null $storeId
      * @return int
      */
@@ -127,6 +140,8 @@ class Config implements ConfigInterface
     }
 
     /**
+     * Get usage limit count.
+     *
      * @param int|null $storeId
      * @return int
      */
@@ -136,6 +151,8 @@ class Config implements ConfigInterface
     }
 
     /**
+     * Set today usage.
+     *
      * @param int $count
      * @return void
      */
@@ -149,6 +166,8 @@ class Config implements ConfigInterface
     }
 
     /**
+     * Get today usage.
+     *
      * @return int
      */
     public function getTodayUsage(): int
@@ -167,8 +186,10 @@ class Config implements ConfigInterface
     }
 
     /**
-     * @param $scope
-     * @param $scopeId
+     * Get encrypted auth config.
+     *
+     * @param string $scope
+     * @param int|string|null $scopeId
      * @return string
      */
     public function getEncryptedAuthConfig($scope = ScopeInterface::SCOPE_WEBSITES, $scopeId = null): string
@@ -183,8 +204,10 @@ class Config implements ConfigInterface
     }
 
     /**
+     * Get config file name.
+     *
      * @param string $scope
-     * @param null $scopeId
+     * @param int|string|null $scopeId
      * @return string
      */
     public function getConfigFileName($scope = ScopeInterface::SCOPE_WEBSITES, $scopeId = null): string
@@ -197,6 +220,8 @@ class Config implements ConfigInterface
     }
 
     /**
+     * Get config.
+     *
      * @param string $path
      * @param int|null $storeId
      * @return mixed

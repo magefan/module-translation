@@ -24,6 +24,8 @@ class Edit
     private $config;
 
     /**
+     * Initialize dependencies.
+     *
      * @param Config $config
      */
     public function __construct(
@@ -33,6 +35,8 @@ class Edit
     }
 
     /**
+     * Before set layout.
+     *
      * @param \Magento\Review\Block\Adminhtml\Edit $subject
      * @param \Magento\Framework\View\Layout $layout
      * @return array
@@ -57,6 +61,8 @@ class Edit
     }
 
     /**
+     * Get on click.
+     *
      * @return string
      */
     private function getOnClick(): string

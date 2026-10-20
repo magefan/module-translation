@@ -17,6 +17,8 @@ class ScheduleSource implements \Magento\Framework\Option\ArrayInterface
     private $labelsMap = null;
 
     /**
+     * Get options as value-label pairs.
+     *
      * @return array[]
      */
     public function toOptionArray()
@@ -50,6 +52,8 @@ class ScheduleSource implements \Magento\Framework\Option\ArrayInterface
     }
 
     /**
+     * Get entity label by id.
+     *
      * @param int $id
      * @return string
      */
@@ -65,6 +69,8 @@ class ScheduleSource implements \Magento\Framework\Option\ArrayInterface
     }
 
     /**
+     * Get entity type to label options.
+     *
      * @return array
      */
     public function getEntityTypeToLabelOptions():array

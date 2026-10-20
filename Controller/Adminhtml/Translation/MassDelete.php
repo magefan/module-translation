@@ -16,7 +16,7 @@ class MassDelete extends \Magento\Backend\App\Action
     /**
      * Authorization level of a basic admin session
      */
-    const ADMIN_RESOURCE = 'Magefan_Translation::addedit';
+    public const ADMIN_RESOURCE = 'Magefan_Translation::addedit';
 
     /**
      * @var Filter
@@ -29,6 +29,8 @@ class MassDelete extends \Magento\Backend\App\Action
     protected $collectionFactory;
 
     /**
+     * Initialize dependencies.
+     *
      * @param Context $context
      * @param Filter $filter
      * @param CollectionFactory $collectionFactory

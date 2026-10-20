@@ -24,6 +24,7 @@ class GenericButton
 
     /**
      * GenericButton constructor.
+     *
      * @param Context $context
      * @param TranslationRepositoryInterface $translationRepository
      */
@@ -36,6 +37,8 @@ class GenericButton
     }
 
     /**
+     * Get translation id.
+     *
      * @return null
      */
     public function getTranslationId()
@@ -45,11 +48,13 @@ class GenericButton
                 $this->context->getRequest()->getParam('key_id')
             )->getId();
         } catch (NoSuchEntityException $e) {
+            return null;
         }
-        return null;
     }
 
     /**
+     * Get url.
+     *
      * @param string $route
      * @param array $params
      * @return string

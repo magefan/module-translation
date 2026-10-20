@@ -17,6 +17,8 @@ class Validator extends AbstractValidator implements RowValidatorInterface
     protected $validators = [];
 
     /**
+     * Initialize dependencies.
+     *
      * @param RowValidatorInterface[] $validators
      */
     public function __construct($validators = [])
@@ -44,6 +46,8 @@ class Validator extends AbstractValidator implements RowValidatorInterface
     }
 
     /**
+     * Init.
+     *
      * @param \Magento\CatalogImportExport\Model\Import\Product $context
      * @return $this
      */

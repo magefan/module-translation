@@ -9,6 +9,8 @@ declare(strict_types=1);
 namespace Magefan\Translation\Plugin\Backend\Magento\Backend\Block\Widget\Grid;
 
 use Magefan\Translation\Model\Config;
+use Magento\Backend\Block\Widget\Grid\Massaction as GridMassaction;
+use Magento\Backend\Block\Widget\Grid\Massaction\Extended as ExtendedGridMassaction;
 
 class Massaction
 {
@@ -44,6 +46,8 @@ class Massaction
     private $config;
 
     /**
+     * Initialize dependencies.
+     *
      * @param Config $config
      */
     public function __construct(
@@ -58,7 +62,7 @@ class Massaction
      * items directly - for that grid only, they are added here as well. addItem() is
      * keyed by id, so adding them twice is harmless.
      *
-     * @param $subject
+     * @param GridMassaction|ExtendedGridMassaction $subject
      * @return void
      */
     public function beforeIsAvailable($subject)
@@ -69,7 +73,9 @@ class Massaction
     }
 
     /**
-     * @param $subject
+     * Before get items.
+     *
+     * @param GridMassaction|ExtendedGridMassaction $subject
      * @return void
      */
     public function beforeGetItems($subject)

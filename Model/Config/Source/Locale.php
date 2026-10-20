@@ -33,8 +33,12 @@ class Locale implements \Magento\Framework\Option\ArrayInterface
     protected $config;
 
     /**
+     * Initialize dependencies.
+     *
      * @param \Magento\Store\Model\StoreManagerInterface $storeManager
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
+     * @param \Magento\Framework\Locale\ResolverInterface $localeResolver
+     * @param \Magento\Framework\Locale\ConfigInterface $config
      */
     public function __construct(
         \Magento\Store\Model\StoreManagerInterface $storeManager,
@@ -69,13 +73,19 @@ class Locale implements \Magento\Framework\Option\ArrayInterface
     }
 
     /**
+     * Get options as value-label pairs.
+     *
      * @return array
      */
     public function toOptionArray()
     {
         $locales = [];
         foreach ($this->storeManager->getStores() as $store) {
-            $locale = $this->scopeConfig->getValue('general/locale/code', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $store->getStoreId());
+            $locale = $this->scopeConfig->getValue(
+                'general/locale/code',
+                \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
+                $store->getStoreId()
+            );
             if (!in_array($locale, $locales)) {
                 $locales[] = $locale;
             }

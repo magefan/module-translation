@@ -13,6 +13,8 @@ class DeeplApiUrl implements \Magento\Framework\Option\ArrayInterface
     public const PAID_API_URL = 'https://api.deepl.com/v2/translate';
 
     /**
+     * Get options as value-label pairs.
+     *
      * @return array
      */
     public function toOptionArray()

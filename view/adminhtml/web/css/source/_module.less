@@ -4,36 +4,36 @@
 */
 
 .translation-translation-index {
-  .data-grid-cell-content {
-    max-width: 500px;
-  }
+    .data-grid-cell-content {
+        max-width: 500px;
+    }
 }
 
 button.mf_auto_translate span {
-    position: relative;
     padding-left: 35px;
+    position: relative;
     &::before {
-        content: "";
+        background-image: url('@{baseDir}Magefan_Translation/images/translate_icon.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        content: '';
+        height: 28px;
+        left: 0;
         position: absolute;
         top: 50%;
-        left: 0;
         transform: translateY(-50%);
         width: 28px;
-        height: 28px;
-        background-image: url('@{baseDir}Magefan_Translation/images/translate_icon.png');
-        background-size: contain;
-        background-repeat: no-repeat;
     }
 }
 
 .mf-translate-icon {
-    width: 32px;
     height: 32px;
+    width: 32px;
 }
 
 .translation-translation-edit .mf-translate-icon {
-    width: 26px;
     height: 26px;
+    width: 26px;
 }
 
 .translationplus-translation-index .mf-translate-icon {

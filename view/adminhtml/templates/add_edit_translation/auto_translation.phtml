@@ -5,14 +5,16 @@
  */
 
 /**
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Magento\Framework\Escaper $escaper
  * @var \Magefan\Community\Api\SecureHtmlRendererInterface $mfSecureRenderer
  */
 ?>
 
 <?php
-$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-$assetRepo = $objectManager->get(Magento\Framework\View\Asset\Repository::class);
-$img = '<img src="' . $assetRepo->getUrl('Magefan_Translation::images/translate_icon.png') . '" class="mf-translate-icon" width="50" height="50" alt="Auto Translate" title="Auto Translate" >';
+$iconUrl = $block->getViewFileUrl('Magefan_Translation::images/translate_icon.png');
+$img = '<img src="' . $escaper->escapeUrl($iconUrl) . '"'
+    . ' class="mf-translate-icon" width="50" height="50" alt="Auto Translate" title="Auto Translate" >';
 ?>
 
 <?php $script = "

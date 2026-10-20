@@ -10,6 +10,8 @@ namespace Magefan\Translation\Model\Config\Source;
 class LocaleSource extends \Magefan\Translation\Model\Config\Source\Locale
 {
     /**
+     * Get options as value-label pairs.
+     *
      * @return array[]
      */
     public function toOptionArray()

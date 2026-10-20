@@ -16,9 +16,9 @@ use Magento\Ui\Component\Listing\Columns\Column;
 class TranslationActions extends Column
 {
     /** Url path */
-    const CMS_URL_PATH_EDIT = 'translation/translation/edit';
+    public const CMS_URL_PATH_EDIT = 'translation/translation/edit';
 
-    const CMS_URL_PATH_DELETE = 'translation/translation/delete';
+    public const CMS_URL_PATH_DELETE = 'translation/translation/delete';
 
     /**
      * @var \Magento\Framework\UrlInterface
@@ -36,6 +36,8 @@ class TranslationActions extends Column
     private $escaper;
 
     /**
+     * Initialize dependencies.
+     *
      * @param ContextInterface $context
      * @param UiComponentFactory $uiComponentFactory
      * @param UrlInterface $urlBuilder
@@ -90,8 +92,8 @@ class TranslationActions extends Column
 
     /**
      * Get instance of escaper
+     *
      * @return Escaper
-     * @deprecated 101.0.7
      */
     private function getEscaper()
     {

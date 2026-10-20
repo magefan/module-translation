@@ -14,6 +14,11 @@ class LimitBy implements ArrayInterface
     public const CHARACTERS = 1;
     public const REQUESTS = 2;
 
+    /**
+     * Get options as value-label pairs.
+     *
+     * @return array
+     */
     public function toOptionArray()
     {
         return [

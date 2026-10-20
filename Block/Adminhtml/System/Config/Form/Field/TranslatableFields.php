@@ -14,11 +14,13 @@ use Magento\Framework\View\Element\Html\Select;
 class TranslatableFields extends Select
 {
     /**
-     * @var
+     * @var TranslatableData
      */
     private $translatableData;
 
     /**
+     * Initialize dependencies.
+     *
      * @param Context $context
      * @param TranslatableData $translatableData
      * @param array $data
@@ -33,6 +35,8 @@ class TranslatableFields extends Select
     }
 
     /**
+     * Set input name.
+     *
      * @param string $value
      * @return $this
      */

@@ -23,6 +23,8 @@ use Magefan\Translation\Plugin\Backend\AbstractLegacyEditFormPlugin;
 class FormPlugin extends AbstractLegacyEditFormPlugin
 {
     /**
+     * After get form.
+     *
      * @param \Magento\Review\Block\Adminhtml\Edit\Form $subject
      * @param \Magento\Framework\Data\Form|null $form
      * @return \Magento\Framework\Data\Form|null

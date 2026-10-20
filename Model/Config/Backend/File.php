@@ -14,6 +14,7 @@ use Magento\Framework\App\Config\Storage\WriterInterface;
 use Magento\Framework\Data\Collection\AbstractDb;
 use Magento\Framework\Encryption\EncryptorInterface;
 use Magento\Framework\Filesystem;
+use Magento\Framework\Filesystem\Driver\File as FileDriver;
 use Magento\Framework\Model\Context;
 use Magento\Framework\Model\ResourceModel\AbstractResource;
 use Magento\Framework\Registry;
@@ -34,6 +35,13 @@ class File extends \Magento\Config\Model\Config\Backend\File
     private $encryptor;
 
     /**
+     * @var FileDriver
+     */
+    private $fileDriver;
+
+    /**
+     * Initialize dependencies.
+     *
      * @param Context $context
      * @param Registry $registry
      * @param ScopeConfigInterface $config
@@ -44,6 +52,7 @@ class File extends \Magento\Config\Model\Config\Backend\File
      * @param WriterInterface $configWriter
      * @param EncryptorInterface $encryptor
      * @param RequestInterface $request
+     * @param FileDriver $fileDriver
      * @param AbstractResource|null $resource
      * @param AbstractDb|null $resourceCollection
      * @param array $data
@@ -59,11 +68,13 @@ class File extends \Magento\Config\Model\Config\Backend\File
         WriterInterface      $configWriter,
         EncryptorInterface   $encryptor,
         RequestInterface $request,
+        FileDriver           $fileDriver,
         ?AbstractResource     $resource = null,
         ?AbstractDb           $resourceCollection = null,
         array                $data = []
     ) {
         $this->configWriter = $configWriter;
+        $this->fileDriver = $fileDriver;
         $this->encryptor = $encryptor;
         $this->request = $request;
         parent::__construct(
@@ -81,6 +92,8 @@ class File extends \Magento\Config\Model\Config\Backend\File
     }
 
     /**
+     * Before save.
+     *
      * @return void
      */
     public function beforeSave()
@@ -90,18 +103,27 @@ class File extends \Magento\Config\Model\Config\Backend\File
 
             if (!empty($values['delete'])) {
                 $encryptedContent = null;
-                $this->configWriter->delete(Config::XML_PATH_GOOGLE_V3_CONFIG_FILE_NAME, $this->getScope(), $this->getScopeId());
+                $this->configWriter->delete(
+                    Config::XML_PATH_GOOGLE_V3_CONFIG_FILE_NAME,
+                    $this->getScope(),
+                    $this->getScopeId()
+                );
             } else {
                 if ($values['type'] === 'application/json') {
-                    $jsonContent = file_get_contents($values['tmp_name']);
+                    $jsonContent = $this->fileDriver->fileGetContents($values['tmp_name']);
                     $encryptedContent = $this->encryptor->encrypt($jsonContent);
                 }
             }
 
-            $this->configWriter->save(Config::XML_PATH_GOOGLE_V3_AUTH_DATA, $encryptedContent, $this->getScope(), $this->getScopeId());
-            unlink($values['tmp_name']);
+            $this->configWriter->save(
+                Config::XML_PATH_GOOGLE_V3_AUTH_DATA,
+                $encryptedContent,
+                $this->getScope(),
+                $this->getScopeId()
+            );
+            $this->fileDriver->deleteFile($values['tmp_name']);
         } catch (\Exception $e) {
-            /**/
+            $this->_logger->error('Magefan Translation: ' . $e->getMessage());
         }
     }
 }
