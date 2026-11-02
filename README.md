@@ -13,8 +13,6 @@ Don’t dive deep into the code — use this tool to make the Magento translatio
 
 Compatibility: Magento 2.3.0 - 2.4.x (CE, EE, ECE, B2B)
 
-> **Note:** The 2.3.8 version of the [Magento 2 Translation](https://magefan.com/magento-2-translation-extension) extension is available only on magefan.com listing.
-
 <a href="https://magefan.com/blog/join-our-donations"><img align="right" width="120" height="70" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg"></a>
 
 <a href="https://magefan.com/magento-2-translation-extension"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/download-magefan-extensions.png"></a>
