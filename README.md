@@ -58,7 +58,7 @@ Magefan Translation module offers 3 plans with Basic covering basic translation 
   
 <a href="https://magefan.com/magento-2-translation-extension/pricing">
           <img
-            src="https://cm.magefan.com/wysiwyg/products/translation-extension-new-pricing.png"
+            src="https://cm.magefan.com/wysiwyg/products/translation-extension-pricing-plans.png"
             alt="Pricing for Magento 2 Translation Extension" />
 </a>
 
