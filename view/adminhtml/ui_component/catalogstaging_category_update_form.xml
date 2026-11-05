@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+* Copyright © Magefan (support@magefan.com). All rights reserved.
+* Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+*/
+-->
+<!--
+    Adobe Commerce Content Staging: Magento\Catalog\Model\Category\DataProvider::getFieldsMap() builds the meta
+    from the merged "category_form" config, so the "mf_auto_translation" fieldset must be declared here as well,
+    otherwise the staging form fails with "componentType configuration parameter is required".
+    Keep this fieldset in sync with category_form.xml (without the "mf_auto_translate" button).
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="mf_auto_translation" sortOrder="100">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="component" xsi:type="string">Magefan_Translation/js/form/components/locked-fieldset</item>
+            </item>
+        </argument>
+        <settings>
+            <label translate="true">Auto Translation (Extra)</label>
+            <collapsible>true</collapsible>
+        </settings>
+        <field name="mf_exclude_auto_translation">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">boolean</item>
+                    <item name="label" xsi:type="string" translate="true">Exclude From Auto Translation</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="source" xsi:type="string">category</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                    <item name="dataScope" xsi:type="string">mf_exclude_auto_translation</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="number">1</item>
+                        <item name="false" xsi:type="number">0</item>
+                    </item>
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

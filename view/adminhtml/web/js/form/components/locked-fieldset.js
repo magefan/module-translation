@@ -21,14 +21,17 @@ define([
         _addOverlay: function () {
             var self = this;
             var checkInterval = setInterval(function () {
-                var $fieldset = $('[data-index="' + self.index + '"] .admin__fieldset');
+                /* The same fieldset may exist in several forms on one page (e.g. Content Staging modal) */
+                var $fieldset = $('[data-index="' + self.index + '"] .admin__fieldset')
+                    .not('.mf-locked-fieldset')
+                    .first();
 
                 if (!$fieldset.length) {
                     return;
                 }
 
                 clearInterval(checkInterval);
-                $fieldset.css('position', 'relative');
+                $fieldset.addClass('mf-locked-fieldset').css('position', 'relative');
                 $('<div>').css({
                     position: 'absolute',
                     top: 0,
