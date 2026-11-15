@@ -256,9 +256,10 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
     protected function saveAndReplaceEntity()
     {
         $behavior = $this->getBehavior();
-        $listTitle = [];
+        $deletedTitles = [];
         while ($bunch = $this->_dataSourceModel->getNextBunch()) {
             $entityList = [];
+            $listTitle = [];
             foreach ($bunch as $rowNum => $rowData) {
                 if (!$this->validateRow($rowData, $rowNum)) {
                     $this->addRowError(ValidatorInterface::ERROR_TITLE_IS_EMPTY, $rowNum);
@@ -284,10 +285,20 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
                 ];
             }
             if (\Magento\ImportExport\Model\Import::BEHAVIOR_REPLACE == $behavior) {
-                if ($listTitle) {
-                    if ($this->deleteEntityFinish(array_unique($listTitle), self::TABLE_ENTITY)) {
+                $titlesToDelete = [];
+                foreach (array_unique($listTitle) as $title) {
+                    $titleKey = mb_strtolower(rtrim((string) $title));
+                    if (!isset($deletedTitles[$titleKey])) {
+                        $titlesToDelete[$titleKey] = $title;
+                    }
+                }
+                if ($titlesToDelete) {
+                    if ($this->deleteEntityFinish(array_values($titlesToDelete), self::TABLE_ENTITY)) {
+                        $deletedTitles += array_fill_keys(array_keys($titlesToDelete), true);
                         $this->saveEntityFinish($entityList, self::TABLE_ENTITY);
                     }
+                } elseif ($listTitle) {
+                    $this->saveEntityFinish($entityList, self::TABLE_ENTITY);
                 }
             } elseif (\Magento\ImportExport\Model\Import::BEHAVIOR_APPEND == $behavior) {
                 $this->saveEntityFinish($entityList, self::TABLE_ENTITY);
