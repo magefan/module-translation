@@ -372,8 +372,8 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
         if (null === $this->allStoreIds) {
             $this->allStoreIds = [];
 
-            foreach ($this->storeManager->getStores() as $store) {
-                $this->allStoreIds [] = $store->getId();
+            foreach ($this->storeManager->getStores(true) as $store) {
+                $this->allStoreIds[] = (string)$store->getId();
             }
         }
         return $this->allStoreIds;
