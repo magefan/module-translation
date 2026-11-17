@@ -40,6 +40,11 @@ class File extends \Magento\Config\Model\Config\Backend\File
     private $fileDriver;
 
     /**
+     * @var RequestInterface
+     */
+    private $request;
+
+    /**
      * Initialize dependencies.
      *
      * @param Context $context
@@ -100,9 +105,9 @@ class File extends \Magento\Config\Model\Config\Backend\File
     {
         try {
             $values = $this->getValue();
+            $encryptedContent = null;
 
             if (!empty($values['delete'])) {
-                $encryptedContent = null;
                 $this->configWriter->delete(
                     Config::XML_PATH_GOOGLE_V3_CONFIG_FILE_NAME,
                     $this->getScope(),

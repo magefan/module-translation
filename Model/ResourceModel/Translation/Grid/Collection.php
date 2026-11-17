@@ -84,6 +84,7 @@ class Collection extends TranslationCollection implements SearchResultInterface
     public function setAggregations($aggregations)
     {
         $this->aggregations = $aggregations;
+        return $this;
     }
 
     /**
