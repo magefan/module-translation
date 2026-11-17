@@ -233,31 +233,46 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
     /**
      * Deletes translation data from raw data.
      *
+     * Rows are matched by string, store view and locale; files without a locale column delete by string.
+     *
      * @return $this
      */
     public function deleteEntity()
     {
-        $listTitle = [];
+        $conditions = [];
+        $strings = [];
         while ($bunch = $this->getCurrentImportBunch()) {
             foreach ($bunch as $rowNum => $rowData) {
                 $this->validateRow($rowData, $rowNum);
                 if (!$this->getErrorAggregator()->isRowInvalid($rowNum)) {
-                    $rowTtile = $rowData[self::STRING];
-                    $listTitle[] = $rowTtile;
+                    if (isset($rowData[self::LOCALE]) && $rowData[self::LOCALE] !== '') {
+                        $key = $this->getRowKey($rowData);
+                        $conditions[$key] = $this->_connection->quoteInto('store_id = ?', (int)$rowData[self::STORE_ID])
+                            . $this->_connection->quoteInto(' AND locale = ?', (string)$rowData[self::LOCALE])
+                            . $this->_connection->quoteInto(' AND crc_string = ?', crc32($rowData[self::STRING]));
+                    } else {
+                        $strings[] = $rowData[self::STRING];
+                    }
                 }
                 if ($this->getErrorAggregator()->hasToBeTerminated()) {
                     $this->getErrorAggregator()->addRowToSkip($rowNum);
                 }
             }
         }
-        if ($listTitle) {
-            $this->deleteEntityFinish(array_unique($listTitle), self::TABLE_ENTITY);
+        if ($strings) {
+            $conditions[] = $this->_connection->quoteInto('string IN (?)', array_unique($strings));
+        }
+        if ($conditions) {
+            $this->deleteEntityFinish(array_values($conditions), self::TABLE_ENTITY);
         }
         return $this;
     }
 
     /**
      * Save and replace translation
+     *
+     * Replace removes the existing translations of each string in the locales of the file (all store views of that
+     * locale) before saving the rows of the file; other locales stay.
      *
      * @return $this
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
@@ -266,10 +281,11 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
     protected function saveAndReplaceEntity()
     {
         $behavior = $this->getBehavior();
-        $deletedTitles = [];
+        // Locale and string already replaced: a later bunch must not delete rows saved by an earlier one
+        $replaced = [];
         while ($bunch = $this->getCurrentImportBunch()) {
             $entityList = [];
-            $listTitle = [];
+            $toReplace = [];
             foreach ($bunch as $rowNum => $rowData) {
                 if (!$this->validateRow($rowData, $rowNum)) {
                     $this->addRowError(ValidatorInterface::ERROR_TITLE_IS_EMPTY, $rowNum);
@@ -280,34 +296,29 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
                     continue;
                 }
 
-                $this->countItemsCreated += (int) !isset($rowData[self::KEY_ID]);
-                $this->countItemsUpdated += (int) isset($rowData[self::KEY_ID]);
-
                 $rowTtile= $rowData[self::STRING];
-                $listTitle[] = $rowTtile;
+                $crc = crc32($rowData[self::STRING]);
                 $entityList[$rowTtile][] = [
                     self::KEY_ID    => $rowData[self::KEY_ID] ?? null,
                     self::STRING    => $rowData[self::STRING],
                     self::STORE_ID  => $rowData[self::STORE_ID],
                     self::TRANSLATE => $rowData[self::TRANSLATE],
                     self::LOCALE    => $rowData[self::LOCALE],
-                    self::CRC_STRING => crc32($rowData[self::STRING])
+                    self::CRC_STRING => $crc
                 ];
+                $replaceKey = $rowData[self::LOCALE] . '|' . $crc;
+                if (!isset($replaced[$replaceKey])) {
+                    $replaced[$replaceKey] = true;
+                    $toReplace[(string)$rowData[self::LOCALE]][] = $crc;
+                }
             }
             if (\Magento\ImportExport\Model\Import::BEHAVIOR_REPLACE == $behavior) {
-                $titlesToDelete = [];
-                foreach (array_unique($listTitle) as $title) {
-                    $titleKey = mb_strtolower(rtrim((string) $title));
-                    if (!isset($deletedTitles[$titleKey])) {
-                        $titlesToDelete[$titleKey] = $title;
-                    }
+                $conditions = [];
+                foreach ($toReplace as $locale => $crcs) {
+                    $conditions[] = $this->_connection->quoteInto('locale = ?', $locale)
+                        . $this->_connection->quoteInto(' AND crc_string IN (?)', $crcs);
                 }
-                if ($titlesToDelete) {
-                    if ($this->deleteEntityFinish(array_values($titlesToDelete), self::TABLE_ENTITY)) {
-                        $deletedTitles += array_fill_keys(array_keys($titlesToDelete), true);
-                        $this->saveEntityFinish($entityList, self::TABLE_ENTITY);
-                    }
-                } elseif ($listTitle) {
+                if (!$conditions || $this->deleteEntityFinish($conditions, self::TABLE_ENTITY)) {
                     $this->saveEntityFinish($entityList, self::TABLE_ENTITY);
                 }
             } elseif (\Magento\ImportExport\Model\Import::BEHAVIOR_APPEND == $behavior) {
@@ -319,6 +330,9 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
 
     /**
      * Save the imported translations.
+     *
+     * A translation is identified by store view, locale and string (the unique key of the table): key_id of the
+     * file is not used, so a file from another environment cannot overwrite a different translation.
      *
      * @param array $entityData
      * @param string $table
@@ -341,18 +355,28 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
             $entityIn = [];
             foreach ($entityData as $id => $entityRows) {
                 foreach ($entityRows as $row) {
-                    $entityIn[] = $row;
+                    unset($row[self::KEY_ID]);
+                    $row[self::CRC_STRING] = crc32($row[self::STRING]);
+                    $entityIn[$this->getRowKey($row)] = $row;
                 }
             }
 
             if ($entityIn) {
-                $this->_connection->insertOnDuplicate($tableName, $entityIn, [
-                    self::KEY_ID,
+                $existing = [];
+                $select = $this->_connection->select()
+                    ->from($tableName, [self::STORE_ID, self::LOCALE, self::CRC_STRING])
+                    ->where('crc_string IN (?)', array_unique(array_column($entityIn, self::CRC_STRING)));
+                foreach ($this->_connection->fetchAll($select) as $row) {
+                    $existing[$this->getRowKey($row)] = true;
+                }
+                foreach (array_keys($entityIn) as $key) {
+                    $this->countItemsUpdated += (int)isset($existing[$key]);
+                    $this->countItemsCreated += (int)!isset($existing[$key]);
+                }
+
+                $this->_connection->insertOnDuplicate($tableName, array_values($entityIn), [
                     self::STRING,
-                    self::STORE_ID,
                     self::TRANSLATE,
-                    self::LOCALE,
-                    self::CRC_STRING
                 ]);
             }
         }
@@ -362,18 +386,21 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
     /**
      * Delete entity finish.
      *
-     * @param array $listTitle
+     * @param array $conditions SQL conditions, a row matching any of them is deleted
      * @param string $table
      * @return bool
      */
-    protected function deleteEntityFinish(array $listTitle, $table)
+    protected function deleteEntityFinish(array $conditions, $table)
     {
-        if ($table && $listTitle) {
+        if ($table && $conditions) {
             try {
-                $this->countItemsDeleted += $this->_connection->delete(
-                    $tableName  = $this->_resource->getTableName($table),
-                    $this->_connection->quoteInto('string IN (?)', $listTitle)
-                );
+                $tableName = $this->_resource->getTableName($table);
+                foreach (array_chunk($conditions, 500) as $chunk) {
+                    $this->countItemsDeleted += $this->_connection->delete(
+                        $tableName,
+                        '(' . implode(') OR (', $chunk) . ')'
+                    );
+                }
                 return true;
             } catch (\Exception $e) {
                 return false;
@@ -381,6 +408,19 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
         } else {
             return false;
         }
+    }
+
+    /**
+     * Unique key of a translation row: store view, locale and string CRC
+     *
+     * @param array $row
+     * @return string
+     */
+    private function getRowKey(array $row): string
+    {
+        $crc = isset($row[self::CRC_STRING]) ? (int)$row[self::CRC_STRING] : crc32((string)$row[self::STRING]);
+
+        return (int)$row[self::STORE_ID] . '|' . $row[self::LOCALE] . '|' . $crc;
     }
 
     /**
