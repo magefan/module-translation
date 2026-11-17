@@ -169,7 +169,17 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
             return false;
         }
 
-        $storeId = $rowData[self::STORE_ID];
+        if (\Magento\ImportExport\Model\Import::BEHAVIOR_DELETE != $this->getBehavior()) {
+            foreach ([self::STORE_ID, self::LOCALE, self::TRANSLATE] as $column) {
+                if (!isset($rowData[$column]) || ($column !== self::TRANSLATE && $rowData[$column] === '')) {
+                    $errorMessage = (string) __('Column "%1" is required.', $column);
+                    $this->addRowError(ValidatorInterface::ERROR_COLUMN_IS_EMPTY, $rowNum, $column, $errorMessage);
+                    return false;
+                }
+            }
+        }
+
+        $storeId = $rowData[self::STORE_ID] ?? null;
 
         if (!in_array((string)$storeId, $this->getAllStoreIds(), true)) {
             $errorMessage = (string) __('Store with ID %1 does not exist.', $storeId);
@@ -228,7 +238,7 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
     public function deleteEntity()
     {
         $listTitle = [];
-        while ($bunch = $this->_dataSourceModel->getNextBunch()) {
+        while ($bunch = $this->getCurrentImportBunch()) {
             foreach ($bunch as $rowNum => $rowData) {
                 $this->validateRow($rowData, $rowNum);
                 if (!$this->getErrorAggregator()->isRowInvalid($rowNum)) {
@@ -257,7 +267,7 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
     {
         $behavior = $this->getBehavior();
         $deletedTitles = [];
-        while ($bunch = $this->_dataSourceModel->getNextBunch()) {
+        while ($bunch = $this->getCurrentImportBunch()) {
             $entityList = [];
             $listTitle = [];
             foreach ($bunch as $rowNum => $rowData) {
@@ -276,7 +286,7 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
                 $rowTtile= $rowData[self::STRING];
                 $listTitle[] = $rowTtile;
                 $entityList[$rowTtile][] = [
-                    self::KEY_ID    => $rowData[self::KEY_ID],
+                    self::KEY_ID    => $rowData[self::KEY_ID] ?? null,
                     self::STRING    => $rowData[self::STRING],
                     self::STORE_ID  => $rowData[self::STORE_ID],
                     self::TRANSLATE => $rowData[self::TRANSLATE],
@@ -371,6 +381,23 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
         } else {
             return false;
         }
+    }
+
+    /**
+     * Next bunch of this import only
+     *
+     * Magento 2.4.4+ keeps the bunches of other imports in importexport_importdata (e.g. files that were checked
+     * but never imported), so getNextBunch() would import them again. Older versions clean the table on validation.
+     *
+     * @return array|null
+     */
+    private function getCurrentImportBunch()
+    {
+        if (method_exists($this, 'getIds') && method_exists($this->_dataSourceModel, 'getNextUniqueBunch')) {
+            return $this->_dataSourceModel->getNextUniqueBunch($this->getIds());
+        }
+
+        return $this->_dataSourceModel->getNextBunch();
     }
 
     /**
