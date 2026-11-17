@@ -171,7 +171,7 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
 
         $storeId = $rowData[self::STORE_ID];
 
-        if (!in_array($storeId, $this->getAllStoreIds())) {
+        if (!in_array((string)$storeId, $this->getAllStoreIds(), true)) {
             $errorMessage = (string) __('Store with ID %1 does not exist.', $storeId);
             $this->addRowError(ValidatorInterface::ERROR_STORE_ID_NOT_EXIST, $rowNum, null, $errorMessage);
             return false;
