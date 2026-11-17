@@ -171,8 +171,9 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
 
         if (\Magento\ImportExport\Model\Import::BEHAVIOR_DELETE != $this->getBehavior()) {
             foreach ([self::STORE_ID, self::LOCALE, self::TRANSLATE] as $column) {
-                if (!isset($rowData[$column]) || ($column !== self::TRANSLATE && $rowData[$column] === '')) {
-                    $errorMessage = (string) __('Column "%1" is required.', $column);
+                // Empty values become NULL when saved, like in the admin form a value is required
+                if (!isset($rowData[$column]) || $rowData[$column] === '') {
+                    $errorMessage = (string) __('"%1" is required.', $column);
                     $this->addRowError(ValidatorInterface::ERROR_COLUMN_IS_EMPTY, $rowNum, $column, $errorMessage);
                     return false;
                 }
