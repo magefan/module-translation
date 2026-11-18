@@ -7,38 +7,31 @@ declare(strict_types=1);
 
 namespace Magefan\Translation\Model\Config\Source;
 
-use Magento\Config\Model\Config\Source\Store as StoreSource;
-use Magento\Framework\Option\ArrayInterface;
+use Magento\Framework\Data\OptionSourceInterface;
+use Magento\Store\Model\System\Store as SystemStore;
 
-class SourceStoreView implements ArrayInterface
+class SourceStoreView implements OptionSourceInterface
 {
     /**
-     * @var StoreSource
+     * @var SystemStore
      */
-    private $storeSource;
+    private $systemStore;
 
     /**
-     * @param StoreSource $storeSource
+     * @param SystemStore $systemStore
      */
-    public function __construct(StoreSource $storeSource)
+    public function __construct(SystemStore $systemStore)
     {
-        $this->storeSource = $storeSource;
+        $this->systemStore = $systemStore;
     }
 
     /**
-     * Store views with "All Store Views" as the first (default) option.
+     * "All Store Views" and store views grouped by website and store
      *
      * @return array[]
      */
     public function toOptionArray()
     {
-        $options = $this->storeSource->toOptionArray();
-
-        array_unshift(
-            $options,
-            ['value' => 0, 'label' => __('All Store Views (default)')]
-        );
-
-        return $options;
+        return $this->systemStore->getStoreValuesForForm(false, true);
     }
 }
