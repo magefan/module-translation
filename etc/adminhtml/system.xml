@@ -55,7 +55,7 @@
                         <field id="enabled">1</field>
                     </depends>
                     <label>Translate From Source</label>
-                    <comment><![CDATA[Store view to take the content from. With "All Store Views", content saved for All Store Views is translated from the "Translate From Language" below. With a store view, content saved for that store view is translated from its own language.]]></comment>
+                    <comment><![CDATA[Store view to take the content from: products, categories, attributes, CMS pages and blocks, blog. With "All Store Views", content saved for All Store Views is translated from the "Translate From Language" below. With a store view, content saved for that store view is translated from its own language. Reviews are translated from the language of the store view they were written in, email templates from the "All Store Views" language, phrases from "Translate Phrases From Language".]]></comment>
                     <source_model>Magefan\Translation\Model\Config\Source\SourceStoreView</source_model>
                 </field>
 
