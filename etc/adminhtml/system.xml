@@ -50,11 +50,21 @@
             </group>
             <group id="mftranslationapis" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>Translation APIs (Extra)</label>
+                <field id="source_store_id" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <label>Source Store View</label>
+                    <comment><![CDATA[Store view whose content is treated as the translation source. Leave as "All Store Views" (default) to keep the current behavior: changes are auto-detected only when content is saved under "All Store Views", using the "Default Locale (Translate From)" setting below as the source language. Choosing a specific store view instead makes that store view the source: changes are auto-detected only when content is saved under it, and its own locale is used as the source language for translating into the other store views.]]></comment>
+                    <source_model>Magefan\Translation\Model\Config\Source\SourceStoreView</source_model>
+                </field>
+
                 <field id="locale_source" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
                     <depends>
                         <field id="enabled">1</field>
                     </depends>
                     <label>Default Locale (Translate From)</label>
+                    <comment><![CDATA[Used only when "Source Store View" above is left as "All Store Views".]]></comment>
                     <source_model>Magefan\Translation\Model\Config\Source\LocaleSource</source_model>
                 </field>
 
