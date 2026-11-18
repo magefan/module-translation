@@ -54,8 +54,8 @@
                     <depends>
                         <field id="enabled">1</field>
                     </depends>
-                    <label>Source Store View</label>
-                    <comment><![CDATA[Store view whose content is treated as the translation source. Leave as "All Store Views" (default) to keep the current behavior: changes are auto-detected only when content is saved under "All Store Views", using the "Default Locale (Translate From)" setting below as the source language. Choosing a specific store view instead makes that store view the source: changes are auto-detected only when content is saved under it, and its own locale is used as the source language for translating into the other store views.]]></comment>
+                    <label>Translate From Source</label>
+                    <comment><![CDATA[Store view to take the content from. With "All Store Views", content saved for All Store Views is translated from the "Translate From Language" below. With a store view, content saved for that store view is translated from its own language.]]></comment>
                     <source_model>Magefan\Translation\Model\Config\Source\SourceStoreView</source_model>
                 </field>
 
@@ -63,8 +63,8 @@
                     <depends>
                         <field id="enabled">1</field>
                     </depends>
-                    <label>Default Locale (Translate From)</label>
-                    <comment><![CDATA[Used only when "Source Store View" above is left as "All Store Views".]]></comment>
+                    <label>Translate From Language</label>
+                    <comment><![CDATA[Used only when "Translate From Source" is "All Store Views".]]></comment>
                     <source_model>Magefan\Translation\Model\Config\Source\LocaleSource</source_model>
                 </field>
 
@@ -72,7 +72,7 @@
                     <depends>
                         <field id="enabled">1</field>
                     </depends>
-                    <label>Default Phrases Locale (Translate From)</label>
+                    <label>Translate Phrases From Language</label>
                     <comment><![CDATA[Source language for Magento i18n phrases (Search and Translate). Magento phrases are in English by default.]]></comment>
                     <source_model>Magefan\Translation\Model\Config\Source\PhrasesLocaleSource</source_model>
                 </field>
@@ -81,7 +81,7 @@
                     <depends>
                         <field id="enabled">1</field>
                     </depends>
-                    <label>Default Translator</label>
+                    <label>Translator</label>
                     <source_model>Magefan\Translation\Model\Config\Source\ProcessorsList</source_model>
                 </field>
 
