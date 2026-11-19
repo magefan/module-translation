@@ -47,7 +47,7 @@ It allows you to override and translate text directly from the admin panel witho
 * Translation form or popup for bulk translation on all store views
 * Auto translation for on or multiple pages (bulk translation)
 * Auto translation schedule for entire store
-* Integration with AI-based tools: ChatGPT, Claude, DeepL, Google Translate
+* Integration with AI-based tools: ChatGPT, Claude, DeepSeek, DeepL, Google Translate
 * Auto transation for Knokout and JavaScript texts
 * Auto-search for all untranslated texts
 
@@ -115,7 +115,7 @@ The "Search and Translate" dashboard features all strings that haven’t been tr
 
 ### Add Translations Automatically
 
-To translate even faster, the Magento Translation extension allows you to integrate 4 AI engines — Google Translate, ChatGPT, Claude, and DeepL — and add translations within seconds. 
+To translate even faster, the Magento Translation extension allows you to integrate 5 AI engines — Google Translate, ChatGPT, Claude, DeepSeek, and DeepL — and add translations within seconds. 
 
 Automatically translate product and category attributes, CMS blocks and pages, Magefan Blog posts, and more, individually or in bulk. 
 
