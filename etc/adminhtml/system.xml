@@ -50,11 +50,21 @@
             </group>
             <group id="mftranslationapis" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>Translation APIs (Extra)</label>
+                <field id="source_store_id" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <label>Translate From Source</label>
+                    <comment><![CDATA[Store view to take the content from. "All Store Views" uses the "Translate From Language" below, a store view uses its own language.<details style="font-size: 1.2rem; margin-top: 5px;"><summary style="display: list-item; cursor: pointer; color: #007bdb;">Read more</summary>Applies to products, categories, attributes, CMS pages and blocks, blog. Content saved for the selected store view is translated into the other store views. Reviews are translated from the language of the store view they were written in, email templates from the "All Store Views" language, phrases from "Translate Phrases From Language".</details>]]></comment>
+                    <source_model>Magefan\Translation\Model\Config\Source\SourceStoreView</source_model>
+                </field>
+
                 <field id="locale_source" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
                     <depends>
                         <field id="enabled">1</field>
                     </depends>
-                    <label>Default Locale (Translate From)</label>
+                    <label>Translate From Language</label>
+                    <comment><![CDATA[Used only when "Translate From Source" is "All Store Views".]]></comment>
                     <source_model>Magefan\Translation\Model\Config\Source\LocaleSource</source_model>
                 </field>
 
@@ -62,7 +72,7 @@
                     <depends>
                         <field id="enabled">1</field>
                     </depends>
-                    <label>Default Phrases Locale (Translate From)</label>
+                    <label>Translate Phrases From Language</label>
                     <comment><![CDATA[Source language for Magento i18n phrases (Search and Translate). Magento phrases are in English by default.]]></comment>
                     <source_model>Magefan\Translation\Model\Config\Source\PhrasesLocaleSource</source_model>
                 </field>
@@ -71,7 +81,7 @@
                     <depends>
                         <field id="enabled">1</field>
                     </depends>
-                    <label>Default Translator</label>
+                    <label>Translator</label>
                     <source_model>Magefan\Translation\Model\Config\Source\ProcessorsList</source_model>
                 </field>
 
