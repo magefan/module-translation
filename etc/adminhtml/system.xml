@@ -181,6 +181,38 @@
                 </group>
 
 
+                <group id="mfclaudeapi" translate="label" type="text" sortOrder="51" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Claude Translation API</label>
+
+                    <field id="claude_model" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                        <label>Claude Model</label>
+                        <source_model>Magefan\Translation\Model\Config\Source\ClaudeModels</source_model>
+                    </field>
+
+                    <field id="claude_api_key" translate="label" type="obscure" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>Claude API Key</label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                        <comment><![CDATA[
+                        <a href="https://platform.claude.com/settings/keys" target="_blank">Get Claude API key</a> and enter it here.
+                        ]]></comment>
+                    </field>
+
+                    <field id="additional_instructions" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                        <label>Additional Instructions</label>
+                        <comment><![CDATA[Examples:<br>- Don't translate the string "Have a nice day!". <br>- Preserve formal tone.]]></comment>
+                    </field>
+
+                    <group id="glossary" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>Glossary</label>
+
+                        <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                            <label>Enable</label>
+                            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                            <comment><![CDATA[When enabled, glossary terms are injected into each Claude prompt. No sync is needed — terms are sent with every request.]]></comment>
+                        </field>
+                    </group>
+                </group>
+
                 <group id="mfdeepseekapi" translate="label" type="text" sortOrder="53" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>DeepSeek Translation API</label>
 
