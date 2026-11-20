@@ -107,7 +107,7 @@ class SkippedFieldsDynamicRow extends \Magento\Config\Block\System\Config\Form\F
     {
         try {
             return parent::_toHtml();
-        } catch (\Mautic\Exception\RequiredParameterMissingException $e) {
+        } catch (\Magento\Framework\Exception\LocalizedException $e) {
             return __(
                 '<strong>Cannot Display Skipped Fields</strong>.',
                 $this->escapeHtml($e->getMessage())

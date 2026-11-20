@@ -8,9 +8,11 @@ declare(strict_types=1);
 
 namespace Magefan\Translation\Block\Adminhtml\System\Config\Form;
 
+use Magento\Backend\Block\Template\Context;
 use Magento\Config\Block\System\Config\Form\Field;
 use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Data\Form\Element\AbstractElement;
+use Magento\Framework\View\Helper\SecureHtmlRenderer;
 use Magefan\Translation\Model\Config;
 
 class CurrentUsage extends Field
@@ -19,19 +21,19 @@ class CurrentUsage extends Field
     public const CURRENT_USAGE_TEMPLATE = 'system/config/current_usage.phtml';
 
     /**
-     * Prepare layout.
+     * Initialize dependencies.
      *
-     * @return $this|Field
+     * @param Context $context
+     * @param array $data
+     * @param SecureHtmlRenderer|null $secureRenderer
      */
-    protected function _prepareLayout()
-    {
-        parent::_prepareLayout();
-
-        if (!$this->getTemplate()) {
-            $this->setTemplate(static::CURRENT_USAGE_TEMPLATE);
-        }
-
-        return $this;
+    public function __construct(
+        Context $context,
+        array $data = [],
+        ?SecureHtmlRenderer $secureRenderer = null
+    ) {
+        $data['template'] = !empty($data['template']) ? $data['template'] : static::CURRENT_USAGE_TEMPLATE;
+        parent::__construct($context, $data, $secureRenderer);
     }
 
     /**

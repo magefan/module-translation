@@ -101,7 +101,7 @@ class TranslationRepository implements TranslationRepositoryInterface
     public function getById($id)
     {
         $translation = $this->translationFactory->create();
-        $translation->load($id);
+        $this->resource->load($translation, $id);
         if (!$translation->getId()) {
             throw new NoSuchEntityException(__('Translation with id "%1" does not exist.', $id));
         }
@@ -138,7 +138,7 @@ class TranslationRepository implements TranslationRepositoryInterface
     public function get($id)
     {
         $translation = $this->translationFactory->create();
-        $translation->load($id);
+        $this->resource->load($translation, $id);
         if (!$translation->getId()) {
             throw new NoSuchEntityException(__('Translation with id "%1" does not exist.', $id));
         }
@@ -153,7 +153,8 @@ class TranslationRepository implements TranslationRepositoryInterface
         try {
             $data = json_decode($data, true);
             $item = $this->translationFactory->create();
-            $item->setData($data)->save();
+            $item->setData($data);
+            $this->resource->save($item);
             return json_encode($item->getData());
         } catch (\Exception $e) {
             return false;
@@ -167,13 +168,14 @@ class TranslationRepository implements TranslationRepositoryInterface
     {
         try {
             $item = $this->translationFactory->create();
-            $item->load($id);
+            $this->resource->load($item, $id);
 
             if (!$item->getId()) {
                 return false;
             }
             $data = json_decode($data, true);
-            $item->addData($data)->save();
+            $item->addData($data);
+            $this->resource->save($item);
             return json_encode($item->getData());
         } catch (\Exception $e) {
             return false;

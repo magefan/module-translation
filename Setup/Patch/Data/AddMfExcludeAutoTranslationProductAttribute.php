@@ -78,6 +78,7 @@ class AddMfExcludeAutoTranslationProductAttribute implements DataPatchInterface,
         );
 
         $this->moduleDataSetup->getConnection()->endSetup();
+        return $this;
     }
 
     /**

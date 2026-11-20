@@ -127,6 +127,7 @@ class Translation extends \Magento\ImportExport\Model\Import\Entity\AbstractEnti
         \Magento\Framework\Event\ManagerInterface $eventManager,
         StoreManagerInterface $storeManager
     ) {
+        $this->string = $string;
         $this->jsonHelper = $jsonHelper;
         $this->_importExportData = $importExportData;
         $this->_resourceHelper = $resourceHelper;

@@ -8,8 +8,10 @@ declare(strict_types=1);
 
 namespace Magefan\Translation\Block\Adminhtml\System\Config\Form;
 
+use Magento\Backend\Block\Template\Context;
 use Magento\Config\Block\System\Config\Form\Field;
 use Magento\Framework\Data\Form\Element\AbstractElement;
+use Magento\Framework\View\Helper\SecureHtmlRenderer;
 
 class ScheduleSelectedSourcesButton extends Field
 {
@@ -19,18 +21,19 @@ class ScheduleSelectedSourcesButton extends Field
     public const BUTTON_TEMPLATE = 'Magefan_Translation::system/config/buttons/schedule_selected_sources_button.phtml';
 
     /**
-     * Prepare layout.
+     * Initialize dependencies.
      *
-     * @return $this|Field
+     * @param Context $context
+     * @param array $data
+     * @param SecureHtmlRenderer|null $secureRenderer
      */
-    protected function _prepareLayout()
-    {
-        parent::_prepareLayout();
-
-        if (!$this->getTemplate()) {
-            $this->setTemplate(static::BUTTON_TEMPLATE);
-        }
-        return $this;
+    public function __construct(
+        Context $context,
+        array $data = [],
+        ?SecureHtmlRenderer $secureRenderer = null
+    ) {
+        $data['template'] = !empty($data['template']) ? $data['template'] : static::BUTTON_TEMPLATE;
+        parent::__construct($context, $data, $secureRenderer);
     }
 
     /**
