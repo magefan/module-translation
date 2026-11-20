@@ -14,6 +14,7 @@ interface RowValidatorInterface extends \Magento\Framework\Validator\ValidatorIn
     public const ERROR_INVALID_TITLE= 'InvalidValueTITLE';
     public const ERROR_TITLE_IS_EMPTY = 'EmptyTITLE';
     public const ERROR_STORE_ID_NOT_EXIST = 'StoreIdNotExist';
+    public const ERROR_COLUMN_IS_EMPTY = 'ColumnIsEmpty';
 
     /**
      * Initialize validator
