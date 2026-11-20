@@ -59,4 +59,17 @@
             </argument>
         </arguments>
     </type>
+
+    <!-- Locked "Auto Translation (Extra)" fieldset on the product form. Applied via modifier (not product_form.xml)
+         so nothing is added when the fieldset is absent, e.g. attribute hidden by admin role attribute permissions. -->
+    <virtualType name="Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="mf_translation_locked_fieldset" xsi:type="array">
+                    <item name="class" xsi:type="string">Magefan\Translation\Ui\DataProvider\Product\Form\Modifier\LockedFieldset</item>
+                    <item name="sortOrder" xsi:type="number">1000</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
 </config>
